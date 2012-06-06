@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sessonad.quickopener.actions;
 
 import com.sessonad.quickopener.common.QuickUtils;
@@ -18,6 +14,11 @@ import org.openide.awt.ActionRegistration;
 import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
+
+/**
+ *
+ * @author SessonaD
+ */
 @ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.Path")
 @ActionRegistration(iconBase = "com/sessonad/quickopener/icons/path.png",displayName = "#CTL_Path")
 @ActionReferences({
