@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.sessonad.quickopener
+OpenIDE-Module-Localizing-Bundle: com/sessonad/quickopener/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
