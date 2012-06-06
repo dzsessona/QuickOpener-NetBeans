@@ -126,7 +126,7 @@ public class QuickUtils {
         String os = System.getProperty("os.name");
         if (os.toLowerCase().contains("windows")){
             command = "cmd /c start cd ";
-        }else if (os.toLowerCase().contains("windows")){
+        }else if (os.toLowerCase().contains("linux")){
             command = "gnome-terminal --working-directory=";
         }
         return command;
