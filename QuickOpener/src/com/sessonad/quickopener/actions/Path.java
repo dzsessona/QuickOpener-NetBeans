@@ -15,6 +15,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
 @ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.Path")
@@ -27,6 +28,12 @@ import org.openide.util.NbBundle.Messages;
 @Messages("CTL_Path=Copy path in the clipboard")
 public final class Path implements ActionListener {
 
+    private final DataObject context;
+
+    public Path(DataObject context) {
+        this.context = context;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         File f = QuickUtils.getCurrentFile();

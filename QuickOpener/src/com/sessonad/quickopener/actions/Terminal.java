@@ -12,6 +12,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
 @ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.Terminal")
@@ -23,6 +24,12 @@ import org.openide.util.NbBundle.Messages;
 })
 @Messages("CTL_Terminal=Open in the default OS terminal")
 public final class Terminal implements ActionListener {
+    
+    private final DataObject context;
+
+    public Terminal(DataObject context) {
+        this.context = context;
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {

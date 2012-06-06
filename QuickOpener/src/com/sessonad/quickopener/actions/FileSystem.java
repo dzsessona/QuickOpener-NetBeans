@@ -12,6 +12,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
 @ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.FileSystem")
@@ -24,6 +25,12 @@ import org.openide.util.NbBundle.Messages;
 @Messages("CTL_FileSystem=Open in the OS file system browser")
 public final class FileSystem implements ActionListener {
 
+    private final DataObject context;
+
+    public FileSystem(DataObject context) {
+        this.context = context;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         File f = QuickUtils.getCurrentFile();
