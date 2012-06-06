@@ -38,7 +38,6 @@ public final class FileSystem implements ActionListener {
         File toOpen = (f != null) ? QuickUtils.getParentFolder(f) : QuickUtils.getMainProjectRoot();
         try {
             QuickUtils.getDesktop().open(toOpen);
-        } catch (Exception ex) {
-        }
+        } catch (Exception ex) {}
     }
 }
