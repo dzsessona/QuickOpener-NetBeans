@@ -37,7 +37,7 @@ public final class Terminal implements ActionListener {
         File f = QuickUtils.getCurrentFile();
         File toOpen = (f != null) ? QuickUtils.getParentFolder(f) : QuickUtils.getMainProjectRoot();
         String path=toOpen.getAbsolutePath();
-        String command= QuickUtils.getCommandOS();
+        String command= QuickUtils.getCommandOS(QuickUtils.Actions.TERMINAL);
         try{
             Runtime.getRuntime().exec(command+path);
         }catch(Exception exs){}  

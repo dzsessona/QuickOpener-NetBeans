@@ -1,6 +1,7 @@
 package com.sessonad.quickopener.actions;
 
 import com.sessonad.quickopener.common.QuickUtils;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -37,7 +38,12 @@ public final class FileSystem implements ActionListener {
         File f = QuickUtils.getCurrentFile();
         File toOpen = (f != null) ? QuickUtils.getParentFolder(f) : QuickUtils.getMainProjectRoot();
         try {
-            QuickUtils.getDesktop().open(toOpen);
+            if(Desktop.isDesktopSupported() && QuickUtils.getDesktop().isSupported(Desktop.Action.OPEN)){
+                QuickUtils.getDesktop().open(toOpen);
+            }else{
+                String command=QuickUtils.getCommandOS(QuickUtils.Actions.BROWSE);
+                Runtime.getRuntime().exec(command + toOpen.getAbsolutePath());
+            }
         } catch (Exception ex) {}
     }
 }
