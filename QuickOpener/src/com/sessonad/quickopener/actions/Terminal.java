@@ -1,9 +1,9 @@
 package com.sessonad.quickopener.actions;
 
+import com.sessonad.quickopener.commands.AbstractCommands;
 import com.sessonad.quickopener.common.QuickUtils;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -26,17 +26,15 @@ import org.openide.util.NbBundle.Messages;
 @Messages("CTL_Terminal=Open in the default OS terminal")
 public final class Terminal implements ActionListener {
     
-    private final DataObject context;
+    private final DataObject dataObj;
 
-    public Terminal(DataObject context) {
-        this.context = context;
+    public Terminal(DataObject dataObj) {
+        this.dataObj = dataObj;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File f = QuickUtils.getCurrentFile();
-        File toOpen = (f != null) ? QuickUtils.getParentFolder(f) : QuickUtils.getMainProjectRoot();
-        String path=toOpen.getAbsolutePath();
+        String path=AbstractCommands.getPathFromDataObject(dataObj);
         String command= QuickUtils.getCommandOS(QuickUtils.Actions.TERMINAL);
         try{
             Runtime.getRuntime().exec(command+path);

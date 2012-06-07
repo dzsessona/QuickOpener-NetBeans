@@ -1,5 +1,6 @@
 package com.sessonad.quickopener.actions;
 
+import com.sessonad.quickopener.commands.AbstractCommands;
 import com.sessonad.quickopener.common.QuickUtils;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -27,16 +28,15 @@ import org.openide.util.NbBundle.Messages;
 @Messages("CTL_FileSystem=Open in the OS file system browser")
 public final class FileSystem implements ActionListener {
 
-    private final DataObject context;
+    private final DataObject dataObj;
 
-    public FileSystem(DataObject context) {
-        this.context = context;
+    public FileSystem(DataObject dataObj) {
+        this.dataObj = dataObj;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File f = QuickUtils.getCurrentFile();
-        File toOpen = (f != null) ? QuickUtils.getParentFolder(f) : QuickUtils.getMainProjectRoot();
+        File toOpen = AbstractCommands.getFileFromDataObject(dataObj);
         try {
             if(Desktop.isDesktopSupported() && QuickUtils.getDesktop().isSupported(Desktop.Action.OPEN)){
                 QuickUtils.getDesktop().open(toOpen);

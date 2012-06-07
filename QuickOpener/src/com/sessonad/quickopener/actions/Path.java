@@ -1,12 +1,11 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.common.QuickUtils;
+import com.sessonad.quickopener.commands.AbstractCommands;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -29,19 +28,19 @@ import org.openide.util.NbBundle.Messages;
 @Messages("CTL_Path=Copy path in the clipboard")
 public final class Path implements ActionListener {
 
-    private final DataObject context;
+    private final DataObject dataObj;
 
-    public Path(DataObject context) {
-        this.context = context;
+    public Path(DataObject dataObj) {
+        this.dataObj = dataObj;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File f = QuickUtils.getCurrentFile();
-        if (f != null) {
+        String path=AbstractCommands.getPathFromDataObject(dataObj);
+        if (path != null) {
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             Clipboard clipboard = toolkit.getSystemClipboard();
-            StringSelection strSel = new StringSelection(f.getAbsolutePath());
+            StringSelection strSel = new StringSelection(path);
             clipboard.setContents(strSel, null);
         }
     }
