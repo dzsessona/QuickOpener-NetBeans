@@ -1,9 +1,9 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.commands.AbstractCommands;
-import com.sessonad.quickopener.common.QuickUtils;
+import com.sessonad.quickopener.commands.Commands;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -34,10 +34,11 @@ public final class Terminal implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String path=AbstractCommands.getPathFromDataObject(dataObj);
-        String command= QuickUtils.getCommandOS(QuickUtils.Actions.TERMINAL);
-        try{
-            Runtime.getRuntime().exec(command+path);
-        }catch(Exception exs){}  
+        try {
+            String path=Commands.getPathFromDataObject(dataObj);
+            Commands.getPlatform().openInShell(path);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
     }
 }

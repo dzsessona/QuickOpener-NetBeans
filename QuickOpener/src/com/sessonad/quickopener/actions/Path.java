@@ -1,11 +1,12 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.commands.AbstractCommands;
+import com.sessonad.quickopener.commands.Commands;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -36,12 +37,14 @@ public final class Path implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String path=AbstractCommands.getPathFromDataObject(dataObj);
-        if (path != null) {
+        String path=Commands.getPathFromDataObject(dataObj);
+        try {
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             Clipboard clipboard = toolkit.getSystemClipboard();
             StringSelection strSel = new StringSelection(path);
             clipboard.setContents(strSel, null);
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
 }

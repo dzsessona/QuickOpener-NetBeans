@@ -1,11 +1,10 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.commands.AbstractCommands;
-import com.sessonad.quickopener.common.QuickUtils;
-import java.awt.Desktop;
+import com.sessonad.quickopener.commands.Commands;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import javax.swing.JOptionPane;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -36,14 +35,11 @@ public final class FileSystem implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File toOpen = AbstractCommands.getFileFromDataObject(dataObj);
+        File toOpen = Commands.getFileFromDataObject(dataObj);
         try {
-            if(Desktop.isDesktopSupported() && QuickUtils.getDesktop().isSupported(Desktop.Action.OPEN)){
-                QuickUtils.getDesktop().open(toOpen);
-            }else{
-                String command=QuickUtils.getCommandOS(QuickUtils.Actions.BROWSE);
-                Runtime.getRuntime().exec(command + toOpen.getAbsolutePath());
-            }
-        } catch (Exception ex) {}
+            Commands.getPlatform().browseInFileSystem(toOpen);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }
 }

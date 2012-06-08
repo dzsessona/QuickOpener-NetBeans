@@ -11,7 +11,28 @@ import org.openide.loaders.DataObject;
  *
  * @author SessonaD
  */
-public class AbstractCommands {
+public abstract class Commands {
+    
+    static Commands platform;
+    
+
+    abstract String getShellCommand();
+    
+    public abstract void browseInFileSystem(File current) throws Exception;
+    
+    public abstract void openInShell(String currentPath) throws Exception;
+        
+    @SuppressWarnings("unchecked")
+    public static <T extends Commands> T getPlatform(){
+        if (platform == null)initializePlatform();
+        return (T)platform;
+    }
+    
+    static void initializePlatform(){
+        String osName = System.getProperty("os.name").toLowerCase();
+        if      (osName.contains("windows"))platform = new WindowsCommands();
+        else if (osName.contains("linux"))  platform = new LinuxGnomeCommands();
+    }
     
     public static String getPathFromDataObject(DataObject dataObj){
         return getFileFromDataObject(dataObj).getAbsolutePath();
