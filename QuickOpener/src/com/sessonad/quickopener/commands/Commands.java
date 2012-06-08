@@ -1,5 +1,7 @@
 package com.sessonad.quickopener.commands;
 
+import com.sessonad.quickopener.OSDetector;
+import com.sessonad.quickopener.OperatingSystem;
 import java.io.File;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
@@ -15,8 +17,6 @@ public abstract class Commands {
     
     static Commands platform;
     
-
-    abstract String getShellCommand();
     
     public abstract void browseInFileSystem(File current) throws Exception;
     
@@ -29,9 +29,15 @@ public abstract class Commands {
     }
     
     static void initializePlatform(){
-        String osName = System.getProperty("os.name").toLowerCase();
-        if      (osName.contains("windows"))platform = new WindowsCommands();
-        else if (osName.contains("linux"))  platform = new LinuxGnomeCommands();
+        OperatingSystem os = OSDetector.detectOS();
+        if      (os.equals(OperatingSystem.WINDOWS))    platform = new WindowsCommands();
+        else if (os.equals(OperatingSystem.MAC_OS))     platform = new MacOSCommands();
+        else if (os.equals(OperatingSystem.LINUX_GNOME))platform = new LinuxGnomeCommands();        
+        else if (os.equals(OperatingSystem.LINUX_KDE))  platform = new LinuxKdeCommands();
+        else if (os.equals(OperatingSystem.LINUX_LXDE)) platform = new LinuxLxdeCommands();
+        else if (os.equals(OperatingSystem.LINUX_XFCE)) platform = new LinuxXfceCommands();
+        else if (os.equals(OperatingSystem.LINUX_UNKNOWN)) platform = new LinuxUnknownCommands();
+        else if (os.equals(OperatingSystem.UNKNOWN))    platform = new UnknownOSCommands();
     }
     
     public static String getPathFromDataObject(DataObject dataObj){

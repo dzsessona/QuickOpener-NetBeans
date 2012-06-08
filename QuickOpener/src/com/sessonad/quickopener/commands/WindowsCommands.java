@@ -1,5 +1,6 @@
 package com.sessonad.quickopener.commands;
 
+import com.sessonad.quickopener.OperatingSystem;
 import java.awt.Desktop;
 import java.io.File;
 
@@ -9,11 +10,6 @@ import java.io.File;
  */
 public class WindowsCommands extends Commands{
 
-    @Override
-    public String getShellCommand() {
-        return "cmd /c start";
-    }    
-    
     @Override
     public void browseInFileSystem(File current) throws Exception {
         if(Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)){
@@ -25,7 +21,7 @@ public class WindowsCommands extends Commands{
 
     @Override
     public void openInShell(String currentPath) throws Exception {
-        String fullCommand=getShellCommand() + " cd " + currentPath;
+        String fullCommand=OperatingSystem.WINDOWS.getShellCommand() + currentPath;
         Runtime.getRuntime().exec(fullCommand);
     } 
     
