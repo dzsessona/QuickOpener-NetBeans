@@ -2,7 +2,9 @@ package com.sessonad.quickopener.commands;
 
 import com.sessonad.quickopener.OSDetector;
 import com.sessonad.quickopener.OperatingSystem;
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.openide.filesystems.FileObject;
@@ -17,10 +19,7 @@ public abstract class Commands {
     
     static Commands platform;
     
-    
-    public abstract void browseInFileSystem(File current) throws Exception;
-    
-    public abstract void openInShell(String currentPath) throws Exception;
+    public abstract OperatingSystem getOperatingSystem();
         
     @SuppressWarnings("unchecked")
     public static <T extends Commands> T getPlatform(){
@@ -53,6 +52,31 @@ public abstract class Commands {
         Project project = OpenProjects.getDefault().getMainProject();
         FileObject root = project.getProjectDirectory();
         return FileUtil.toFile(root);
+    }
+
+    public void openInShell(String currentPath) throws Exception {
+        String fullCommand = OperatingSystem.LINUX_KDE.getShellCommand() + currentPath;
+        Runtime.getRuntime().exec(fullCommand);
+    }
+    
+    public void browseInFileSystem(File current) throws Exception {
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+            try {
+                Desktop.getDesktop().open(current);
+            } catch (IOException e) {
+                // Run the process as a fallback, as on
+                // some systems Desktop.open fails despite claiming
+                // to support it.
+                executeFileSystemBrowserCommand(current);
+            }
+        } else {
+            executeFileSystemBrowserCommand(current);
+        }
+    }
+
+    protected void executeFileSystemBrowserCommand(File current) throws IOException {
+        String fullCommand = getOperatingSystem().getFileSystemBrowserCommand() + current.getAbsolutePath();
+        Runtime.getRuntime().exec(fullCommand);
     }
     
 }
