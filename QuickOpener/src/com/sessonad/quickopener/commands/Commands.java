@@ -55,7 +55,7 @@ public abstract class Commands {
     }
 
     public void openInShell(String currentPath) throws Exception {
-        String fullCommand = OperatingSystem.LINUX_KDE.getShellCommand() + currentPath;
+        String fullCommand = getOperatingSystem().getShellCommand() + currentPath;
         Runtime.getRuntime().exec(fullCommand);
     }
     
