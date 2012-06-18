@@ -74,6 +74,10 @@
                 </dependency>
             </module-dependencies>
             <public-packages/>
+            <class-path-extension>
+                <runtime-relative-path>ext/OSCommands.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/OSCommands.jar</binary-origin>
+            </class-path-extension>
         </data>
     </configuration>
 </project>

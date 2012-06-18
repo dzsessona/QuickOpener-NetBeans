@@ -1,6 +1,7 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.commands.Commands;
+import com.sessonad.oscommands.commands.Commands;
+import com.sessonad.quickopener.PathFinder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -35,7 +36,7 @@ public final class FileSystem implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File toOpen = Commands.getFileFromDataObject(dataObj);
+        File toOpen = PathFinder.getFileFromDataObject(dataObj);
         try {
             Commands.getPlatform().browseInFileSystem(toOpen);
         } catch (Exception ex) {

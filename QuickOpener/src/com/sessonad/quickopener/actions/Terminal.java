@@ -1,6 +1,7 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.commands.Commands;
+import com.sessonad.oscommands.commands.Commands;
+import com.sessonad.quickopener.PathFinder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -35,7 +36,7 @@ public final class Terminal implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            String path=Commands.getPathFromDataObject(dataObj);
+            String path=PathFinder.getPathFromDataObject(dataObj);
             Commands.getPlatform().openInShell(path);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());

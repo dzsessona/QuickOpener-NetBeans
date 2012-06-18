@@ -1,6 +1,6 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.quickopener.commands.Commands;
+import com.sessonad.quickopener.PathFinder;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -37,7 +37,7 @@ public final class Path implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String path=Commands.getPathFromDataObject(dataObj);
+        String path=PathFinder.getPathFromDataObject(dataObj);
         try {
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             Clipboard clipboard = toolkit.getSystemClipboard();
