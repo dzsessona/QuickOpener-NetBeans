@@ -3,6 +3,11 @@
 <filesystem>
     <folder name="Actions">
         <folder name="Tools">
+            <file name="com-sessonad-quickopener-actions-CustomCommand.instance">
+                <!--com.sessonad.quickopener.actions.CustomCommand-->
+                <attr bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_CustomCommand" name="displayName"/>
+                <attr name="instanceCreate" newvalue="com.sessonad.quickopener.actions.CustomCommand"/>
+            </file>
             <file name="com-sessonad-quickopener-actions-FileSystem.instance">
                 <!--com.sessonad.quickopener.actions.FileSystem-->
                 <attr
@@ -81,6 +86,11 @@
                 <!--com.sessonad.quickopener.actions.Terminal-->
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Terminal.instance"/>
                 <attr intvalue="500" name="position"/>
+            </file>
+            <file name="com-sessonad-quickopener-actions-CustomCommand.shadow">
+                <!--com.sessonad.quickopener.actions.CustomCommand-->
+                <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-CustomCommand.instance"/>
+                <attr intvalue="800" name="position"/>
             </file>
         </folder>
     </folder>
