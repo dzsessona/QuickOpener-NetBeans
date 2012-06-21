@@ -1,10 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author SessonaD
  */
 package com.sessonad.quickopener.actions;
 
 import com.sessonad.quickopener.actions.popup.CustomCommandPopupAction;
+import com.sessonad.quickopener.actions.popup.CustomFileSystemPopupAction;
+import com.sessonad.quickopener.actions.popup.CustomTerminalPopupAction;
 import java.awt.Component;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -27,18 +29,27 @@ public final class CustomCommand implements Presenter.Toolbar {
     @Override
     public Component getToolbarPresenter() {
         
-        
-        Image iconImage = ImageUtilities.loadImage("com/sessonad/quickopener/icons/custom24.png");
+        Image iconImage = ImageUtilities.loadImage("com/sessonad/quickopener/icons/custom.png");
         ImageIcon icon = new ImageIcon(iconImage); 
-        CustomCommandPopupAction caction=new CustomCommandPopupAction("Launch custom command...",icon);
+        Image iconImage2 = ImageUtilities.loadImage("com/sessonad/quickopener/icons/folder-documents-icon.png");
+        ImageIcon icon2 = new ImageIcon(iconImage2);
+        Image iconImage3 = ImageUtilities.loadImage("com/sessonad/quickopener/icons/terminal.png");
+        ImageIcon icon3 = new ImageIcon(iconImage3);
+        
+        CustomCommandPopupAction cAction=new CustomCommandPopupAction("Launch custom command...",icon);
+        CustomTerminalPopupAction tAction=new CustomTerminalPopupAction("Open shell in...",icon3);
+        CustomFileSystemPopupAction fAction=new CustomFileSystemPopupAction("Open filesystem in...",icon2);
         
         //popup
         JPopupMenu popup = new JPopupMenu();        
-        popup.add(caction);  
+        popup.add(cAction); 
+        popup.addSeparator();
+        popup.add(tAction);
+        popup.add(fAction);
         
         //button
         JButton dropDownButton = DropDownButtonFactory.createDropDownButton(icon,popup); 
-        dropDownButton.addActionListener(caction);
+        dropDownButton.addActionListener(cAction);
         return dropDownButton;
     }
 
