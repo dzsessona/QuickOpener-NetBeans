@@ -21,7 +21,7 @@ import org.openide.util.NbBundle.Messages;
 @ActionRegistration(iconBase = "com/sessonad/quickopener/icons/terminal.png",displayName = "#CTL_Terminal")
 @ActionReferences({
     @ActionReference(path = "Menu/File", position = 1413),
-    @ActionReference(path = "Toolbars/File", position = 500),
+    @ActionReference(path = "Toolbars/QuickOpener", position = 500),
     @ActionReference(path = "Shortcuts", name = "O-1")
 })
 @Messages("CTL_Terminal=Open in the default OS terminal")

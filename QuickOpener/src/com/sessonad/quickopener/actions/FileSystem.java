@@ -22,7 +22,7 @@ import org.openide.util.NbBundle.Messages;
 @ActionRegistration(iconBase = "com/sessonad/quickopener/icons/folder-documents-icon.png",displayName = "#CTL_FileSystem")
 @ActionReferences({
     @ActionReference(path = "Menu/File", position = 1419),
-    @ActionReference(path = "Toolbars/File", position = 600),
+    @ActionReference(path = "Toolbars/QuickOpener", position = 600),
     @ActionReference(path = "Shortcuts", name = "O-2")
 })
 @Messages("CTL_FileSystem=Open in the OS file system browser")
