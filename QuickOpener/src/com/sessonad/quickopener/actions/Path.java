@@ -19,6 +19,7 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
+@Messages("CTL_Path=Copy path in the clipboard")
 public final class Path implements ActionListener {
 
     private final DataObject dataObj;
