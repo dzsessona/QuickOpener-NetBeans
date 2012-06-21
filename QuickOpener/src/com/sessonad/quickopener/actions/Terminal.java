@@ -17,14 +17,6 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
-@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.Terminal")
-@ActionRegistration(iconBase = "com/sessonad/quickopener/icons/terminal.png",displayName = "#CTL_Terminal")
-@ActionReferences({
-    @ActionReference(path = "Menu/File", position = 1413),
-    @ActionReference(path = "Toolbars/QuickOpener", position = 500),
-    @ActionReference(path = "Shortcuts", name = "O-1")
-})
-@Messages("CTL_Terminal=Open in the default OS terminal")
 public final class Terminal implements ActionListener {
     
     private final DataObject dataObj;

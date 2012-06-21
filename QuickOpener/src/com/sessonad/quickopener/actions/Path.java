@@ -19,14 +19,6 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
-@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.Path")
-@ActionRegistration(iconBase = "com/sessonad/quickopener/icons/path.png",displayName = "#CTL_Path")
-@ActionReferences({
-    @ActionReference(path = "Menu/File", position = 1422, separatorAfter = 1424),
-    @ActionReference(path = "Toolbars/QuickOpener", position = 700),
-    @ActionReference(path = "Shortcuts", name = "O-3")
-})
-@Messages("CTL_Path=Copy path in the clipboard")
 public final class Path implements ActionListener {
 
     private final DataObject dataObj;
