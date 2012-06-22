@@ -10,8 +10,6 @@ import javax.swing.Icon;
  */
 public class CustomCommandPopupAction extends AbstractAction{
     
-    final static DialogCustomCommand dialogue=new DialogCustomCommand(null, true);
-    
     public CustomCommandPopupAction() {
     }
     
@@ -30,10 +28,10 @@ public class CustomCommandPopupAction extends AbstractAction{
             @Override
             public void run() {
                 try {                  
-                    //dialogue.setAlwaysOnTop(true);
+                    DialogCustomCommand dialogue=new DialogCustomCommand(null, true);
                     dialogue.setVisible(true);
                     String userCommand = (dialogue.getReturnStatus()==DialogCustomCommand.RET_OK)?dialogue.getCommand():null;
-                    if (userCommand != null && !userCommand.isEmpty()) {
+                    if (userCommand != null) {
                         Runtime.getRuntime().exec(userCommand);
                     }
                 } catch (Exception ex) {}

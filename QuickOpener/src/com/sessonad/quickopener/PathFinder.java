@@ -31,9 +31,21 @@ public class PathFinder {
     }
     
     public static File getMainProjectRoot(){
-        Project project = OpenProjects.getDefault().getMainProject();
-        FileObject root = project.getProjectDirectory();
-        return FileUtil.toFile(root);
+        try {
+            Project project = OpenProjects.getDefault().getMainProject();
+            FileObject root = project.getProjectDirectory();
+            return FileUtil.toFile(root);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public static String getMainProjectRootPath(){
+        try {
+            return getMainProjectRoot().getAbsolutePath();
+        } catch (Exception e) {
+            return null;
+        }
     }
     
 }
