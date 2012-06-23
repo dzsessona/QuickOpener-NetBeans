@@ -4,6 +4,8 @@ import com.sessonad.oscommands.commands.Commands;
 import com.sessonad.quickopener.actions.*;
 import com.sessonad.quickopener.prefs.PrefsUtil;
 import com.sessonad.quickopener.prefs.QuickOpenerProperty;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.List;
@@ -35,7 +37,14 @@ public class CustomFileSystemPopupAction extends AbstractAction{
             public void run() {
                 try {
                     DialogCustomFileSystem dialogue=new DialogCustomFileSystem(null, true);
+                    
+                    //center on screen
+                    final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                    final int x = (screenSize.width - dialogue.getWidth()) / 2;
+                    final int y = (screenSize.height - dialogue.getHeight()) / 2;
+                    dialogue.setLocation(x, y);
                     dialogue.setVisible(true);
+                    
                     String userCommand = (dialogue.getReturnStatus()==DialogCustomCommand.RET_OK)?dialogue.getCommand():null;
                     if (userCommand != null && !userCommand.isEmpty()) {
                         File userFile=new File(userCommand);
