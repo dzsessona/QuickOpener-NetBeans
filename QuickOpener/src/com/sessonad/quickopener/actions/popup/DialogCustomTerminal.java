@@ -5,20 +5,11 @@
 package com.sessonad.quickopener.actions.popup;
 
 import com.sessonad.quickopener.PathFinder;
-import com.sessonad.quickopener.prefs.PrefsUtil;
-import com.sessonad.quickopener.prefs.QuickOpenerPanel;
-import com.sessonad.quickopener.prefs.QuickOpenerProperty;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import java.util.prefs.BackingStoreException;
-import java.util.prefs.Preferences;
 import javax.swing.*;
-import org.openide.util.Exceptions;
 import org.openide.util.ImageUtilities;
-import org.openide.util.NbPreferences;
 
 /**
  *

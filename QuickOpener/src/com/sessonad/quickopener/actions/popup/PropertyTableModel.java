@@ -6,12 +6,9 @@ package com.sessonad.quickopener.actions.popup;
 
 import com.sessonad.quickopener.prefs.PrefsUtil;
 import com.sessonad.quickopener.prefs.QuickOpenerProperty;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
-import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
 import org.openide.util.Exceptions;
 
 /**

@@ -1,5 +1,7 @@
 package com.sessonad.quickopener.actions.popup;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
@@ -28,9 +30,14 @@ public class CustomCommandPopupAction extends AbstractAction{
             @Override
             public void run() {
                 try {                  
-                    DialogCustomCommand dialogue=new DialogCustomCommand(null, true);
+                    DialogCustomCommandRun dialogue=new DialogCustomCommandRun(null, true);
+                    final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                    final int x = (screenSize.width - dialogue.getWidth()) / 2;
+                    final int y = (screenSize.height - dialogue.getHeight()) / 2;
+                    dialogue.setLocation(x, y);
                     dialogue.setVisible(true);
-                    String userCommand = (dialogue.getReturnStatus()==DialogCustomCommand.RET_OK)?dialogue.getCommand():null;
+                    
+                    String userCommand = (dialogue.getReturnStatus()==DialogCustomCommandRun.RET_OK)?dialogue.getCommand():null;
                     if (userCommand != null) {
                         Runtime.getRuntime().exec(userCommand);
                     }

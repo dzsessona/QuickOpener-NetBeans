@@ -28,7 +28,9 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        newCommandtextField = new javax.swing.JTextField();
+        cmdvalue = new javax.swing.JTextField();
+        cmddescription = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         folderDescriptionTextField = new javax.swing.JTextField();
@@ -40,7 +42,16 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jLabel1.text")); // NOI18N
 
-        newCommandtextField.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.newCommandtextField.text")); // NOI18N
+        cmdvalue.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.cmdvalue.text")); // NOI18N
+
+        cmddescription.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.cmddescription.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jButton1.text")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -48,8 +59,12 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmddescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmdvalue, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(newCommandtextField)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -58,7 +73,9 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(newCommandtextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdvalue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmddescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -131,7 +148,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -144,17 +161,33 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             JOptionPane.showConfirmDialog(this, "The folder specified is not valid or does not exists.", "Input not valid", JOptionPane.OK_OPTION);
             return;
         }
-        QuickOpenerProperty temp= PrefsUtil.load("folder" ,description, null);
-        boolean toInsert=false;
-        if(temp.getValue()!=null){
-            int override = JOptionPane.showConfirmDialog(this, "This folder is already existing\nWant to override it ?");
-            toInsert = (override == JOptionPane.YES_OPTION);
-        }
-        if(toInsert){
+//        QuickOpenerProperty temp= PrefsUtil.load("folder" ,description, null);
+//        boolean toInsert=false;
+//        if(temp.getValue()!=null){
+//            int override = JOptionPane.showConfirmDialog(this, "This folder is already existing\nWant to override it ?");
+//            toInsert = (override == JOptionPane.YES_OPTION);
+//        }
+       // if(toInsert){
             PrefsUtil.store("folder" + description, value);
             JOptionPane.showConfirmDialog(this, "Folder added as favorite.", "Folder added", JOptionPane.OK_OPTION);
-        }
+        //}
     }//GEN-LAST:event_addFolderButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String description = cmddescription.getText();
+        String value = cmdvalue.getText();
+        
+//        QuickOpenerProperty temp= PrefsUtil.load("command" ,description, null);
+//        boolean toInsert=false;
+//        if(temp.getValue()!=null){
+//            int override = JOptionPane.showConfirmDialog(this, "This folder is already existing\nWant to override it ?");
+//            toInsert = (override == JOptionPane.YES_OPTION);
+//        }
+        //if(toInsert){
+            PrefsUtil.store("command" + description, value);
+            JOptionPane.showConfirmDialog(this, "Command added as favorite.", "Folder added", JOptionPane.OK_OPTION);
+        //}
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private boolean checkValidFolder(String path){
         File f=new File(path);
@@ -162,11 +195,11 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     }
     
     void load() {
-        newCommandtextField.setText((PrefsUtil.load(null,"customcommand", "cmd /c start ")).getValue());
+        //cmdvalue.setText((PrefsUtil.load(null,"customcommand", "cmd /c start ")).getValue());
     }
 
     void store() {
-        PrefsUtil.store("customcommand", newCommandtextField.getText());
+        //PrefsUtil.store("customcommand", cmdvalue.getText());
     }
 
     boolean valid() {
@@ -175,14 +208,16 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFolderButton;
+    private javax.swing.JTextField cmddescription;
+    private javax.swing.JTextField cmdvalue;
     private javax.swing.JTextField favoritePathTextField;
     private javax.swing.JTextField folderDescriptionTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField newCommandtextField;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
