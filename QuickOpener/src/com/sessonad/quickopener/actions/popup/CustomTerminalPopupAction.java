@@ -34,8 +34,7 @@ public class CustomTerminalPopupAction extends AbstractAction{
             @Override
             public void run() {
                 try {
-                    List<QuickOpenerProperty> props = PrefsUtil.getAllMatching("folder");
-                    DialogCustomTerminal dialogue=new DialogCustomTerminal(null, true,props);
+                    DialogCustomTerminal dialogue=new DialogCustomTerminal(null, true);
                     dialogue.setVisible(true);
                     String userCommand = (dialogue.getReturnStatus()==DialogCustomCommand.RET_OK)?dialogue.getCommand():null;
                     if (userCommand != null && !userCommand.isEmpty()) {

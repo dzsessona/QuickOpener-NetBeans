@@ -24,7 +24,7 @@ import org.openide.util.NbPreferences;
  *
  * @author SessonaD
  */
-public class DialogCustomTerminal extends javax.swing.JDialog {
+public class DialogCustomFileSystem extends javax.swing.JDialog {
 
     public static final int RET_CANCEL = 0;
     public static final int RET_OK = 1;
@@ -36,7 +36,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
     /**
      * Creates new form DialogCustomCommand
      */
-    public DialogCustomTerminal(java.awt.Frame parent, boolean modal) {
+    public DialogCustomFileSystem(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         jTable2.setModel(new PropertyTableModel("folder"));
@@ -123,15 +123,15 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        setTitle(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.title")); // NOI18N
-        setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/terminal.png"));
+        setTitle(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.title")); // NOI18N
+        setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/folder-documents-icon.png"));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
             }
         });
 
-        okButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.okButton.text")); // NOI18N
+        okButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.okButton.text")); // NOI18N
         okButton.setFocusPainted(false);
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, cmdTextField, org.jdesktop.beansbinding.ELProperty.create("${not empty text}"), okButton, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
@@ -143,7 +143,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
             }
         });
 
-        cancelButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.cancelButton.text")); // NOI18N
+        cancelButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.cancelButton.text")); // NOI18N
         cancelButton.setFocusPainted(false);
         cancelButton.setRequestFocusEnabled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -152,13 +152,13 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
             }
         });
 
-        cmdTextField.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.cmdTextField.text")); // NOI18N
+        cmdTextField.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.cmdTextField.text")); // NOI18N
 
-        jLabel1.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel1.text")); // NOI18N
+        jLabel1.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel1.text")); // NOI18N
         jLabel1.setRequestFocusEnabled(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/terminal32.png"))); // NOI18N
-        jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel2.text")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/folder-documents-icon32.png"))); // NOI18N
+        jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);
         jTable2.setBackground(new java.awt.Color(244, 244, 244));
@@ -190,22 +190,22 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel3.text")); // NOI18N
+        jLabel3.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel3.text")); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel4.text")); // NOI18N
+        jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel4.text")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel5.text")); // NOI18N
+        jLabel5.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel5.text")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel6.text")); // NOI18N
+        jLabel6.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel6.text")); // NOI18N
 
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel7.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel7.text")); // NOI18N
+        jLabel7.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel7.text")); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -213,7 +213,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         });
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel8.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel8.text")); // NOI18N
+        jLabel8.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel8.text")); // NOI18N
         jLabel8.setEnabled(false);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -222,7 +222,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         });
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel9.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel9.text")); // NOI18N
+        jLabel9.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel9.text")); // NOI18N
         jLabel9.setEnabled(false);
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -231,8 +231,8 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/help.png"))); // NOI18N
-        jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel10.text")); // NOI18N
-        jLabel10.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel10.toolTipText")); // NOI18N
+        jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel10.text")); // NOI18N
+        jLabel10.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomFileSystem.class, "DialogCustomFileSystem.jLabel10.toolTipText")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,8 +266,10 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(cmdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE))))
+                                    .addComponent(cmdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(14, 14, 14))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -330,6 +332,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(this, "The file does not exists in the file system");
         }
+        
     }//GEN-LAST:event_okButtonActionPerformed
     
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -397,13 +400,13 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogCustomTerminal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCustomFileSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogCustomTerminal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCustomFileSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogCustomTerminal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCustomFileSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogCustomTerminal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCustomFileSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -413,7 +416,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                DialogCustomTerminal dialog = new DialogCustomTerminal(new javax.swing.JFrame(), true);
+                DialogCustomFileSystem dialog = new DialogCustomFileSystem(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     @Override
