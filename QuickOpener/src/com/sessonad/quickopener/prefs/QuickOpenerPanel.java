@@ -4,6 +4,9 @@
  */
 package com.sessonad.quickopener.prefs;
 
+import java.io.File;
+import javax.swing.JOptionPane;
+
 public final class QuickOpenerPanel extends javax.swing.JPanel {
 
     private final QuickOpenerOptionsPanelController controller;
@@ -21,22 +24,23 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        newCommandtextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        folderDescriptionTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        favoritePathTextField = new javax.swing.JTextField();
+        addFolderButton = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jPanel1.border.title"))); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jLabel1.text")); // NOI18N
 
-        jTextField1.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jTextField1.text")); // NOI18N
+        newCommandtextField.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.newCommandtextField.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,7 +49,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1)
+                .addComponent(newCommandtextField)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -54,7 +58,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newCommandtextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -62,16 +66,20 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jLabel2.text")); // NOI18N
 
-        jTextField2.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jTextField2.text")); // NOI18N
+        folderDescriptionTextField.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.folderDescriptionTextField.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jLabel3.text")); // NOI18N
 
-        jTextField3.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jTextField3.text")); // NOI18N
+        favoritePathTextField.setText(org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.favoritePathTextField.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jButton1.text")); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(addFolderButton, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.addFolderButton.text")); // NOI18N
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, favoritePathTextField, org.jdesktop.beansbinding.ELProperty.create("${not empty text}"), addFolderButton, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
+        addFolderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addFolderButtonActionPerformed(evt);
             }
         });
 
@@ -83,13 +91,13 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(folderDescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(favoritePathTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(addFolderButton)
                 .addGap(8, 8, 8))
         );
         jPanel2Layout.setVerticalGroup(
@@ -98,10 +106,10 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(folderDescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(favoritePathTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addFolderButton))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
@@ -125,18 +133,40 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(118, Short.MAX_VALUE))
         );
+
+        bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PrefsUtil.store("folder" + jTextField2.getText(), jTextField3.getText());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void addFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFolderButtonActionPerformed
+        String description = folderDescriptionTextField.getText();
+        String value = favoritePathTextField.getText();
+        if(! checkValidFolder(value)){
+            JOptionPane.showConfirmDialog(this, "The folder specified is not valid or does not exists.", "Input not valid", JOptionPane.OK_OPTION);
+            return;
+        }
+        QuickOpenerProperty temp= PrefsUtil.load("folder" ,description, null);
+        boolean toInsert=false;
+        if(temp.getValue()!=null){
+            int override = JOptionPane.showConfirmDialog(this, "This folder is already existing\nWant to override it ?");
+            toInsert = (override == JOptionPane.YES_OPTION);
+        }
+        if(toInsert){
+            PrefsUtil.store("folder" + description, value);
+            JOptionPane.showConfirmDialog(this, "Folder added as favorite.", "Folder added", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_addFolderButtonActionPerformed
 
+    private boolean checkValidFolder(String path){
+        File f=new File(path);
+        return(f.exists() && f.isDirectory());
+    }
+    
     void load() {
-        jTextField1.setText((PrefsUtil.load(null,"customcommand", "cmd /c start ")).getValue());
+        newCommandtextField.setText((PrefsUtil.load(null,"customcommand", "cmd /c start ")).getValue());
     }
 
     void store() {
-        PrefsUtil.store("customcommand", jTextField1.getText());
+        PrefsUtil.store("customcommand", newCommandtextField.getText());
     }
 
     boolean valid() {
@@ -144,14 +174,15 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         return true;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addFolderButton;
+    private javax.swing.JTextField favoritePathTextField;
+    private javax.swing.JTextField folderDescriptionTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField newCommandtextField;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

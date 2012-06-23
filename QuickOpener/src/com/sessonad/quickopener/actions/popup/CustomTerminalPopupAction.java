@@ -2,8 +2,11 @@ package com.sessonad.quickopener.actions.popup;
 
 import com.sessonad.oscommands.commands.Commands;
 import com.sessonad.quickopener.actions.*;
+import com.sessonad.quickopener.prefs.PrefsUtil;
+import com.sessonad.quickopener.prefs.QuickOpenerProperty;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
@@ -31,9 +34,12 @@ public class CustomTerminalPopupAction extends AbstractAction{
             @Override
             public void run() {
                 try {
-                    String userpath = JOptionPane.showInputDialog("Open shell in...");
-                    if (userpath != null && !userpath.isEmpty()) {
-                        Commands.getPlatform().openInShell(userpath);
+                    List<QuickOpenerProperty> props = PrefsUtil.getAllMatching("folder");
+                    DialogCustomTerminal dialogue=new DialogCustomTerminal(null, true,props);
+                    dialogue.setVisible(true);
+                    String userCommand = (dialogue.getReturnStatus()==DialogCustomCommand.RET_OK)?dialogue.getCommand():null;
+                    if (userCommand != null && !userCommand.isEmpty()) {
+                        Commands.getPlatform().openInShell(userCommand);
                     }
                 } catch (Exception ex) {}
             }
