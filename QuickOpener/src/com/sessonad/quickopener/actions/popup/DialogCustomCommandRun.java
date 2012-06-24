@@ -4,13 +4,10 @@
  */
 package com.sessonad.quickopener.actions.popup;
 
-import com.sessonad.quickopener.PathFinder;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeListenerProxy;
-import java.io.File;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -61,21 +58,33 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         boolean p1 = text.contains("${param1}");
         p1label.setEnabled(p1);
         p1text.setEnabled(p1);
+        fileParamButton1.setEnabled(p1);
+        if(!p1)p1text.setText("");
         boolean p2 = text.contains("${param2}");
         p2label.setEnabled(p2);
         p2text.setEnabled(p2);
+        fileParamButton2.setEnabled(p2);
+        if(!p2)p2text.setText("");
         boolean p3 = text.contains("${param3}");
         p3label.setEnabled(p3);
         p3text.setEnabled(p3);
+        fileParamButton3.setEnabled(p3);
+        if(!p3)p3text.setText("");
         boolean p4 = text.contains("${param4}");
         p4label.setEnabled(p4);
         p4text.setEnabled(p4);
+        fileParamButton4.setEnabled(p4);
+        if(!p4)p4text.setText("");
         boolean p5 = text.contains("${param5}");
         p5label.setEnabled(p5);
         p5text.setEnabled(p5);
+        fileParamButton5.setEnabled(p5);
+        if(!p5)p5text.setText("");
         boolean p6 = text.contains("${param6}");
         p6label.setEnabled(p6);
         p6text.setEnabled(p6);
+        fileParamButton6.setEnabled(p6);
+        if(!p6)p6text.setText("");
 
     }
     
@@ -131,6 +140,12 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         p5text = new javax.swing.JTextField();
         p6label = new javax.swing.JLabel();
         p6text = new javax.swing.JTextField();
+        fileParamButton1 = new javax.swing.JButton();
+        fileParamButton2 = new javax.swing.JButton();
+        fileParamButton3 = new javax.swing.JButton();
+        fileParamButton4 = new javax.swing.JButton();
+        fileParamButton5 = new javax.swing.JButton();
+        fileParamButton6 = new javax.swing.JButton();
 
         setTitle(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.title")); // NOI18N
         setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/folder-documents-icon.png"));
@@ -166,7 +181,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         jLabel1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel1.text")); // NOI18N
         jLabel1.setRequestFocusEnabled(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/folder-documents-icon32.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/custom32.png"))); // NOI18N
         jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);
@@ -257,6 +272,78 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         p6text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p6text.text")); // NOI18N
         p6text.setEnabled(false);
 
+        fileParamButton1.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        fileParamButton1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton1.text")); // NOI18N
+        fileParamButton1.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton1.toolTipText")); // NOI18N
+        fileParamButton1.setEnabled(false);
+        fileParamButton1.setFocusPainted(false);
+        fileParamButton1.setRequestFocusEnabled(false);
+        fileParamButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileParamButton1ActionPerformed(evt);
+            }
+        });
+
+        fileParamButton2.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        fileParamButton2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton2.text")); // NOI18N
+        fileParamButton2.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton2.toolTipText")); // NOI18N
+        fileParamButton2.setEnabled(false);
+        fileParamButton2.setFocusPainted(false);
+        fileParamButton2.setRequestFocusEnabled(false);
+        fileParamButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileParamButton2ActionPerformed(evt);
+            }
+        });
+
+        fileParamButton3.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        fileParamButton3.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton3.text")); // NOI18N
+        fileParamButton3.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton3.toolTipText")); // NOI18N
+        fileParamButton3.setEnabled(false);
+        fileParamButton3.setFocusPainted(false);
+        fileParamButton3.setRequestFocusEnabled(false);
+        fileParamButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileParamButton3ActionPerformed(evt);
+            }
+        });
+
+        fileParamButton4.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        fileParamButton4.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton4.text")); // NOI18N
+        fileParamButton4.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton4.toolTipText")); // NOI18N
+        fileParamButton4.setEnabled(false);
+        fileParamButton4.setFocusPainted(false);
+        fileParamButton4.setRequestFocusEnabled(false);
+        fileParamButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileParamButton4ActionPerformed(evt);
+            }
+        });
+
+        fileParamButton5.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        fileParamButton5.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton5.text")); // NOI18N
+        fileParamButton5.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton5.toolTipText")); // NOI18N
+        fileParamButton5.setEnabled(false);
+        fileParamButton5.setFocusPainted(false);
+        fileParamButton5.setRequestFocusEnabled(false);
+        fileParamButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileParamButton5ActionPerformed(evt);
+            }
+        });
+
+        fileParamButton6.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        fileParamButton6.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton6.text")); // NOI18N
+        fileParamButton6.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton6.toolTipText")); // NOI18N
+        fileParamButton6.setEnabled(false);
+        fileParamButton6.setFocusPainted(false);
+        fileParamButton6.setRequestFocusEnabled(false);
+        fileParamButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileParamButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -277,37 +364,47 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(p3label)
                                             .addComponent(p2label))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(p2text, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(p3text, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(p1label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(p4label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(p5label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(p5text, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(p2text, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                            .addComponent(p3text)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(p6label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(p6text))))
+                                        .addComponent(p1label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(fileParamButton3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(p6label))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(fileParamButton2)
+                                                .addGap(80, 80, 80)
+                                                .addComponent(p5label)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(p5text, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                            .addComponent(p6text))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fileParamButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(fileParamButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(fileParamButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(p4label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(fileParamButton4))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(cmdTextField))
-                        .addGap(14, 14, 14))
+                        .addGap(50, 50, 50))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,35 +432,35 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                         .addComponent(cmdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p1label)
+                    .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton1)
+                    .addComponent(p4label)
+                    .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p2label)
+                    .addComponent(p2text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton2)
+                    .addComponent(p5label)
+                    .addComponent(p5text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p1label)
-                            .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p2label)
-                            .addComponent(p2text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p3label)
-                            .addComponent(p3text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p4label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p5text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p5label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p6label)
-                            .addComponent(p6text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(p3label)
+                        .addComponent(p3text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fileParamButton3))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(p6text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fileParamButton6)
+                        .addComponent(p6label)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -382,7 +479,9 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         setCommand();
-        doClose(RET_OK);
+        int res=JOptionPane.showConfirmDialog(this, "You are about to launch the following command: \n\n" +getCommand()+ "\n\nAre you sure?","Confirm",JOptionPane.YES_NO_OPTION);
+        if(res==JOptionPane.YES_OPTION)
+            doClose(RET_OK);
     }//GEN-LAST:event_okButtonActionPerformed
     
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -413,6 +512,78 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     private void p2textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2textActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_p2textActionPerformed
+
+    private void fileParamButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton1ActionPerformed
+        DialogueFileSelector dialogue = new DialogueFileSelector(null, true);
+        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int x = (screenSize.width - dialogue.getWidth()) / 2;
+        final int y = (screenSize.height - dialogue.getHeight()) / 2;
+        dialogue.setLocation(x, y);
+        dialogue.setVisible(true);
+
+        String userCommand = (dialogue.getReturnStatus()==DialogCustomTerminal.RET_OK)?dialogue.getCommand():null;
+        p1text.setText(userCommand);
+    }//GEN-LAST:event_fileParamButton1ActionPerformed
+
+    private void fileParamButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton2ActionPerformed
+        DialogueFileSelector dialogue = new DialogueFileSelector(null, true);
+        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int x = (screenSize.width - dialogue.getWidth()) / 2;
+        final int y = (screenSize.height - dialogue.getHeight()) / 2;
+        dialogue.setLocation(x, y);
+        dialogue.setVisible(true);
+
+        String userCommand = (dialogue.getReturnStatus()==DialogCustomTerminal.RET_OK)?dialogue.getCommand():null;
+        p2text.setText(userCommand);
+    }//GEN-LAST:event_fileParamButton2ActionPerformed
+
+    private void fileParamButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton3ActionPerformed
+        DialogueFileSelector dialogue = new DialogueFileSelector(null, true);
+        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int x = (screenSize.width - dialogue.getWidth()) / 2;
+        final int y = (screenSize.height - dialogue.getHeight()) / 2;
+        dialogue.setLocation(x, y);
+        dialogue.setVisible(true);
+
+        String userCommand = (dialogue.getReturnStatus()==DialogCustomTerminal.RET_OK)?dialogue.getCommand():null;
+        p3text.setText(userCommand);
+    }//GEN-LAST:event_fileParamButton3ActionPerformed
+
+    private void fileParamButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton4ActionPerformed
+        DialogueFileSelector dialogue = new DialogueFileSelector(null, true);
+        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int x = (screenSize.width - dialogue.getWidth()) / 2;
+        final int y = (screenSize.height - dialogue.getHeight()) / 2;
+        dialogue.setLocation(x, y);
+        dialogue.setVisible(true);
+
+        String userCommand = (dialogue.getReturnStatus()==DialogCustomTerminal.RET_OK)?dialogue.getCommand():null;
+        p4text.setText(userCommand);
+    }//GEN-LAST:event_fileParamButton4ActionPerformed
+
+    private void fileParamButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton5ActionPerformed
+        DialogueFileSelector dialogue = new DialogueFileSelector(null, true);
+        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int x = (screenSize.width - dialogue.getWidth()) / 2;
+        final int y = (screenSize.height - dialogue.getHeight()) / 2;
+        dialogue.setLocation(x, y);
+        dialogue.setVisible(true);
+
+        String userCommand = (dialogue.getReturnStatus()==DialogCustomTerminal.RET_OK)?dialogue.getCommand():null;
+        p5text.setText(userCommand);
+    }//GEN-LAST:event_fileParamButton5ActionPerformed
+
+    private void fileParamButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton6ActionPerformed
+        DialogueFileSelector dialogue = new DialogueFileSelector(null, true);
+        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int x = (screenSize.width - dialogue.getWidth()) / 2;
+        final int y = (screenSize.height - dialogue.getHeight()) / 2;
+        dialogue.setLocation(x, y);
+        dialogue.setVisible(true);
+
+        String userCommand = (dialogue.getReturnStatus()==DialogCustomTerminal.RET_OK)?dialogue.getCommand():null;
+        p6text.setText(userCommand);
+    }//GEN-LAST:event_fileParamButton6ActionPerformed
     
     private void doClose(int retStatus) {
         returnStatus = retStatus;
@@ -472,6 +643,12 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField cmdTextField;
+    private javax.swing.JButton fileParamButton1;
+    private javax.swing.JButton fileParamButton2;
+    private javax.swing.JButton fileParamButton3;
+    private javax.swing.JButton fileParamButton4;
+    private javax.swing.JButton fileParamButton5;
+    private javax.swing.JButton fileParamButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
