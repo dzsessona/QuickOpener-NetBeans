@@ -148,7 +148,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         fileParamButton6 = new javax.swing.JButton();
 
         setTitle(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.title")); // NOI18N
-        setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/folder-documents-icon.png"));
+        setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/run.png"));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -181,7 +181,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         jLabel1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel1.text")); // NOI18N
         jLabel1.setRequestFocusEnabled(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/custom32.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/run32.png"))); // NOI18N
         jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);

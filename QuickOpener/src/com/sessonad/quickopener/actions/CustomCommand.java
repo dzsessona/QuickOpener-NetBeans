@@ -8,7 +8,8 @@ import com.sessonad.quickopener.actions.popup.CustomCommandPopupAction;
 import com.sessonad.quickopener.actions.popup.CustomFileSystemPopupAction;
 import com.sessonad.quickopener.actions.popup.CustomTerminalPopupAction;
 import java.awt.Component;
-import java.awt.Image;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
@@ -29,16 +30,14 @@ public final class CustomCommand implements Presenter.Toolbar {
     @Override
     public Component getToolbarPresenter() {
         
-        Image iconImage = ImageUtilities.loadImage("com/sessonad/quickopener/icons/custom.png");
-        ImageIcon icon = new ImageIcon(iconImage); 
-        Image iconImage2 = ImageUtilities.loadImage("com/sessonad/quickopener/icons/folder-documents-icon.png");
-        ImageIcon icon2 = new ImageIcon(iconImage2);
-        Image iconImage3 = ImageUtilities.loadImage("com/sessonad/quickopener/icons/terminal.png");
-        ImageIcon icon3 = new ImageIcon(iconImage3);
+        final ImageIcon run16 = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/run.png", false); 
+        final ImageIcon run32 = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/run24.png", false);
+        final ImageIcon folder = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/folder-documents-icon.png",false);
+        final ImageIcon terminal = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/terminal.png",false);
         
-        CustomCommandPopupAction cAction=new CustomCommandPopupAction("Launch custom command...",icon);
-        CustomTerminalPopupAction tAction=new CustomTerminalPopupAction("Open shell in...",icon3);
-        CustomFileSystemPopupAction fAction=new CustomFileSystemPopupAction("Open filesystem in...",icon2);
+        CustomCommandPopupAction cAction=new CustomCommandPopupAction("Launch custom command...",run16);
+        CustomTerminalPopupAction tAction=new CustomTerminalPopupAction("Open shell in...",folder);
+        CustomFileSystemPopupAction fAction=new CustomFileSystemPopupAction("Open filesystem in...",terminal);
         
         //popup
         JPopupMenu popup = new JPopupMenu();        
@@ -48,8 +47,26 @@ public final class CustomCommand implements Presenter.Toolbar {
         popup.add(fAction);
         
         //button
-        JButton dropDownButton = DropDownButtonFactory.createDropDownButton(icon,popup); 
+        final JButton dropDownButton = DropDownButtonFactory.createDropDownButton(run16,popup);
         dropDownButton.addActionListener(cAction);
+        dropDownButton.addPropertyChangeListener("PreferredIconSize", new PropertyChangeListener(){ 
+            @Override 
+            public void propertyChange(PropertyChangeEvent evt) 
+            { 
+                boolean useSmallIcon = true; 
+                final Object prop = evt.getNewValue(); 
+                if (prop instanceof Integer) { 
+                    if(((Integer)prop).intValue()==24) { 
+                        useSmallIcon = false; 
+                    } 
+                }                 
+                if(useSmallIcon){ 
+                    dropDownButton.setIcon(run16);
+                }else { 
+                    dropDownButton.setIcon(run32);
+                } 
+            } 
+        }); 
         return dropDownButton;
     }
 
