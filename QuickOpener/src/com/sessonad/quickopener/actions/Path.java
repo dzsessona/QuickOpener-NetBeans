@@ -30,7 +30,7 @@ public final class Path implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String path=PathFinder.getPathFromDataObject(dataObj);
+        String path=PathFinder.getPathFromDataObject(dataObj,false);
         try {
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             Clipboard clipboard = toolkit.getSystemClipboard();

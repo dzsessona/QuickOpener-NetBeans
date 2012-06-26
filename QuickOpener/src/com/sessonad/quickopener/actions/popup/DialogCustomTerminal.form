@@ -6,7 +6,7 @@
       <ResourceString bundle="com/sessonad/quickopener/actions/popup/Bundle.properties" key="DialogCustomTerminal.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
     </Property>
     <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-      <Connection code="ImageUtilities.loadImage(&quot;com/sessonad/quickopener/icons/terminal.png&quot;)" type="code"/>
+      <Connection code="ImageUtilities.loadImage(&quot;com/sessonad/quickopener/icons/terminal-cu.png&quot;)" type="code"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -61,9 +61,9 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="48" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="58" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmdTextField" pref="449" max="32767" attributes="0"/>
@@ -115,7 +115,7 @@
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="108" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="100" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -178,7 +178,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/sessonad/quickopener/icons/terminal32.png"/>
+          <Image iconType="3" name="/com/sessonad/quickopener/icons/terminal48-cu2.png"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="com/sessonad/quickopener/actions/popup/Bundle.properties" key="DialogCustomTerminal.jLabel2.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -330,9 +330,7 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="com/sessonad/quickopener/actions/popup/Bundle.properties" key="DialogCustomTerminal.jLabel10.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/sessonad/quickopener/actions/popup/Bundle.properties" key="DialogCustomTerminal.jLabel10.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
-        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;span color=&quot;blue&quot;&gt;Click on any path to set the input box.&lt;/span&gt;&lt;br/&gt;&#xa;&lt;br/&gt;&#xa;You can customize the your preferred places in:&lt;br/&gt;&#xa;&lt;span color=&quot;blue&quot;&gt;Tools &gt; Options &gt; Miscellaneous &gt; QuickOpener&#xa;&lt;/html&gt;" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>

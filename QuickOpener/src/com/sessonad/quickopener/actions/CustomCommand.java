@@ -32,12 +32,12 @@ public final class CustomCommand implements Presenter.Toolbar {
         
         final ImageIcon run16 = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/run.png", false); 
         final ImageIcon run32 = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/run24.png", false);
-        final ImageIcon folder = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/folder-documents-icon.png",false);
-        final ImageIcon terminal = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/terminal.png",false);
+        final ImageIcon folder = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/folder-documents-icon-cu.png",false);
+        final ImageIcon terminal = ImageUtilities.loadImageIcon("com/sessonad/quickopener/icons/terminal-cu.png",false);
         
         CustomCommandPopupAction cAction=new CustomCommandPopupAction("Launch custom command...",run16);
-        CustomTerminalPopupAction tAction=new CustomTerminalPopupAction("Open shell in...",folder);
-        CustomFileSystemPopupAction fAction=new CustomFileSystemPopupAction("Open filesystem in...",terminal);
+        CustomTerminalPopupAction tAction=new CustomTerminalPopupAction("Open shell in...",terminal);
+        CustomFileSystemPopupAction fAction=new CustomFileSystemPopupAction("Open filesystem in...",folder);
         
         //popup
         JPopupMenu popup = new JPopupMenu();        

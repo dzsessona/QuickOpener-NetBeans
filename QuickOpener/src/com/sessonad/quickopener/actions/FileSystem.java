@@ -29,7 +29,7 @@ public final class FileSystem implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File toOpen = PathFinder.getFileFromDataObject(dataObj);
+        File toOpen = PathFinder.getFileFromDataObject(dataObj,true);
         try {
             Commands.getPlatform().browseInFileSystem(toOpen);
         } catch (Exception ex) {

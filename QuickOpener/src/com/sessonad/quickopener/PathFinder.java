@@ -24,13 +24,17 @@ import org.openide.windows.TopComponent;
 public class PathFinder {
     
     
-    public static String getPathFromDataObject(DataObject dataObj){        
-        return getFileFromDataObject(dataObj).getAbsolutePath();
+    public static String getPathFromDataObject(DataObject dataObj,boolean isFolder){        
+        return getFileFromDataObject(dataObj,isFolder).getAbsolutePath();
     }
     
-    public static File getFileFromDataObject(DataObject dataObj){
+    public static File getFileFromDataObject(DataObject dataObj,boolean isFolder){
          File current = FileUtil.toFile(dataObj.getPrimaryFile());
-         return (current.isDirectory())?current:current.getParentFile();
+         if(!isFolder){
+             return current;
+         }else{
+             return (current.isDirectory())?current:current.getParentFile();
+         }
     }
     
     public static String getMyNetbeansConfPath(){        
@@ -42,12 +46,12 @@ public class PathFinder {
         }
     }
     
-    public static String getFileFromSelectedNode(){
+    public static String getFileFromSelectedNode(boolean isFolder){
         TopComponent topActive = TopComponent.getRegistry().getActivated();
         Node[]nodes  = topActive.getActivatedNodes();
         if(nodes.length==1){            
             DataObject dataObj=nodes[0].getLookup().lookup(DataObject.class); 
-            return (dataObj!=null)?getPathFromDataObject(dataObj):null;
+            return (dataObj!=null)?getPathFromDataObject(dataObj,isFolder):null;
         }else{
             return null;
         }

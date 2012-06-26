@@ -31,13 +31,16 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         jTable2.setModel(new PropertyTableModel("folder"));
-             
+        jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
+        jTable2.getColumnModel().getColumn(0).setPreferredWidth(150);
+        jTable2.getColumnModel().getColumn(0).setMaxWidth(400);
+        jTable2.getColumnModel().getColumn(0).setMinWidth(100);
         mainProjectPath=PathFinder.getMainProjectRootPath();
         if(mainProjectPath!=null){
             jLabel8.setEnabled(true);
             jLabel8.setText(getPathLongerThan(mainProjectPath));
         }
-        selectioPath=PathFinder.getFileFromSelectedNode();
+        selectioPath=PathFinder.getFileFromSelectedNode(true);
         if(selectioPath!=null){
             jLabel9.setEnabled(true);
             jLabel9.setText(getPathLongerThan(selectioPath));
@@ -115,7 +118,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
 
         setTitle(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.title")); // NOI18N
-        setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/terminal.png"));
+        setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/terminal-cu.png"));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -148,7 +151,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         jLabel1.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel1.text")); // NOI18N
         jLabel1.setRequestFocusEnabled(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/terminal32.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/terminal48-cu2.png"))); // NOI18N
         jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);
@@ -223,7 +226,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/help.png"))); // NOI18N
         jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel10.text")); // NOI18N
-        jLabel10.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel10.toolTipText")); // NOI18N
+        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any path to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred places in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,8 +256,8 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel7)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -297,7 +300,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

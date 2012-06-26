@@ -29,7 +29,7 @@ public final class Terminal implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            String path=PathFinder.getPathFromDataObject(dataObj);
+            String path=PathFinder.getPathFromDataObject(dataObj,true);
             Commands.getPlatform().openInShell(path);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
