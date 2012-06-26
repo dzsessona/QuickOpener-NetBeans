@@ -325,7 +325,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         if(file.exists()){
             doClose(RET_OK);
         }else{
-            JOptionPane.showMessageDialog(this, "The file does not exists in the file system");
+            JOptionPane.showMessageDialog(this, "The file does not exists in the file system","The file does not exists",JOptionPane.WARNING_MESSAGE);
         }
         
     }//GEN-LAST:event_okButtonActionPerformed

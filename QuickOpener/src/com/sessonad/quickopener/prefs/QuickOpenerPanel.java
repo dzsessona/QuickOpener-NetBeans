@@ -4,22 +4,22 @@
  */
 package com.sessonad.quickopener.prefs;
 
-import com.sessonad.quickopener.actions.popup.PropertyTableModel;
+import com.sessonad.oscommands.commands.Commands;
 import java.io.File;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import org.openide.util.Exceptions;
 
 public final class QuickOpenerPanel extends javax.swing.JPanel {
 
     private final QuickOpenerOptionsPanelController controller;
-    private final String cmdos="cmd /c start";
+    private final String cmdos=Commands.getPlatform().getOperatingSystem().getShellPrefix();
 
     QuickOpenerPanel(QuickOpenerOptionsPanelController controller) {
         this.controller = controller;
         initComponents();
+        jLabel5.setText("(for your OS is: \'"+cmdos+"\')");
         showCommands();
         showFolders();
     }
@@ -345,14 +345,14 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         String value = favoritePathTextField.getText();
         if(! checkValidFolder(value) || description.isEmpty()){
             if(description.isEmpty()){
-                JOptionPane.showMessageDialog(this, "A description is mandatory.", "Description not valid", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(this, "A description is mandatory.", "Description not valid", JOptionPane.WARNING_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(this, "The folder specified is not valid or does not exists.", "Input not valid", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(this, "The folder specified is not valid or does not exists.", "Input not valid", JOptionPane.WARNING_MESSAGE);
             }
             return;
         }
         PrefsUtil.store("folder" + description, value);
-        JOptionPane.showMessageDialog(this, "Folder added as favorite.", "Folder added", JOptionPane.OK_OPTION);
+        JOptionPane.showMessageDialog(this, "Folder added as favorite.", "Folder added", JOptionPane.INFORMATION_MESSAGE);
         showFolders();
     }//GEN-LAST:event_addFolderButtonActionPerformed
 
@@ -361,7 +361,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         description = description.replaceAll(" ", "_");
         String value = cmdvalue.getText();
         if (description.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "A description is mandatory.", "Description not valid", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "A description is mandatory.", "Description not valid", JOptionPane.WARNING_MESSAGE);
             return;
         }
         PrefsUtil.store("command" + description, value);
@@ -411,7 +411,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         boolean value = jCheckBox1.isSelected();
         String text= cmdvalue.getText();
         if(value && text!=null && !text.startsWith(cmdos)){
-            text=cmdos + " " + text;
+            text=cmdos + text;
         }else if(!value && text!=null && text.startsWith(cmdos)){
             text=text.replaceAll(cmdos, "");
         }

@@ -322,7 +322,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         if(file.exists()&& file.isDirectory()){
             doClose(RET_OK);
         }else{
-            JOptionPane.showMessageDialog(this, "The file does not exists in the file system");
+            JOptionPane.showMessageDialog(this, "The file does not exists in the file system","The file does not exists",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_okButtonActionPerformed
     
