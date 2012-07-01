@@ -5,6 +5,7 @@
 package com.sessonad.quickopener.actions.popup;
 
 import com.sessonad.oscommands.commands.Commands;
+import com.sessonad.quickopener.PathFinder;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,8 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     public static final int CHARSNUMBER = 80;
     private String command;
     private final String cmdos=Commands.getPlatform().getOperatingSystem().getShellPrefix();
+    private final String currentFile=PathFinder.getFileFromSelectedNode(false);
+    private final String currentFolder = PathFinder.getFileFromSelectedNode(true);
 
     /**
      * Creates new form DialogCustomCommand
@@ -102,7 +105,9 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         if(command.contains("${param3}"))command=command.replace("${param3}", p3text.getText());
         if(command.contains("${param4}"))command=command.replace("${param4}", p4text.getText());
         if(command.contains("${param5}"))command=command.replace("${param5}", p5text.getText());
-        if(command.contains("${param6}"))command=command.replace("${param6}", p6text.getText());      
+        if(command.contains("${param6}"))command=command.replace("${param6}", p6text.getText()); 
+        if(command.contains("${currentFile}") && currentFile!=null && !currentFile.isEmpty())command=command.replace("${currentFile}", currentFile);  
+        if(command.contains("${currentFolder}") && currentFolder!=null && !currentFolder.isEmpty())command=command.replace("${currentFolder}", currentFolder);  
     }
     
     public String getCommand(){
@@ -155,6 +160,8 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         fileParamButton6 = new javax.swing.JButton();
         jCheckBox2 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
 
         setTitle(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.title")); // NOI18N
         setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/run.png"));
@@ -355,6 +362,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
 
         jCheckBox2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox2.text")); // NOI18N
         jCheckBox2.setFocusPainted(false);
+        jCheckBox2.setFocusable(false);
         jCheckBox2.setRequestFocusEnabled(false);
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,6 +372,24 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
 
         jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel4.text")); // NOI18N
         jLabel4.setEnabled(false);
+
+        jCheckBox1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox1.text")); // NOI18N
+        jCheckBox1.setFocusPainted(false);
+        jCheckBox1.setFocusable(false);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox3.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox3.text")); // NOI18N
+        jCheckBox3.setFocusPainted(false);
+        jCheckBox3.setFocusable(false);
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -434,8 +460,12 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jCheckBox2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                                 .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cancelButton)
@@ -492,7 +522,9 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                         .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(okButton)
                         .addComponent(jCheckBox2)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addComponent(jCheckBox1)
+                        .addComponent(jCheckBox3))
                     .addComponent(jLabel10))
                 .addContainerGap())
         );
@@ -623,6 +655,26 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         }
         cmdTextField.setText(text);
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        boolean value = jCheckBox1.isSelected();
+        String text= cmdTextField.getText();
+        if(value && !text.contains("${currentFile}"))
+            text=text + " ${currentFile}";  
+        else if(!value && text.contains("${currentFile}"))
+            text=text.replaceAll("\\$\\{currentFile\\}", ""); 
+        cmdTextField.setText(text);
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        boolean value = jCheckBox3.isSelected();
+        String text= cmdTextField.getText();
+        if(value && !text.contains("${currentFolder}"))
+            text=text + " ${currentFolder}";  
+        else if(!value && text.contains("${currentFolder}"))
+            text=text.replaceAll("\\$\\{currentFolder\\}", "");  
+        cmdTextField.setText(text);
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
     
     private void doClose(int retStatus) {
         returnStatus = retStatus;
@@ -688,7 +740,9 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     private javax.swing.JButton fileParamButton4;
     private javax.swing.JButton fileParamButton5;
     private javax.swing.JButton fileParamButton6;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
