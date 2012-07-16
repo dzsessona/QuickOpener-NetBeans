@@ -4,17 +4,13 @@
  */
 package com.sessonad.quickopener;
 
-import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
-import javax.swing.JOptionPane;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataObject;
 import org.openide.nodes.Node;
-import org.openide.util.Utilities;
 import org.openide.windows.TopComponent;
 
 /**
@@ -25,16 +21,24 @@ public class PathFinder {
     
     
     public static String getPathFromDataObject(DataObject dataObj,boolean isFolder){        
-        return getFileFromDataObject(dataObj,isFolder).getAbsolutePath();
+        try{
+            return getFileFromDataObject(dataObj,isFolder).getAbsolutePath();
+        }catch(Exception e){
+            return null;
+        }
     }
     
-    public static File getFileFromDataObject(DataObject dataObj,boolean isFolder){
-         File current = FileUtil.toFile(dataObj.getPrimaryFile());
-         if(!isFolder){
-             return current;
-         }else{
-             return (current.isDirectory())?current:current.getParentFile();
-         }
+    public static File getFileFromDataObject(DataObject dataObj, boolean isFolder) {
+        try {
+            File current = FileUtil.toFile(dataObj.getPrimaryFile());
+            if (!isFolder) {
+                return current;
+            } else {
+                return (current.isDirectory()) ? current : current.getParentFile();
+            }
+        } catch (Exception e) {
+            return null;
+        }
     }
     
     public static String getMyNetbeansConfPath(){        
@@ -46,13 +50,17 @@ public class PathFinder {
         }
     }
     
-    public static String getFileFromSelectedNode(boolean isFolder){
-        TopComponent topActive = TopComponent.getRegistry().getActivated();
-        Node[]nodes  = topActive.getActivatedNodes();
-        if(nodes.length==1){            
-            DataObject dataObj=nodes[0].getLookup().lookup(DataObject.class); 
-            return (dataObj!=null)?getPathFromDataObject(dataObj,isFolder):null;
-        }else{
+    public static String getFileFromSelectedNode(boolean isFolder) {
+        try {
+            TopComponent topActive = TopComponent.getRegistry().getActivated();
+            Node[] nodes = topActive.getActivatedNodes();
+            if (nodes.length == 1) {
+                DataObject dataObj = nodes[0].getLookup().lookup(DataObject.class);
+                return (dataObj != null) ? getPathFromDataObject(dataObj, isFolder) : null;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
             return null;
         }
     }

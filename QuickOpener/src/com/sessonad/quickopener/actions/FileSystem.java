@@ -6,10 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JOptionPane;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionRegistration;
 import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
@@ -30,10 +26,12 @@ public final class FileSystem implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         File toOpen = PathFinder.getFileFromDataObject(dataObj,true);
+        if (toOpen == null) {
+            JOptionPane.showMessageDialog(null, "There are no files associated with the current selection.");
+            return;
+        }
         try {
             Commands.getPlatform().browseInFileSystem(toOpen);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        } catch (Exception ex) {}
     }
 }
