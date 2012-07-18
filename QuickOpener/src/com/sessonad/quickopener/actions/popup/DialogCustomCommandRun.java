@@ -139,29 +139,30 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        p1label = new javax.swing.JLabel();
-        p2label = new javax.swing.JLabel();
-        p3label = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        p4label = new javax.swing.JLabel();
-        p5label = new javax.swing.JLabel();
-        p1text = new javax.swing.JTextField();
-        p2text = new javax.swing.JTextField();
-        p3text = new javax.swing.JTextField();
-        p4text = new javax.swing.JTextField();
-        p5text = new javax.swing.JTextField();
-        p6label = new javax.swing.JLabel();
-        p6text = new javax.swing.JTextField();
-        fileParamButton1 = new javax.swing.JButton();
-        fileParamButton2 = new javax.swing.JButton();
-        fileParamButton3 = new javax.swing.JButton();
-        fileParamButton4 = new javax.swing.JButton();
-        fileParamButton5 = new javax.swing.JButton();
-        fileParamButton6 = new javax.swing.JButton();
         jCheckBox2 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
+        jPanel1 = new javax.swing.JPanel();
+        p1label = new javax.swing.JLabel();
+        p2label = new javax.swing.JLabel();
+        p3label = new javax.swing.JLabel();
+        p1text = new javax.swing.JTextField();
+        p2text = new javax.swing.JTextField();
+        p3text = new javax.swing.JTextField();
+        fileParamButton1 = new javax.swing.JButton();
+        fileParamButton2 = new javax.swing.JButton();
+        fileParamButton3 = new javax.swing.JButton();
+        fileParamButton4 = new javax.swing.JButton();
+        p4text = new javax.swing.JTextField();
+        p4label = new javax.swing.JLabel();
+        p5label = new javax.swing.JLabel();
+        p5text = new javax.swing.JTextField();
+        fileParamButton5 = new javax.swing.JButton();
+        p6label = new javax.swing.JLabel();
+        p6text = new javax.swing.JTextField();
+        fileParamButton6 = new javax.swing.JButton();
 
         setTitle(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.title")); // NOI18N
         setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/run.png"));
@@ -172,6 +173,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         });
 
         okButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.okButton.text")); // NOI18N
+        okButton.setBorderPainted(false);
         okButton.setFocusPainted(false);
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, cmdTextField, org.jdesktop.beansbinding.ELProperty.create("${not empty text}"), okButton, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
@@ -184,6 +186,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         });
 
         cancelButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.cancelButton.text")); // NOI18N
+        cancelButton.setBorderPainted(false);
         cancelButton.setFocusPainted(false);
         cancelButton.setRequestFocusEnabled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +235,41 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel3.text")); // NOI18N
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/help.png"))); // NOI18N
+        jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel10.text")); // NOI18N
+        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any command to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred commands in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>"); // NOI18N
+
+        jCheckBox2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox2.text")); // NOI18N
+        jCheckBox2.setFocusPainted(false);
+        jCheckBox2.setFocusable(false);
+        jCheckBox2.setRequestFocusEnabled(false);
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel4.text")); // NOI18N
+        jLabel4.setEnabled(false);
+
+        jCheckBox1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox1.text")); // NOI18N
+        jCheckBox1.setFocusPainted(false);
+        jCheckBox1.setFocusable(false);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox3.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox3.text")); // NOI18N
+        jCheckBox3.setFocusPainted(false);
+        jCheckBox3.setFocusable(false);
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
         p1label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         p1label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p1label.text")); // NOI18N
         p1label.setEnabled(false);
@@ -243,18 +281,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         p3label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         p3label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p3label.text")); // NOI18N
         p3label.setEnabled(false);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/help.png"))); // NOI18N
-        jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel10.text")); // NOI18N
-        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any command to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred commands in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>"); // NOI18N
-
-        p4label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        p4label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p4label.text")); // NOI18N
-        p4label.setEnabled(false);
-
-        p5label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        p5label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p5label.text")); // NOI18N
-        p5label.setEnabled(false);
 
         p1text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p1text.text")); // NOI18N
         p1text.setEnabled(false);
@@ -274,19 +300,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
 
         p3text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p3text.text")); // NOI18N
         p3text.setEnabled(false);
-
-        p4text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p4text.text")); // NOI18N
-        p4text.setEnabled(false);
-
-        p5text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p5text.text")); // NOI18N
-        p5text.setEnabled(false);
-
-        p6label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        p6label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p6label.text")); // NOI18N
-        p6label.setEnabled(false);
-
-        p6text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p6text.text")); // NOI18N
-        p6text.setEnabled(false);
 
         fileParamButton1.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         fileParamButton1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton1.text")); // NOI18N
@@ -336,6 +349,20 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
             }
         });
 
+        p4text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p4text.text")); // NOI18N
+        p4text.setEnabled(false);
+
+        p4label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        p4label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p4label.text")); // NOI18N
+        p4label.setEnabled(false);
+
+        p5label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        p5label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p5label.text")); // NOI18N
+        p5label.setEnabled(false);
+
+        p5text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p5text.text")); // NOI18N
+        p5text.setEnabled(false);
+
         fileParamButton5.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         fileParamButton5.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton5.text")); // NOI18N
         fileParamButton5.setToolTipText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton5.toolTipText")); // NOI18N
@@ -347,6 +374,13 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                 fileParamButton5ActionPerformed(evt);
             }
         });
+
+        p6label.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        p6label.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p6label.text")); // NOI18N
+        p6label.setEnabled(false);
+
+        p6text.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.p6text.text")); // NOI18N
+        p6text.setEnabled(false);
 
         fileParamButton6.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         fileParamButton6.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.fileParamButton6.text")); // NOI18N
@@ -360,36 +394,86 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
             }
         });
 
-        jCheckBox2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox2.text")); // NOI18N
-        jCheckBox2.setFocusPainted(false);
-        jCheckBox2.setFocusable(false);
-        jCheckBox2.setRequestFocusEnabled(false);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel4.text")); // NOI18N
-        jLabel4.setEnabled(false);
-
-        jCheckBox1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox1.text")); // NOI18N
-        jCheckBox1.setFocusPainted(false);
-        jCheckBox1.setFocusable(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox3.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox3.text")); // NOI18N
-        jCheckBox3.setFocusPainted(false);
-        jCheckBox3.setFocusable(false);
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(p3label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(p3text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileParamButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p1label)
+                            .addComponent(p2label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(p2text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fileParamButton1)
+                            .addComponent(fileParamButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(p4label, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(p5label, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(p6label, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileParamButton4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(p5text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileParamButton5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(p6text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileParamButton6)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton4)
+                    .addComponent(p4label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fileParamButton5)
+                    .addComponent(p5text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p5label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p6label)
+                    .addComponent(p6text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton6))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p1label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fileParamButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p2text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton2)
+                    .addComponent(p2label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(p3text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileParamButton3)
+                    .addComponent(p3label)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -404,52 +488,12 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmdTextField)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(p3label)
-                                                    .addComponent(p2label))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(p2text, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                                                    .addComponent(p3text)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(p1label)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(fileParamButton3)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(p6label))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(fileParamButton2)
-                                                        .addGap(80, 80, 80)
-                                                        .addComponent(p5label)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(p5text, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                                                    .addComponent(p6text))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(fileParamButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(fileParamButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(fileParamButton1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(p4label)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(fileParamButton4))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(cmdTextField))
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(50, 50, 50))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -481,52 +525,31 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p1text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fileParamButton1)
-                    .addComponent(p4label)
-                    .addComponent(p4text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fileParamButton4)
-                    .addComponent(p1label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cmdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p2label)
-                    .addComponent(p2text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fileParamButton2)
-                    .addComponent(p5label)
-                    .addComponent(p5text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fileParamButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(p3label)
-                        .addComponent(p3text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fileParamButton3))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(p6text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fileParamButton6)
-                        .addComponent(p6label)))
-                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(okButton)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jCheckBox2)
-                        .addComponent(jLabel4)
-                        .addComponent(jCheckBox1)
-                        .addComponent(jCheckBox3))
-                    .addComponent(jLabel10))
-                .addContainerGap())
+                        .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(okButton)
+                            .addComponent(jLabel4)
+                            .addComponent(jCheckBox1)
+                            .addComponent(jCheckBox3)))))
         );
 
         getRootPane().setDefaultButton(okButton);
@@ -748,6 +771,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JButton okButton;
