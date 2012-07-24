@@ -3,8 +3,6 @@ QuickOpener-NetBeans
 
 [Wiki](https://github.com/kinkadzs/QuickOpener-NetBeans/wiki/Home)<br/>
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/DHfdV9eDRPo" frameborder="0" allowfullscreen></iframe>
-
 Sometimes while programming in NetBeans you want to explore a particular file that you are editing on the file system browser, or maybe launch a command in a terminal to do something with it.
 
 ![Plugin toolbar](https://github.com/downloads/kinkadzs/QuickOpener-NetBeans/shot4.png)
