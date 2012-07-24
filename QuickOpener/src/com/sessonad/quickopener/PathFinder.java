@@ -4,7 +4,7 @@
  */
 package com.sessonad.quickopener;
 
-import java.io.File;
+import java.io.File; 
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.openide.filesystems.FileObject;
