@@ -9,7 +9,7 @@ import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
-import org.openide.loaders.DataObject;
+import org.openide.loaders.DataObject; 
 import org.openide.nodes.Node;
 import org.openide.windows.TopComponent;
 
