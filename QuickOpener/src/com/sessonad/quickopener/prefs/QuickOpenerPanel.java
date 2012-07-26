@@ -368,10 +368,10 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         String value = favoritePathTextField.getText();
         if(! checkValidFolder(value) || description.isEmpty()){
             if(description.isEmpty()){
-                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY);
+                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY,NotifyDescriptor.WARNING_MESSAGE);
                 DialogDisplayer.getDefault().notify(d); 
             }else{
-                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.FOLDER_INVALID);
+                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.FOLDER_INVALID,NotifyDescriptor.WARNING_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
             return;
@@ -387,7 +387,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         description = description.replaceAll(" ", "_");
         String value = cmdvalue.getText();
         if (description.isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }

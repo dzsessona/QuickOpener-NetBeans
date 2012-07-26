@@ -30,7 +30,7 @@ public final class Path implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String path=PathFinder.getPathFromDataObject(dataObj,false);
         if (path == null) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }

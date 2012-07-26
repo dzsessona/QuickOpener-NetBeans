@@ -328,7 +328,7 @@ public class DialogCustomFileSystem extends javax.swing.JDialog {
         if(file.exists()&& file.isDirectory()){
             doClose(RET_OK);
         }else{
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NOT_IN_FILE_SYSTEM);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NOT_IN_FILE_SYSTEM,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);            
         }
         

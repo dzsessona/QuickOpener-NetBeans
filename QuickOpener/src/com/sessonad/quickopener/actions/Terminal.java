@@ -29,7 +29,7 @@ public final class Terminal implements ActionListener {
         try {
             String path=PathFinder.getPathFromDataObject(dataObj,true);
             if(path == null){
-                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION);
+                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
                 return;
             }

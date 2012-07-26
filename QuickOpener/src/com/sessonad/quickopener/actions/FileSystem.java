@@ -29,7 +29,7 @@ public final class FileSystem implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         File toOpen = PathFinder.getFileFromDataObject(dataObj,true);
         if (toOpen == null) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
