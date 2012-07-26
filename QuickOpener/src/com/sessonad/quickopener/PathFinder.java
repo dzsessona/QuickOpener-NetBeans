@@ -21,7 +21,7 @@ public class PathFinder {
     
     
     public static String getPathFromDataObject(DataObject dataObj,boolean isFolder){        
-        try{
+        try{            
             return getFileFromDataObject(dataObj,isFolder).getAbsolutePath();
         }catch(Exception e){
             return null;
