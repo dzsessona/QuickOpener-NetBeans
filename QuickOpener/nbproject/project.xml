@@ -108,8 +108,6 @@
                 </dependency>
             </module-dependencies>
             <public-packages>
-                <package>com.sessonad.oscommands.commands</package>
-                <package>com.sessonad.oscommands.detector</package>
                 <package>com.sessonad.quickopener</package>
                 <package>com.sessonad.quickopener.actions</package>
                 <package>com.sessonad.quickopener.actions.popup</package>
