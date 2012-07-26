@@ -16,6 +16,7 @@ public enum QuickMessages {
     DESCRIPTION_MANDATORY ("A description is mandatory."),
     FOLDER_INVALID ("The folder specified is not valid or does not exists."),
     FOLDER_ADDED ("Folder added as favorite."),
+    SEPARATOR_NULL ("Separator cannot be empty."),
     NOT_IN_FILE_SYSTEM ("The file does not exists in the file system.");
     
     private String message;

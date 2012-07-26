@@ -15,6 +15,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         jList1.setSelectedIndex(0);
         commandsPanel1.setVisible(false);
         placesPanel1.setVisible(true);
+        generalPanel1.setVisible(false);
     }
 
    
@@ -31,9 +32,10 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         commandsPanel1 = new com.sessonad.quickopener.prefs.CommandsPanel();
         placesPanel1 = new com.sessonad.quickopener.prefs.PlacesPanel();
+        generalPanel1 = new com.sessonad.quickopener.prefs.GeneralPanel();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Places", "Commands" };
+            String[] strings = { "Places", "Commands", "General Options" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -61,7 +63,8 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(commandsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
-                            .addComponent(placesPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(placesPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(generalPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -76,6 +79,8 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                         .addComponent(commandsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(placesPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(generalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -85,9 +90,15 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         if(jList1.getSelectedIndex()==0){
             commandsPanel1.setVisible(false);
             placesPanel1.setVisible(true);
-        }else{
+            generalPanel1.setVisible(false);
+        }else if(jList1.getSelectedIndex()==1){
             commandsPanel1.setVisible(true);
             placesPanel1.setVisible(false);
+            generalPanel1.setVisible(false);
+        }else{
+            commandsPanel1.setVisible(false);
+            placesPanel1.setVisible(false);
+            generalPanel1.setVisible(true);
         }
     }//GEN-LAST:event_jList1ValueChanged
 
@@ -104,6 +115,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     }    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.sessonad.quickopener.prefs.CommandsPanel commandsPanel1;
+    private com.sessonad.quickopener.prefs.GeneralPanel generalPanel1;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane3;
