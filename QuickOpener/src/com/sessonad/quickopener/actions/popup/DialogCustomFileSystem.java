@@ -5,10 +5,13 @@
 package com.sessonad.quickopener.actions.popup;
 
 import com.sessonad.quickopener.PathFinder;
+import com.sessonad.quickopener.QuickMessages;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.swing.*;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.ImageUtilities;
 
 /**
@@ -325,7 +328,8 @@ public class DialogCustomFileSystem extends javax.swing.JDialog {
         if(file.exists()&& file.isDirectory()){
             doClose(RET_OK);
         }else{
-            JOptionPane.showMessageDialog(this, "The file does not exists in the file system","The file does not exists",JOptionPane.WARNING_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NOT_IN_FILE_SYSTEM);
+            DialogDisplayer.getDefault().notify(d);            
         }
         
     }//GEN-LAST:event_okButtonActionPerformed

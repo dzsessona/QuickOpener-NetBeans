@@ -5,10 +5,12 @@
 package com.sessonad.quickopener.prefs;
 
 import com.sessonad.oscommands.commands.Commands;
+import com.sessonad.quickopener.QuickMessages;
 import java.io.File;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
-import javax.swing.JOptionPane;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 
 public final class QuickOpenerPanel extends javax.swing.JPanel {
@@ -366,14 +368,17 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         String value = favoritePathTextField.getText();
         if(! checkValidFolder(value) || description.isEmpty()){
             if(description.isEmpty()){
-                JOptionPane.showMessageDialog(this, "A description is mandatory.", "Description not valid", JOptionPane.WARNING_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY);
+                DialogDisplayer.getDefault().notify(d); 
             }else{
-                JOptionPane.showMessageDialog(this, "The folder specified is not valid or does not exists.", "Input not valid", JOptionPane.WARNING_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.FOLDER_INVALID);
+                DialogDisplayer.getDefault().notify(d);
             }
             return;
         }
         PrefsUtil.store("folder" + description, value);
-        JOptionPane.showMessageDialog(this, "Folder added as favorite.", "Folder added", JOptionPane.INFORMATION_MESSAGE);
+        NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.FOLDER_ADDED);
+        DialogDisplayer.getDefault().notify(d);
         showFolders();
     }//GEN-LAST:event_addFolderButtonActionPerformed
 
@@ -382,7 +387,8 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         description = description.replaceAll(" ", "_");
         String value = cmdvalue.getText();
         if (description.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "A description is mandatory.", "Description not valid", JOptionPane.WARNING_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY);
+            DialogDisplayer.getDefault().notify(d);
             return;
         }
         PrefsUtil.store("command" + description, value);
@@ -445,17 +451,14 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     }
     
     void load() {
-        //cmdvalue.setText((PrefsUtil.load(null,"customcommand", "cmd /c start ")).getValue());
     }
 
-    void store() {
-        //PrefsUtil.store("customcommand", cmdvalue.getText());
+    void store() {        
     }
 
-    boolean valid() {
-        // TODO check whether form is consistent and complete
+    boolean valid() {        
         return true;
-    }
+    }    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFolderButton;
     private javax.swing.JTextField cmddescription;

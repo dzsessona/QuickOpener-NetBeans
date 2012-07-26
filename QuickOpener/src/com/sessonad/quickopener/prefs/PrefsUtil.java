@@ -7,7 +7,6 @@ package com.sessonad.quickopener.prefs;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
-import javax.swing.JOptionPane;
 import org.openide.util.NbPreferences;
 
 /**

@@ -6,6 +6,7 @@ package com.sessonad.quickopener.actions.popup;
 
 import com.sessonad.oscommands.commands.Commands;
 import com.sessonad.quickopener.PathFinder;
+import com.sessonad.quickopener.QuickMessages;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.ImageUtilities;
 
 /**
@@ -561,9 +564,11 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         setCommand();
-        int res=JOptionPane.showConfirmDialog(this, "You are about to launch the following command: \n\n" +getCommand()+ "\n\nAre you sure?","Confirm",JOptionPane.YES_NO_OPTION);
-        if(res==JOptionPane.YES_OPTION)
+        String msg=QuickMessages.CONFIRM_COMMAND_PREFIX+getCommand()+QuickMessages.CONFIRM_COMMAND_SUFFIX;
+        NotifyDescriptor d = new NotifyDescriptor.Confirmation(msg,"Confirm",NotifyDescriptor.OK_CANCEL_OPTION);
+        if(NotifyDescriptor.OK_OPTION == DialogDisplayer.getDefault().notify(d)){
             doClose(RET_OK);
+        }
     }//GEN-LAST:event_okButtonActionPerformed
     
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -582,17 +587,16 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
             final int thisrow=jTable2.getSelectedRow();
             final int row = jTable2.getRowSorter().convertRowIndexToModel(thisrow);
             String path = (String) jTable2.getModel().getValueAt(row, 1);
-            cmdTextField.setText(path);
-            //checkParameters(path);
+            cmdTextField.setText(path);            
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void p1textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1textActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_p1textActionPerformed
 
     private void p2textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2textActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_p2textActionPerformed
 
     private void fileParamButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileParamButton1ActionPerformed
