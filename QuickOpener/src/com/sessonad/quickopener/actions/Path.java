@@ -36,8 +36,6 @@ public final class Path implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String path=PathFinder.getPathFromDataObject(dataObj,false);  
-        NotifyDescriptor di = new NotifyDescriptor.Message(OperatingSystem.LINUX_KDE.getFileSystemBrowserCommand(),NotifyDescriptor.WARNING_MESSAGE);
-        DialogDisplayer.getDefault().notify(di);
         if (path == null) {            
             NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
