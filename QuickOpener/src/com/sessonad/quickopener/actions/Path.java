@@ -1,5 +1,6 @@
 package com.sessonad.quickopener.actions;
 
+import com.sessonad.oscommands.detector.OperatingSystem;
 import com.sessonad.quickopener.PathFinder;
 import com.sessonad.quickopener.QuickMessages;
 import com.sessonad.quickopener.prefs.PrefsUtil;
@@ -34,7 +35,9 @@ public final class Path implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String path=PathFinder.getPathFromDataObject(dataObj,false);        
+        String path=PathFinder.getPathFromDataObject(dataObj,false);  
+        NotifyDescriptor di = new NotifyDescriptor.Message(OperatingSystem.LINUX_KDE.getFileSystemBrowserCommand(),NotifyDescriptor.WARNING_MESSAGE);
+        DialogDisplayer.getDefault().notify(di);
         if (path == null) {            
             NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
