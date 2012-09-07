@@ -116,10 +116,10 @@
         <file name="O-5.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomFileSystemPopupAction.instance"/></file>
         <file name="O-6.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomTerminalPopupAction.instance"/></file> 
     </folder>
-    <folder name="OptionsDialog">
+<!--    <folder name="OptionsDialog">
         <folder name="Advanced">
             <file name="com-sessonad-quickopener-prefs-QuickOpenerOptionsPanelController.instance">
-                <!--com.sessonad.quickopener.prefs.QuickOpenerOptionsPanelController-->
+                com.sessonad.quickopener.prefs.QuickOpenerOptionsPanelController
                 <attr methodvalue="org.netbeans.spi.options.AdvancedOption.createSubCategory" name="instanceCreate"/>
                 <attr name="controller" newvalue="com.sessonad.quickopener.prefs.QuickOpenerOptionsPanelController"/>
                 <attr bundlevalue="com.sessonad.quickopener.prefs.Bundle#AdvancedOption_DisplayName_QuickOpener" name="displayName"/>
@@ -127,5 +127,5 @@
                 <attr name="keywordsCategory" stringvalue="Advanced/QuickOpener"/>
             </file>
         </folder>
-    </folder>
+    </folder>-->
 </filesystem>

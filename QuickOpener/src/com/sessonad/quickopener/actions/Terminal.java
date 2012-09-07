@@ -3,6 +3,8 @@ package com.sessonad.quickopener.actions;
 import com.sessonad.oscommands.commands.Commands;
 import com.sessonad.quickopener.PathFinder;
 import com.sessonad.quickopener.QuickMessages;
+import com.sessonad.quickopener.prefs.PrefsUtil;
+import com.sessonad.quickopener.prefs.QuickOpenerProperty;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import org.openide.DialogDisplayer;
@@ -33,7 +35,18 @@ public final class Terminal implements ActionListener {
                 DialogDisplayer.getDefault().notify(d);
                 return;
             }
-            Commands.getPlatform().openInShell(path);
+            //open in os shell or in the custom one if defined
+            QuickOpenerProperty customShell=PrefsUtil.load(null,"customShell",null);
+            if(customShell.getValue()==null){
+                Commands.getPlatform().openInShell(path);
+            }else{
+                customShellOpen(customShell.getValue(),path);
+            }            
         } catch (Exception ex) {} 
+    }
+    
+    private void customShellOpen(String customShellPrefix, String path)throws Exception{
+        String fullCommand = customShellPrefix + path;
+        Runtime.getRuntime().exec(fullCommand);
     }
 }

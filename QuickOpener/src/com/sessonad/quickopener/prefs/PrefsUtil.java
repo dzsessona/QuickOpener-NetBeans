@@ -19,6 +19,10 @@ public class PrefsUtil {
         NbPreferences.forModule(QuickOpenerPanel.class).put(key,val); 
     }
     
+    public static void removeSingleProperty(String key){
+        NbPreferences.forModule(QuickOpenerPanel.class).remove(key);
+    }
+    
     public static void remove(String key) throws BackingStoreException{
         List<QuickOpenerProperty> commands = getAllMatching("command");
         List<QuickOpenerProperty> folders = getAllMatching("folder");

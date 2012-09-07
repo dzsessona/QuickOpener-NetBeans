@@ -11,11 +11,11 @@ import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
 
-//@OptionsPanelController.SubRegistration(location = "Advanced",
-//displayName = "#AdvancedOption_DisplayName_QuickOpener",
-//keywords = "#AdvancedOption_Keywords_QuickOpener",
-//keywordsCategory = "Advanced/QuickOpener")
-//@org.openide.util.NbBundle.Messages({"AdvancedOption_DisplayName_QuickOpener=QuickOpener", "AdvancedOption_Keywords_QuickOpener=quickopener"})
+@OptionsPanelController.SubRegistration(location = "Advanced",
+displayName = "#AdvancedOption_DisplayName_QuickOpener",
+keywords = "#AdvancedOption_Keywords_QuickOpener",
+keywordsCategory = "Advanced/QuickOpener")
+@org.openide.util.NbBundle.Messages({"AdvancedOption_DisplayName_QuickOpener=QuickOpener", "AdvancedOption_Keywords_QuickOpener=quickopener"})
 public final class QuickOpenerOptionsPanelController extends OptionsPanelController {
 
     private QuickOpenerPanel panel;
