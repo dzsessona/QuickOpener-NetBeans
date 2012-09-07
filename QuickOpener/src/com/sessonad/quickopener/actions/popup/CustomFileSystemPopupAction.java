@@ -4,15 +4,27 @@ import com.sessonad.oscommands.commands.Commands;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author SessonaD
  */
-public class CustomFileSystemPopupAction extends AbstractAction{
+//@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.popup.CustomFileSystemPopupAction")
+//@ActionRegistration(displayName = "#CTL_CustomFileSystemPopupAction")
+//@ActionReferences({
+//    @ActionReference(path = "Shortcuts", name = "O-5")
+//})
+//@NbBundle.Messages("CTL_CustomFileSystemPopupAction=Open filesystem in...")
+public class CustomFileSystemPopupAction extends AbstractAction implements ActionListener{
     
     public CustomFileSystemPopupAction() {
     }
@@ -48,6 +60,5 @@ public class CustomFileSystemPopupAction extends AbstractAction{
                 } catch (Exception ex) {}
             }
         });
-    }
-    
+    }    
 }

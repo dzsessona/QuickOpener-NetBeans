@@ -4,14 +4,26 @@ import com.sessonad.oscommands.commands.Commands;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author SessonaD
  */
-public class CustomTerminalPopupAction extends AbstractAction{
+//@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.popup.CustomTerminalPopupAction")
+//@ActionRegistration(displayName = "#CTL_CustomTerminalPopupAction")
+//@ActionReferences({
+//    @ActionReference(path = "Shortcuts", name = "O-6")
+//})
+//@NbBundle.Messages("CTL_CustomTerminalPopupAction=Open shell in...")
+public class CustomTerminalPopupAction extends AbstractAction implements ActionListener{
     
     public CustomTerminalPopupAction() {
     }

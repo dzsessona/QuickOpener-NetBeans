@@ -10,8 +10,7 @@
             </file>
             <file name="com-sessonad-quickopener-actions-FileSystem.instance">
                 <!--com.sessonad.quickopener.actions.FileSystem-->
-                <attr
-                    bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_FileSystem" name="displayName"/>
+                <attr bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_FileSystem" name="displayName"/>
                 <attr methodvalue="org.openide.awt.Actions.context" name="instanceCreate"/>
                 <attr name="type" stringvalue="org.openide.loaders.DataObject"/>
                 <attr methodvalue="org.openide.awt.Actions.inject" name="delegate"/>
@@ -22,8 +21,7 @@
             </file>
             <file name="com-sessonad-quickopener-actions-Path.instance">
                 <!--com.sessonad.quickopener.actions.Path-->
-                <attr
-                    bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_Path" name="displayName"/>
+                <attr bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_Path" name="displayName"/>
                 <attr methodvalue="org.openide.awt.Actions.context" name="instanceCreate"/>
                 <attr name="type" stringvalue="org.openide.loaders.DataObject"/>
                 <attr methodvalue="org.openide.awt.Actions.inject" name="delegate"/>
@@ -34,8 +32,7 @@
             </file>
             <file name="com-sessonad-quickopener-actions-Terminal.instance">
                 <!--com.sessonad.quickopener.actions.Terminal-->
-                <attr
-                    bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_Terminal" name="displayName"/>
+                <attr bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_Terminal" name="displayName"/>
                 <attr methodvalue="org.openide.awt.Actions.context" name="instanceCreate"/>
                 <attr name="type" stringvalue="org.openide.loaders.DataObject"/>
                 <attr methodvalue="org.openide.awt.Actions.inject" name="delegate"/>
@@ -44,68 +41,79 @@
                 <attr name="iconBase" stringvalue="com/sessonad/quickopener/icons/terminal.png"/>
                 <attr boolvalue="false" name="noIconInMenu"/>
             </file>
+            <file name="com-sessonad-quickopener-actions-popup-CustomCommandPopupAction.instance">
+                <!--com.sessonad.quickopener.actions.popup.CustomCommandPopupAction-->
+                <attr bundlevalue="com.sessonad.quickopener.actions.popup.Bundle#CTL_CustomCommandPopupAction" name="displayName"/>
+                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
+                <attr name="delegate" newvalue="com.sessonad.quickopener.actions.popup.CustomCommandPopupAction"/>
+                <attr boolvalue="false" name="noIconInMenu"/>
+            </file>
+            <file name="com-sessonad-quickopener-actions-popup-CustomFileSystemPopupAction.instance">
+                <!--com.sessonad.quickopener.actions.popup.CustomFileSystemPopupAction-->
+                <attr bundlevalue="com.sessonad.quickopener.actions.popup.Bundle#CTL_CustomFileSystemPopupAction" name="displayName"/>
+                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
+                <attr name="delegate" newvalue="com.sessonad.quickopener.actions.popup.CustomFileSystemPopupAction"/>
+                <attr boolvalue="false" name="noIconInMenu"/>
+            </file>
+            <file name="com-sessonad-quickopener-actions-popup-CustomTerminalPopupAction.instance">
+                <!--com.sessonad.quickopener.actions.popup.CustomTerminalPopupAction-->
+                <attr bundlevalue="com.sessonad.quickopener.actions.popup.Bundle#CTL_CustomTerminalPopupAction" name="displayName"/>
+                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
+                <attr name="delegate" newvalue="com.sessonad.quickopener.actions.popup.CustomTerminalPopupAction"/>
+                <attr boolvalue="false" name="noIconInMenu"/>
+            </file>
         </folder>
     </folder>
-    <folder name="Menu">
+<!--    Removed from the file menu. <folder name="Menu">
         <folder name="File">
             <file name="com-sessonad-quickopener-actions-FileSystem.shadow">
-                <!--com.sessonad.quickopener.actions.FileSystem-->
+                com.sessonad.quickopener.actions.FileSystem
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-FileSystem.instance"/>
                 <attr intvalue="1419" name="position"/>
             </file>
             <file name="com-sessonad-quickopener-actions-Path.shadow">
-                <!--com.sessonad.quickopener.actions.Path-->
+                com.sessonad.quickopener.actions.Path
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Path.instance"/>
                 <attr intvalue="1422" name="position"/>
             </file>
             <file name="com-sessonad-quickopener-actions-Path-separatorAfter.instance">
-                <!--com.sessonad.quickopener.actions.Path-->
+                com.sessonad.quickopener.actions.Path
                 <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
                 <attr intvalue="1424" name="position"/>
             </file>
             <file name="com-sessonad-quickopener-actions-Terminal.shadow">
-                <!--com.sessonad.quickopener.actions.Terminal-->
+                com.sessonad.quickopener.actions.Terminal
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Terminal.instance"/>
                 <attr intvalue="1413" name="position"/>
             </file>
         </folder>
-    </folder>
+    </folder>-->
     <folder name="Toolbars">
         <folder name="QuickOpener">
             <file name="com-sessonad-quickopener-actions-FileSystem.shadow">
-                <!--com.sessonad.quickopener.actions.FileSystem-->
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-FileSystem.instance"/>
                 <attr intvalue="600" name="position"/>
             </file>
             <file name="com-sessonad-quickopener-actions-Path.shadow">
-                <!--com.sessonad.quickopener.actions.Path-->
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Path.instance"/>
                 <attr intvalue="700" name="position"/>
             </file>
             <file name="com-sessonad-quickopener-actions-Terminal.shadow">
-                <!--com.sessonad.quickopener.actions.Terminal-->
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Terminal.instance"/>
                 <attr intvalue="500" name="position"/>
             </file>
             <file name="com-sessonad-quickopener-actions-CustomCommand.shadow">
-                <!--com.sessonad.quickopener.actions.CustomCommand-->
                 <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-CustomCommand.instance"/>
                 <attr intvalue="800" name="position"/>
             </file>
         </folder>
     </folder>
     <folder name="Shortcuts">
-        <file name="O-2.shadow">
-            <!--com.sessonad.quickopener.actions.FileSystem-->
-            <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-FileSystem.instance"/>
-        </file>
-        <file name="O-3.shadow">
-            <!--com.sessonad.quickopener.actions.Path-->
-            <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Path.instance"/>
-        </file>
-        <file name="O-1.shadow">
-            <!--com.sessonad.quickopener.actions.Terminal-->
-            <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Terminal.instance"/>
-        </file>
+        <file name="O-2.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-FileSystem.instance"/></file>
+        <file name="O-3.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Path.instance"/></file>
+        <file name="O-1.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Terminal.instance"/> </file>       
+        <file name="O-4.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomCommandPopupAction.instance"/></file>
+        <file name="O-5.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomFileSystemPopupAction.instance"/></file>
+        <file name="O-6.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomTerminalPopupAction.instance"/></file> 
     </folder>
 </filesystem>

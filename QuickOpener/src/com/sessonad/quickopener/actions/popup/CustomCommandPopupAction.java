@@ -3,14 +3,26 @@ package com.sessonad.quickopener.actions.popup;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author SessonaD
  */
-public class CustomCommandPopupAction extends AbstractAction{
+//@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.popup.CustomCommandPopupAction")
+//@ActionRegistration(displayName = "#CTL_CustomCommandPopupAction")
+//@ActionReferences({
+//    @ActionReference(path = "Shortcuts", name = "O-4")
+//})
+//@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch cutom command...")
+public class CustomCommandPopupAction extends AbstractAction implements ActionListener{
     
     public CustomCommandPopupAction() {
     }
