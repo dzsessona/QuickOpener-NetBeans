@@ -20,7 +20,8 @@ public class PropertyTableModel extends AbstractTableModel{
     String[] columnNames= {"Name","Path"};
     Object[][] data=null;
 
-    public PropertyTableModel(String prefix) {
+    public PropertyTableModel(String prefix) {     
+        setColumnNames(prefix);
         try {
             List<QuickOpenerProperty> prefs = PrefsUtil.getAllMatching(prefix);
             this.data = new Object[prefs.size()][2];
@@ -30,6 +31,14 @@ public class PropertyTableModel extends AbstractTableModel{
             }
         } catch (BackingStoreException ex) {
             Exceptions.printStackTrace(ex);
+        }
+    }
+    
+    private void setColumnNames(String prefix){
+        if(prefix.equals("command")){
+            columnNames = new String[]{"Name","Command"};
+        }else{
+            columnNames = new String[]{"Name","Path"};
         }
     }
     
@@ -53,6 +62,7 @@ public class PropertyTableModel extends AbstractTableModel{
         return data[row][col];
     }
 
+    @Override
     public Class getColumnClass(int c) {
         return String.class;
     }
