@@ -31,6 +31,8 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     private final String cmdos=Commands.getPlatform().getOperatingSystem().getShellPrefix();
     private final String currentFile=PathFinder.getFileFromSelectedNode(false);
     private final String currentFolder = PathFinder.getFileFromSelectedNode(true);
+    private final String relativeFile=PathFinder.getRelativePathFromSelectedNode(false);
+    private final String relativeFolder = PathFinder.getRelativePathFromSelectedNode(true);
 
     /**
      * Creates new form DialogCustomCommand
@@ -110,9 +112,11 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         if(command.contains("${param5}"))command=command.replace("${param5}", p5text.getText());
         if(command.contains("${param6}"))command=command.replace("${param6}", p6text.getText()); 
         if(command.contains("${currentFile}") && currentFile!=null && !currentFile.isEmpty())command=command.replace("${currentFile}", currentFile);  
-        if(command.contains("${currentFolder}") && currentFolder!=null && !currentFolder.isEmpty())command=command.replace("${currentFolder}", currentFolder);  
+        if(command.contains("${currentFolder}") && currentFolder!=null && !currentFolder.isEmpty())command=command.replace("${currentFolder}", currentFolder); 
+        if(command.contains("${relativeFile}") && relativeFile!=null && !relativeFile.isEmpty())command=command.replace("${relativeFile}", relativeFile);  
+        if(command.contains("${relativeFolder}") && relativeFolder!=null && !relativeFolder.isEmpty())command=command.replace("${relativeFolder}", relativeFolder);  
     }
-    
+
     public String getCommand(){
         return command;
     }

@@ -65,6 +65,20 @@ public class PathFinder {
         }
     }
     
+    public static String getRelativePathFromSelectedNode(boolean isFolder){
+        try{
+            String filePath = getFileFromSelectedNode(isFolder);
+            String rootPath = getMainProjectRootPath();
+            if((filePath != null && !filePath.isEmpty())&&(rootPath != null && !rootPath.isEmpty())&&(filePath.contains(rootPath))){
+                return (filePath.substring(rootPath.length() + 1));                
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            return null;
+        }
+    }
+    
     public static File getMainProjectRoot(){
         try {
             Project project = OpenProjects.getDefault().getMainProject();
