@@ -104,6 +104,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        fileChooser = new javax.swing.JFileChooser();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         cmdTextField = new javax.swing.JTextField();
@@ -119,6 +120,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        browseButton = new javax.swing.JButton();
 
         setTitle(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.title")); // NOI18N
         setIconImage(ImageUtilities.loadImage("com/sessonad/quickopener/icons/folder-documents-icon.png"));
@@ -230,7 +232,17 @@ public class DialogueFileSelector extends javax.swing.JDialog {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sessonad/quickopener/icons/help.png"))); // NOI18N
         jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel10.text")); // NOI18N
-        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any path to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred places in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>");
+        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any path to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred places in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>"); // NOI18N
+
+        browseButton.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.browseButton.text")); // NOI18N
+        browseButton.setBorderPainted(false);
+        browseButton.setFocusPainted(false);
+        browseButton.setFocusable(false);
+        browseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,7 +252,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,10 +276,11 @@ public class DialogueFileSelector extends javax.swing.JDialog {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                                        .addComponent(cmdTextField)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(browseButton)))))
                         .addGap(14, 14, 14))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -289,7 +302,9 @@ public class DialogueFileSelector extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(browseButton)))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -371,6 +386,17 @@ public class DialogueFileSelector extends javax.swing.JDialog {
             cmdTextField.setText(selectioPath);
         }
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseButtonActionPerformed
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            if(file!=null){
+                cmdTextField.setText(file.getAbsolutePath());
+            }
+        }
+    }//GEN-LAST:event_browseButtonActionPerformed
     
     private void doClose(int retStatus) {
         returnStatus = retStatus;
@@ -428,8 +454,10 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton browseButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField cmdTextField;
+    private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
