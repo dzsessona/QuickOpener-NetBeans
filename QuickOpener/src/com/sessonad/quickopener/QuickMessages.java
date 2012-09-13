@@ -18,6 +18,9 @@ public enum QuickMessages {
     FOLDER_ADDED ("Folder added as favorite."),
     SEPARATOR_NULL ("Separator cannot be empty."),
     CUSTOM_SHELL ("Custom shell cannot be empty."),
+    NO_DEFAULT_COMMAND ("No default command set. Set it in tools -> options -> quickopener -> commands"),
+    NO_DEFAULT_PARAMETERS ("No files in the selection for this command."),
+    DEFAULT_COMMAND_PARAMETERS ("A default command cannot contain parameters."),
     NOT_IN_FILE_SYSTEM ("The file does not exists in the file system.");
     
     private String message;

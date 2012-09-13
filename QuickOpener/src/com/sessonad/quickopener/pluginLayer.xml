@@ -62,6 +62,13 @@
                 <attr name="delegate" newvalue="com.sessonad.quickopener.actions.popup.CustomTerminalPopupAction"/>
                 <attr boolvalue="false" name="noIconInMenu"/>
             </file>
+            <file name="com-sessonad-quickopener-actions-RunDefaultCommand.instance">
+                <!--com.sessonad.quickopener.actions.RunDefaultCommand-->
+                <attr bundlevalue="com.sessonad.quickopener.actions.Bundle#CTL_RunDefaultCommand" name="displayName"/>
+                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
+                <attr name="delegate" newvalue="com.sessonad.quickopener.actions.RunDefaultCommand"/>
+                <attr boolvalue="false" name="noIconInMenu"/>
+            </file>
         </folder>
     </folder>
 <!--    Removed from the file menu. <folder name="Menu">
@@ -115,6 +122,7 @@
         <file name="O-4.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomCommandPopupAction.instance"/></file>
         <file name="O-5.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomFileSystemPopupAction.instance"/></file>
         <file name="O-6.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-popup-CustomTerminalPopupAction.instance"/></file> 
+        <file name="O-7.shadow"><attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-RunDefaultCommand.instance"/></file>   
     </folder>
 <!--    <folder name="OptionsDialog">
         <folder name="Advanced">

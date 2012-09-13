@@ -1,6 +1,5 @@
 package com.sessonad.quickopener.actions;
 
-import com.sessonad.oscommands.detector.OperatingSystem;
 import com.sessonad.quickopener.PathFinder;
 import com.sessonad.quickopener.QuickMessages;
 import com.sessonad.quickopener.prefs.PrefsUtil;
