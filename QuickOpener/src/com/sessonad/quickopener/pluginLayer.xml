@@ -71,30 +71,6 @@
             </file>
         </folder>
     </folder>
-<!--    Removed from the file menu. <folder name="Menu">
-        <folder name="File">
-            <file name="com-sessonad-quickopener-actions-FileSystem.shadow">
-                com.sessonad.quickopener.actions.FileSystem
-                <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-FileSystem.instance"/>
-                <attr intvalue="1419" name="position"/>
-            </file>
-            <file name="com-sessonad-quickopener-actions-Path.shadow">
-                com.sessonad.quickopener.actions.Path
-                <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Path.instance"/>
-                <attr intvalue="1422" name="position"/>
-            </file>
-            <file name="com-sessonad-quickopener-actions-Path-separatorAfter.instance">
-                com.sessonad.quickopener.actions.Path
-                <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
-                <attr intvalue="1424" name="position"/>
-            </file>
-            <file name="com-sessonad-quickopener-actions-Terminal.shadow">
-                com.sessonad.quickopener.actions.Terminal
-                <attr name="originalFile" stringvalue="Actions/Tools/com-sessonad-quickopener-actions-Terminal.instance"/>
-                <attr intvalue="1413" name="position"/>
-            </file>
-        </folder>
-    </folder>-->
     <folder name="Toolbars">
         <folder name="QuickOpener">
             <file name="com-sessonad-quickopener-actions-FileSystem.shadow">
