@@ -22,7 +22,7 @@ import org.openide.util.NbBundle;
 //@ActionReferences({
 //    @ActionReference(path = "Shortcuts", name = "O-6")
 //})
-//@NbBundle.Messages("CTL_CustomTerminalPopupAction=Open shell in...")
+@NbBundle.Messages("CTL_CustomTerminalPopupAction=Open shell in...")
 public class CustomTerminalPopupAction extends AbstractAction implements ActionListener{
     
     public CustomTerminalPopupAction() {

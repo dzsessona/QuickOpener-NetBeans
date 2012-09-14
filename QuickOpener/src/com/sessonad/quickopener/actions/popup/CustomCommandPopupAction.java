@@ -21,7 +21,7 @@ import org.openide.util.NbBundle;
 //@ActionReferences({
 //    @ActionReference(path = "Shortcuts", name = "O-4")
 //})
-//@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch cutom command...")
+@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch cutom command...")
 public class CustomCommandPopupAction extends AbstractAction implements ActionListener{
     
     public CustomCommandPopupAction() {

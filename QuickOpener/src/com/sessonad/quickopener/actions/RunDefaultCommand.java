@@ -32,7 +32,7 @@ import org.openide.util.NbBundle.Messages;
 //@ActionReferences({
 //    @ActionReference(path = "Shortcuts", name = "O-7")
 //})
-//@NbBundle.Messages("CTL_RunDefaultCommand=Run default command...")
+@NbBundle.Messages("CTL_RunDefaultCommand=Run default command...")
 public class RunDefaultCommand implements ActionListener{
     
             

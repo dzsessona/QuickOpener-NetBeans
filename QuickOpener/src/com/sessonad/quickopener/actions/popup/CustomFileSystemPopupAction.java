@@ -23,7 +23,7 @@ import org.openide.util.NbBundle;
 //@ActionReferences({
 //    @ActionReference(path = "Shortcuts", name = "O-5")
 //})
-//@NbBundle.Messages("CTL_CustomFileSystemPopupAction=Open filesystem in...")
+@NbBundle.Messages("CTL_CustomFileSystemPopupAction=Open filesystem in...")
 public class CustomFileSystemPopupAction extends AbstractAction implements ActionListener{
     
     public CustomFileSystemPopupAction() {
