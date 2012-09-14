@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-OpenIDE-Module: com.sessonad.quickopener/1207
+OpenIDE-Module: com.sessonad.quickopener/1209
 OpenIDE-Module-Layer: com/sessonad/quickopener/pluginLayer.xml
 OpenIDE-Module-Localizing-Bundle: com/sessonad/quickopener/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
