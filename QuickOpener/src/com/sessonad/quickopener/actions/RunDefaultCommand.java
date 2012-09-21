@@ -60,11 +60,16 @@ public class RunDefaultCommand implements ActionListener{
                 return;
             }
             try{               
-                String msg=QuickMessages.CONFIRM_COMMAND_PREFIX+command+QuickMessages.CONFIRM_COMMAND_SUFFIX;
-                NotifyDescriptor d = new NotifyDescriptor.Confirmation(msg,"Confirm",NotifyDescriptor.OK_CANCEL_OPTION);
-                if(NotifyDescriptor.OK_OPTION == DialogDisplayer.getDefault().notify(d)){
+                String msg = QuickMessages.CONFIRM_COMMAND_PREFIX + command + QuickMessages.CONFIRM_COMMAND_SUFFIX;
+                boolean nedToConfirm = Boolean.parseBoolean((PrefsUtil.load(null,"confirmationDialogue","true")).getValue());
+                if (!nedToConfirm) {
                     Runtime.getRuntime().exec(command);
-                }                
+                } else {
+                    NotifyDescriptor d = new NotifyDescriptor.Confirmation(msg, "Confirm", NotifyDescriptor.OK_CANCEL_OPTION);
+                    if (NotifyDescriptor.OK_OPTION == DialogDisplayer.getDefault().notify(d)) {
+                        Runtime.getRuntime().exec(command);
+                    }
+                }                                
             }catch(Exception ex){}            
         }
     }
