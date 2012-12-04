@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.apisupport.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
-            <code-name-base>com.sessonad.quickopener</code-name-base>
+            <code-name-base>me.dsnet.quickopener</code-name-base>
             <standalone/>
             <module-dependencies>
                 <dependency>
@@ -108,10 +108,10 @@
                 </dependency>
             </module-dependencies>
             <public-packages>
-                <package>com.sessonad.quickopener</package>
-                <package>com.sessonad.quickopener.actions</package>
-                <package>com.sessonad.quickopener.actions.popup</package>
-                <package>com.sessonad.quickopener.prefs</package>
+                <package>me.dsnet.quickopener</package>
+                <package>me.dsnet.quickopener.actions</package>
+                <package>me.dsnet.quickopener.actions.popup</package>
+                <package>me.dsnet.quickopener.prefs</package>
             </public-packages>
             <class-path-extension>
                 <runtime-relative-path>ext/OSCommands.jar</runtime-relative-path>

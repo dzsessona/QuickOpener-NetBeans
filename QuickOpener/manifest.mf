@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-OpenIDE-Module: com.sessonad.quickopener/1209
-OpenIDE-Module-Implementation-Version: 1
-OpenIDE-Module-Layer: com/sessonad/quickopener/pluginLayer.xml
-OpenIDE-Module-Localizing-Bundle: com/sessonad/quickopener/Bundle.properties
+OpenIDE-Module: me.dsnet.quickopener/1212
+OpenIDE-Module-Implementation-Version: 2
+OpenIDE-Module-Layer: me/dsnet/quickopener/pluginLayer.xml
+OpenIDE-Module-Localizing-Bundle: me/dsnet/quickopener/Bundle.properties
 
