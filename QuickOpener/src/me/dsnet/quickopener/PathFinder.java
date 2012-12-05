@@ -89,31 +89,35 @@ public class PathFinder {
     private static File getActiveFileFromDataObject(DataObject dataObj,boolean isFolder){        
         if(dataObj == null){ return null;}
         else{
-            try{            
-                if((dataObj instanceof DataFolder)){
-                    DataFolder df =(DataFolder) dataObj;                
-                    FileObject fobj = df.getPrimaryFile(); 
-                    File found= getFileFromFileObject(fobj);
-                    if(found == null){
-                        return null;
-                    }else{
-                         return isFolder? found.getParentFile():found;
+            try{  
+                File toReturn = getFileFromDataObject(dataObj,isFolder);
+                if (toReturn != null && toReturn.exists()) {
+                    return toReturn;
+                } else {
+                    if ((dataObj instanceof DataFolder)) {
+                        DataFolder df = (DataFolder) dataObj;
+                        FileObject fobj = df.getPrimaryFile();
+                        File found = getFileFromFileObject(fobj);
+                        if (found == null) {
+                            return null;
+                        } else {
+                            return isFolder ? found.getParentFile() : found;
+                        }
+                    } else if (dataObj instanceof MultiDataObject) {
+                        MultiDataObject mdo = (MultiDataObject) dataObj;
+                        FileObject fobj = mdo.getPrimaryFile();
+                        File found = getFileFromFileObject(fobj);
+                        if (found == null) {
+                            return null;
+                        } else {
+                            return isFolder ? found.getParentFile() : found;
+                        }
                     }
-                }else if (dataObj instanceof MultiDataObject){
-                    MultiDataObject mdo = (MultiDataObject) dataObj;
-                    FileObject fobj = mdo.getPrimaryFile(); 
-                    File found= getFileFromFileObject(fobj);
-                    if(found == null){
-                        return null;
-                    }else{
-                         return isFolder? found.getParentFile():found;
-                    }
-                }else{                    
-                    return getFileFromDataObject(dataObj,isFolder);
-                }            
+                }                           
             }catch(Exception e){
                 return null;
             }
+            return null;
         }
     }
     
