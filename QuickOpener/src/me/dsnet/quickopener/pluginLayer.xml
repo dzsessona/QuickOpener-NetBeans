@@ -71,6 +71,61 @@
             </file>
         </folder>
     </folder>
+    <!--adds actions to any folder node-->
+    <folder name="Loaders">
+        <folder name="folder">
+            <folder name="any">
+                <folder name="Actions">
+                    <file name="me-dsnet-quickopener-actions-TerminalSeparator.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="9000"/>
+                    </file>
+                    <file name="me-dsnet-quickopener-actions-Terminal.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-Terminal.instance"/>
+                        <attr intvalue="9100" name="position"/>
+                    </file>
+                    <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-FileSystem.instance"/>
+                        <attr intvalue="9200" name="position"/>
+                    </file>
+                    <file name="me-dsnet-quickopener-actions-Path.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-Path.instance"/>
+                        <attr intvalue="9300" name="position"/>
+                    </file>
+                    <file name="me-dsnet-quickopener-actions-CustomCommand.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-CustomCommand.instance"/>
+                        <attr intvalue="9400" name="position"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <!--adds actions to any project node-->
+    <folder name="Projects">
+        <folder name="Actions">
+            <file name="me-dsnet-quickopener-actions-TerminalSeparator.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="9000"/>
+            </file>
+            <file name="me-dsnet-quickopener-actions-Terminal.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-Terminal.instance"/>
+                <attr intvalue="9100" name="position"/>
+            </file>
+            <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-FileSystem.instance"/>
+                <attr intvalue="9200" name="position"/>
+            </file>
+            <file name="me-dsnet-quickopener-actions-Path.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-Path.instance"/>
+                <attr intvalue="9300" name="position"/>
+            </file>
+            <file name="me-dsnet-quickopener-actions-CustomCommand.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-CustomCommand.instance"/>
+                <attr intvalue="9400" name="position"/>
+            </file>
+        </folder>
+    </folder>
+            
     <folder name="Toolbars">
         <folder name="QuickOpener">
             <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
