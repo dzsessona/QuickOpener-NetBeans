@@ -12,6 +12,7 @@ import org.openide.filesystems.FileSystem;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataFolder;
 import org.openide.loaders.DataObject; 
+import org.openide.loaders.DataShadow;
 import org.openide.loaders.MultiDataObject;
 import org.openide.nodes.Node;
 import org.openide.windows.TopComponent;
@@ -143,7 +144,7 @@ public class PathFinder {
     
     private static File getFileFromDataObject(DataObject dataObj, boolean isFolder) {
         try {
-            File current = FileUtil.toFile(dataObj.getPrimaryFile());            
+            File current = FileUtil.toFile(getRealDataObject(dataObj).getPrimaryFile());            
             if (!isFolder) {
                 return current;
             } else {
@@ -161,13 +162,30 @@ public class PathFinder {
             Node[] nodes = topActive.getActivatedNodes();
             if (nodes.length == 1) {
                 DataObject dataObj = nodes[0].getLookup().lookup(DataObject.class);
-                return getActiveFileFromDataObject(dataObj, isFolder);
+                return getActiveFileFromDataObject(getRealDataObject(dataObj), isFolder);
             } else {
                 return null;
             }
         } catch (Exception e) {
             return null;
         }
+    }
+
+    /**
+     * Gets the DataObject and also supports DataObjects from the Favorites
+     * view.
+     *
+     * @param dataObject
+     * @return the dataObject OR the dataObject within DataShadow
+     * @author markiewb
+     */
+    public static DataObject getRealDataObject(DataObject dataObject) {
+        //support nodes in favorite view
+        if (dataObject instanceof DataShadow) {
+            DataShadow dataShadow = (DataShadow) dataObject;
+            return dataShadow.getOriginal();
+        }
+        return dataObject;
     }
     
 }

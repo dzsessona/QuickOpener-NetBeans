@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionRegistration;
 import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
@@ -17,19 +19,22 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
-@Messages("CTL_Terminal=Open in the default OS terminal")
-public final class Terminal implements ActionListener {
-    
-    private final DataObject dataObj;
 
-    public Terminal(DataObject dataObj) {
-        this.dataObj = dataObj;
-    }
+@ActionID(
+        category = "Tools",
+        id = "me.dsnet.quickopener.actions.Terminal"
+        )
+@ActionRegistration(
+        iconBase = "me/dsnet/quickopener/icons/terminal.png",
+        displayName = "#CTL_Terminal"
+        )
+@Messages("CTL_Terminal=Open in the default OS terminal")
+public final class Terminal extends AbstractDataObjectAction  {
     
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            String path=PathFinder.getActivePath(dataObj,true);
+            String path=PathFinder.getActivePath(getDataObject(), true);
             if(path == null){
                 NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
