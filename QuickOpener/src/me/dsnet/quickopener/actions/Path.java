@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionRegistration;
 import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
 
@@ -19,22 +21,24 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
+@ActionID(
+        category = "Tools",
+        id = "me.dsnet.quickopener.actions.Path"
+        )
+@ActionRegistration(
+        iconBase = "me/dsnet/quickopener/icons/path.png",
+        displayName = "#CTL_Path"
+        )
 @Messages("CTL_Path=Copy path in the clipboard")
-public final class Path implements ActionListener {
+public final class Path extends AbstractDataObjectAction  {
 
-    private final DataObject dataObj;
-
-    public Path(DataObject dataObj) {
-        this.dataObj = dataObj;
-    }
-    
     private String getOSSeparator(){
         return System.getProperty("file.separator");
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String path=PathFinder.getActivePath(dataObj,false);  
+        String path=PathFinder.getActivePath(getDataObject(), false);  
         if (path == null) {            
             NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
