@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.swing.*;
+import static me.dsnet.quickopener.LAFUtils.convertToLink;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.ImageUtilities;
@@ -41,17 +42,17 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         mainProjectPath=PathFinder.getMainProjectRootPath();
         if(mainProjectPath!=null){
             jLabel8.setEnabled(true);
-            jLabel8.setText(getPathLongerThan(mainProjectPath));
+            jLabel8.setText(convertToLink(getPathLongerThan(mainProjectPath)));
         }
         selectioPath=PathFinder.getActivePath(null,false);
         if(selectioPath!=null){
             jLabel9.setEnabled(true);
-            jLabel9.setText(getPathLongerThan(selectioPath));
+            jLabel9.setText(convertToLink(getPathLongerThan(selectioPath)));
         }
         mynetbeansPath=PathFinder.getMyNetbeansConfPath();
         if(mynetbeansPath!=null){
             jLabel7.setEnabled(true);
-            jLabel7.setText(getPathLongerThan(mynetbeansPath));
+            jLabel7.setText(convertToLink(getPathLongerThan(mynetbeansPath)));
         }
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";
@@ -161,8 +162,6 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);
-        jTable2.setBackground(new java.awt.Color(244, 244, 244));
-        jTable2.setForeground(new java.awt.Color(0, 0, 204));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -176,10 +175,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         ));
         jTable2.setFillsViewportHeight(true);
         jTable2.setFocusable(false);
-        jTable2.setGridColor(new java.awt.Color(204, 204, 204));
         jTable2.setRequestFocusEnabled(false);
-        jTable2.setSelectionBackground(new java.awt.Color(244, 244, 244));
-        jTable2.setSelectionForeground(new java.awt.Color(51, 0, 153));
         jTable2.setShowVerticalLines(false);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -189,22 +185,17 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTable2);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel3.text")); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel4.text")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel5.text")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel6.text")); // NOI18N
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel7.text")); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -212,7 +203,6 @@ public class DialogueFileSelector extends javax.swing.JDialog {
             }
         });
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel8.text")); // NOI18N
         jLabel8.setEnabled(false);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,7 +211,6 @@ public class DialogueFileSelector extends javax.swing.JDialog {
             }
         });
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 204));
         jLabel9.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel9.text")); // NOI18N
         jLabel9.setEnabled(false);
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,10 +221,9 @@ public class DialogueFileSelector extends javax.swing.JDialog {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/quickopener/icons/help.png"))); // NOI18N
         jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.jLabel10.text")); // NOI18N
-        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any path to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred places in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>"); // NOI18N
+        jLabel10.setToolTipText("<html><a href=\"#\">Click on any path to set the input box.</a><br/>\n<br/>\nYou can customize the your preferred places in:<br/>\n<a href=\"#\">Tools > Options > Miscellaneous > QuickOpener</a>\n</html>"); // NOI18N
 
         browseButton.setText(org.openide.util.NbBundle.getMessage(DialogueFileSelector.class, "DialogueFileSelector.browseButton.text")); // NOI18N
-        browseButton.setBorderPainted(false);
         browseButton.setFocusPainted(false);
         browseButton.setFocusable(false);
         browseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -250,45 +238,39 @@ public class DialogueFileSelector extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel4))
-                                        .addGap(14, 14, 14))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cmdTextField)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(browseButton)))))
-                        .addGap(14, 14, 14))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)))
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cmdTextField)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(browseButton))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(okButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cancelButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10)))))
                 .addContainerGap())
         );
 
@@ -307,26 +289,25 @@ public class DialogueFileSelector extends javax.swing.JDialog {
                             .addComponent(browseButton)))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(okButton))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(okButton)
+                    .addComponent(cancelButton)
                     .addComponent(jLabel10))
                 .addContainerGap())
         );

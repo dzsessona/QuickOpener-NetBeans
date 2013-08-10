@@ -11,6 +11,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="closeDialog"/>
@@ -34,27 +35,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" pref="61" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdTextField" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cmdTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -68,7 +61,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="63" max="32767" attributes="0"/>
-                              <Component id="okButton" linkSize="1" min="-2" pref="67" max="-2" attributes="0"/>
+                              <Component id="okButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cancelButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -80,11 +73,16 @@
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="124" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" pref="77" max="-2" attributes="0"/>
@@ -99,24 +97,24 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="167" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="jLabel10" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cancelButton" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="okButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="okButton" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelButton" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="2" attributes="0">
+              <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jCheckBox3" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCheckBox1" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCheckBox2" linkSize="2" alignment="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,7 +125,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/actions/popup/Bundle.properties" key="DialogCustomCommandRun.okButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <BindingProperties>
@@ -146,7 +143,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/actions/popup/Bundle.properties" key="DialogCustomCommandRun.cancelButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
@@ -189,12 +185,6 @@
         <Component class="javax.swing.JTable" name="jTable2">
           <Properties>
             <Property name="autoCreateRowSorter" type="boolean" value="true"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f4" green="f4" red="f4" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
                 <Column editable="true" title="Title 1" type="java.lang.Object"/>
@@ -205,16 +195,7 @@
             </Property>
             <Property name="fillsViewportHeight" type="boolean" value="true"/>
             <Property name="focusable" type="boolean" value="false"/>
-            <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
-            <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f4" green="f4" red="f4" type="rgb"/>
-            </Property>
-            <Property name="selectionForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="0" red="33" type="rgb"/>
-            </Property>
             <Property name="showVerticalLines" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -227,9 +208,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/actions/popup/Bundle.properties" key="DialogCustomCommandRun.jLabel3.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -244,7 +222,7 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/actions/popup/Bundle.properties" key="DialogCustomCommandRun.jLabel10.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;span color=&quot;blue&quot;&gt;Click on any command to set the input box.&lt;/span&gt;&lt;br/&gt;&#xa;&lt;br/&gt;&#xa;You can customize the your preferred commands in:&lt;br/&gt;&#xa;&lt;span color=&quot;blue&quot;&gt;Tools &gt; Options &gt; Miscellaneous &gt; QuickOpener&#xa;&lt;/html&gt;" noResource="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;a href=&quot;#&quot;&gt;Click on any command to set the input box.&lt;/a&gt;&lt;br/&gt;&#xa;&lt;br/&gt;&#xa;You can customize the your preferred commands in:&lt;br/&gt;&#xa;&lt;a href=&quot;#&quot;&gt;Tools &gt; Options &gt; Miscellaneous &gt; QuickOpener&lt;/a&gt;&#xa;&lt;/html&gt;" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox2">
@@ -265,7 +243,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/actions/popup/Bundle.properties" key="DialogCustomCommandRun.jLabel4.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">

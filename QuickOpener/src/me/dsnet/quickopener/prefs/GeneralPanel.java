@@ -73,7 +73,6 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(defaultButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.defaultButton.text")); // NOI18N
         defaultButton.setToolTipText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.defaultButton.toolTipText")); // NOI18N
-        defaultButton.setBorderPainted(false);
         defaultButton.setFocusPainted(false);
         defaultButton.setFocusable(false);
         defaultButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +82,6 @@ public class GeneralPanel extends javax.swing.JPanel {
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(applyButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyButton.text")); // NOI18N
-        applyButton.setBorderPainted(false);
         applyButton.setFocusable(false);
         applyButton.setRequestFocusEnabled(false);
         applyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +102,6 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(defaultCShellButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.defaultCShellButton.text")); // NOI18N
         defaultCShellButton.setToolTipText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.defaultCShellButton.toolTipText")); // NOI18N
-        defaultCShellButton.setBorderPainted(false);
         defaultCShellButton.setFocusPainted(false);
         defaultCShellButton.setFocusable(false);
         defaultCShellButton.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +111,6 @@ public class GeneralPanel extends javax.swing.JPanel {
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(applyCShellButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyCShellButton.text")); // NOI18N
-        applyCShellButton.setBorderPainted(false);
         applyCShellButton.setFocusable(false);
         applyCShellButton.setRequestFocusEnabled(false);
         applyCShellButton.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +127,6 @@ public class GeneralPanel extends javax.swing.JPanel {
         confirmationCheckBox.setFocusPainted(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(applyConfirmationButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyConfirmationButton.text")); // NOI18N
-        applyConfirmationButton.setBorderPainted(false);
         applyConfirmationButton.setFocusable(false);
         applyConfirmationButton.setRequestFocusEnabled(false);
         applyConfirmationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +137,6 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(defaultConfirmationButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.defaultConfirmationButton.text")); // NOI18N
         defaultConfirmationButton.setToolTipText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.defaultConfirmationButton.toolTipText")); // NOI18N
-        defaultConfirmationButton.setBorderPainted(false);
         defaultConfirmationButton.setFocusPainted(false);
         defaultConfirmationButton.setFocusable(false);
         defaultConfirmationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +195,7 @@ public class GeneralPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(defaultButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(defaultButton)
                     .addComponent(applyButton)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -212,7 +206,7 @@ public class GeneralPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(cShellLabel)
                     .addComponent(jLabel8)
-                    .addComponent(defaultCShellButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(defaultCShellButton)
                     .addComponent(applyCShellButton)
                     .addComponent(cshellTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,9 +219,9 @@ public class GeneralPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(defaultConfirmationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(defaultConfirmationButton)
                             .addComponent(applyConfirmationButton))))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
