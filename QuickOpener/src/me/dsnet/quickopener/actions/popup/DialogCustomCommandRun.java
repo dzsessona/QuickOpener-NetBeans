@@ -180,7 +180,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         });
 
         okButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.okButton.text")); // NOI18N
-        okButton.setBorderPainted(false);
         okButton.setFocusPainted(false);
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, cmdTextField, org.jdesktop.beansbinding.ELProperty.create("${not empty text}"), okButton, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
@@ -193,7 +192,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         });
 
         cancelButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.cancelButton.text")); // NOI18N
-        cancelButton.setBorderPainted(false);
         cancelButton.setFocusPainted(false);
         cancelButton.setRequestFocusEnabled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -211,8 +209,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);
-        jTable2.setBackground(new java.awt.Color(244, 244, 244));
-        jTable2.setForeground(new java.awt.Color(0, 0, 204));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -226,10 +222,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         ));
         jTable2.setFillsViewportHeight(true);
         jTable2.setFocusable(false);
-        jTable2.setGridColor(new java.awt.Color(204, 204, 204));
         jTable2.setRequestFocusEnabled(false);
-        jTable2.setSelectionBackground(new java.awt.Color(244, 244, 244));
-        jTable2.setSelectionForeground(new java.awt.Color(51, 0, 153));
         jTable2.setShowVerticalLines(false);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -239,12 +232,11 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTable2);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel3.text")); // NOI18N
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/quickopener/icons/help.png"))); // NOI18N
         jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel10.text")); // NOI18N
-        jLabel10.setToolTipText("<html><span color=\"blue\">Click on any command to set the input box.</span><br/>\n<br/>\nYou can customize the your preferred commands in:<br/>\n<span color=\"blue\">Tools > Options > Miscellaneous > QuickOpener\n</html>"); // NOI18N
+        jLabel10.setToolTipText("<html><a href=\"#\">Click on any command to set the input box.</a><br/>\n<br/>\nYou can customize the your preferred commands in:<br/>\n<a href=\"#\">Tools > Options > Miscellaneous > QuickOpener</a>\n</html>"); // NOI18N
 
         jCheckBox2.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox2.text")); // NOI18N
         jCheckBox2.setFocusPainted(false);
@@ -257,7 +249,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         });
 
         jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jLabel4.text")); // NOI18N
-        jLabel4.setEnabled(false);
 
         jCheckBox1.setText(org.openide.util.NbBundle.getMessage(DialogCustomCommandRun.class, "DialogCustomCommandRun.jCheckBox1.text")); // NOI18N
         jCheckBox1.setFocusPainted(false);
@@ -490,21 +481,16 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmdTextField)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmdTextField)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(50, 50, 50))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, 0))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -517,13 +503,17 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckBox3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(okButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cancelButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10))
                             .addComponent(jScrollPane1))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, okButton});
@@ -543,21 +533,24 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(okButton)
+                    .addComponent(cancelButton)
+                    .addComponent(jLabel10))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
+                .addGap(350, 350, 350)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
-                        .addContainerGap())
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(okButton)
-                            .addComponent(jLabel4)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox3)))))
+                    .addComponent(jCheckBox3, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.CENTER))
+                .addGap(12, 12, 12))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, jCheckBox1, jCheckBox2, jCheckBox3, jLabel10, jLabel4, okButton});
 
         getRootPane().setDefaultButton(okButton);
 
