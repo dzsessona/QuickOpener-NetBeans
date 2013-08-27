@@ -283,12 +283,14 @@ public class CommandsPanel extends javax.swing.JPanel {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         if (evt.getClickCount() == 1) {
-            final int thisrow=jTable2.getSelectedRow();
-            final int row = jTable2.getRowSorter().convertRowIndexToModel(thisrow);
-            String description = (String) jTable2.getModel().getValueAt(row, 0);
-            String command = (String) jTable2.getModel().getValueAt(row, 1);
-            cmddescription.setText(description);
-            cmdvalue.setText(command);
+            final int thisrow = jTable2.getSelectedRow();
+            if (-1 != thisrow) {
+                final int row = jTable2.getRowSorter().convertRowIndexToModel(thisrow);
+                String description = (String) jTable2.getModel().getValueAt(row, 0);
+                String command = (String) jTable2.getModel().getValueAt(row, 1);
+                cmddescription.setText(description);
+                cmdvalue.setText(command);
+            }
         }
     }//GEN-LAST:event_jTable2MouseClicked
 

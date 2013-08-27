@@ -347,10 +347,12 @@ public class DialogCustomFileSystem extends javax.swing.JDialog {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         if (evt.getClickCount() == 1) {
-            final int thisrow=jTable2.getSelectedRow();
-            final int row = jTable2.getRowSorter().convertRowIndexToModel(thisrow);
-            String path = (String) jTable2.getModel().getValueAt(row, 1);
-            cmdTextField.setText(path);
+            final int thisrow = jTable2.getSelectedRow();
+            if (-1 != thisrow) {
+                final int row = jTable2.getRowSorter().convertRowIndexToModel(thisrow);
+                String path = (String) jTable2.getModel().getValueAt(row, 1);
+                cmdTextField.setText(path);
+            }
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
