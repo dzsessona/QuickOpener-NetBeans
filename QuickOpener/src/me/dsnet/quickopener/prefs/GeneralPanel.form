@@ -99,7 +99,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="defaultButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="defaultButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="applyButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -111,7 +111,7 @@
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cShellLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="defaultCShellButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="defaultCShellButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="applyCShellButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cshellTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -127,12 +127,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="defaultConfirmationButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="defaultConfirmationButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="applyConfirmationButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="174" max="32767" attributes="0"/>
+              <EmptySpace pref="173" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,7 +160,6 @@
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/prefs/Bundle.properties" key="GeneralPanel.defaultButton.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -173,7 +172,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/prefs/Bundle.properties" key="GeneralPanel.applyButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
@@ -224,7 +222,6 @@
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/prefs/Bundle.properties" key="GeneralPanel.defaultCShellButton.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -237,7 +234,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/prefs/Bundle.properties" key="GeneralPanel.applyCShellButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
@@ -272,7 +268,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/prefs/Bundle.properties" key="GeneralPanel.applyConfirmationButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
@@ -288,7 +283,6 @@
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="me/dsnet/quickopener/prefs/Bundle.properties" key="GeneralPanel.defaultConfirmationButton.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
