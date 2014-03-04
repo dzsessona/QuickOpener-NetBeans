@@ -17,7 +17,7 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
-@Messages("CTL_Terminal=Open in the default OS terminal")
+@Messages("CTL_Terminal=Open in terminal")
 public final class Terminal implements ActionListener {
     
     private final DataObject dataObj;

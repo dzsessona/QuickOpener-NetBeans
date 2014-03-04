@@ -16,7 +16,7 @@ import org.openide.util.NbBundle.Messages;
  *
  * @author SessonaD
  */
-@Messages("CTL_FileSystem=Open in the OS file system browser")
+@Messages("CTL_FileSystem=Open in file manager")
 public final class FileSystem implements ActionListener {
 
     private final DataObject dataObj;
