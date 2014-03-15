@@ -7,6 +7,7 @@ import me.dsnet.quickopener.prefs.PrefsUtil;
 import me.dsnet.quickopener.prefs.QuickOpenerProperty;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.loaders.DataObject;
@@ -16,6 +17,7 @@ import org.openide.util.NbBundle.Messages;
 /**
  *
  * @author SessonaD
+ * @author markiewb (contributor)
  */
 @Messages("CTL_Terminal=Open in Terminal")
 public final class Terminal implements ActionListener {
@@ -43,10 +45,23 @@ public final class Terminal implements ActionListener {
                 customShellOpen(customShell.getValue(),path);
             }            
         } catch (Exception ex) {} 
-    }
+        } 
     
-    private void customShellOpen(String customShellPrefix, String path)throws Exception{
-        String fullCommand = customShellPrefix + path;
-        Runtime.getRuntime().exec(fullCommand);
+    private void customShellOpen(String customShell, String workingDir) throws Exception {
+        String shellTitle = "";
+        String fullCommand;
+        if (isWindows()) {
+            //support git bash this way
+            //cmd /c start /D workingDIR "" D:\tools\Git\bin\sh.exe --login -i
+            fullCommand = String.format("cmd /c start /D %s \"%s\" %s", workingDir, shellTitle, customShell);
+        } else {
+            fullCommand = customShell;
+        }
+
+        Runtime.getRuntime().exec(fullCommand, null, new File(workingDir));
+    }
+
+    private static boolean isWindows() {
+        return System.getProperty("os.name").toLowerCase().contains("windows");
     }
 }
