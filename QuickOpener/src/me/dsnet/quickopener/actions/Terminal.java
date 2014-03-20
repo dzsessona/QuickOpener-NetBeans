@@ -12,6 +12,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.Utilities;
 
 
 /**
@@ -50,7 +51,7 @@ public final class Terminal implements ActionListener {
     private void customShellOpen(String customShell, String workingDir) throws Exception {
         String shellTitle = "";
         String fullCommand;
-        if (isWindows()) {
+        if (Utilities.isWindows()) {
             //support git bash this way
             //cmd /c start /D workingDIR "" D:\tools\Git\bin\sh.exe --login -i
             fullCommand = String.format("cmd /c start /D %s \"%s\" %s", workingDir, shellTitle, customShell);
@@ -61,7 +62,4 @@ public final class Terminal implements ActionListener {
         Runtime.getRuntime().exec(fullCommand, null, new File(workingDir));
     }
 
-    private static boolean isWindows() {
-        return System.getProperty("os.name").toLowerCase().contains("windows");
-    }
 }
