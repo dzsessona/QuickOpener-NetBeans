@@ -7,6 +7,7 @@ package me.dsnet.quickopener.prefs;
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public final class QuickOpenerPanel extends javax.swing.JPanel {
 
     private final QuickOpenerOptionsPanelController controller;

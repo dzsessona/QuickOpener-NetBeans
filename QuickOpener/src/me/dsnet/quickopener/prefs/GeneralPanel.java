@@ -24,6 +24,7 @@ import org.openide.util.NbBundle;
  *
  * @author SessonaD
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class GeneralPanel extends javax.swing.JPanel {
 
     /**

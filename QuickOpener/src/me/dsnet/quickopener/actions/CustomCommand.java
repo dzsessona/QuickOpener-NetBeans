@@ -4,17 +4,17 @@
  */
 package me.dsnet.quickopener.actions;
 
-import me.dsnet.quickopener.actions.popup.CustomCommandPopupAction;
-import me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction;
-import me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction;
 import java.awt.Component;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
+import me.dsnet.quickopener.actions.popup.CustomCommandPopupAction;
+import me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction;
+import me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction;
 import org.openide.awt.DropDownButtonFactory;
-import org.openide.util.ImageUtilities;
+import org.openide.util.*;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.actions.Presenter;
 

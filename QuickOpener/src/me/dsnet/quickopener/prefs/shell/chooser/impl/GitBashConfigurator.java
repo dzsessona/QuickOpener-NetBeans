@@ -8,8 +8,7 @@ package me.dsnet.quickopener.prefs.shell.chooser.impl;
 import java.io.File;
 import javax.swing.JOptionPane;
 import me.dsnet.quickopener.prefs.shell.chooser.IShellConfigurator;
-import org.openide.filesystems.FileChooserBuilder;
-import org.openide.filesystems.FileUtil;
+import org.openide.filesystems.*;
 import org.openide.util.NbBundle;
 import org.openide.util.Utilities;
 

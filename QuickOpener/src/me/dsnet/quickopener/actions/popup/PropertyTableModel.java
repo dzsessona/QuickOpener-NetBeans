@@ -4,17 +4,17 @@
  */
 package me.dsnet.quickopener.actions.popup;
 
-import me.dsnet.quickopener.prefs.PrefsUtil;
-import me.dsnet.quickopener.prefs.QuickOpenerProperty;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
 import javax.swing.table.AbstractTableModel;
-import org.openide.util.Exceptions;
+import me.dsnet.quickopener.prefs.PrefsUtil;
+import me.dsnet.quickopener.prefs.QuickOpenerProperty;
 
 /**
  *
  * @author SessonaD
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class PropertyTableModel extends AbstractTableModel{
     
     String[] columnNames= {"Name","Path"};
