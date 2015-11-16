@@ -5,8 +5,6 @@
 package me.dsnet.quickopener.actions.popup;
 
 import com.sessonad.oscommands.commands.Commands;
-import me.dsnet.quickopener.PathFinder;
-import me.dsnet.quickopener.QuickMessages;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -14,6 +12,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import me.dsnet.quickopener.PathFinder;
+import me.dsnet.quickopener.QuickMessages;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.ImageUtilities;
@@ -22,6 +22,7 @@ import org.openide.util.ImageUtilities;
  *
  * @author SessonaD
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class DialogCustomCommandRun extends javax.swing.JDialog {
 
     public static final int RET_CANCEL = 0;

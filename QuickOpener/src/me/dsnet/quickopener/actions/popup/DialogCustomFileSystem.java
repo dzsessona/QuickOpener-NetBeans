@@ -4,14 +4,13 @@
  */
 package me.dsnet.quickopener.actions.popup;
 
-import me.dsnet.quickopener.PathFinder;
-import me.dsnet.quickopener.QuickMessages;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.text.MessageFormat;
 import javax.swing.*;
 import static me.dsnet.quickopener.LAFUtils.convertToLink;
+import me.dsnet.quickopener.PathFinder;
+import me.dsnet.quickopener.QuickMessages;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.ImageUtilities;
@@ -20,6 +19,7 @@ import org.openide.util.ImageUtilities;
  *
  * @author SessonaD
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class DialogCustomFileSystem extends javax.swing.JDialog {
 
     public static final int RET_CANCEL = 0;
