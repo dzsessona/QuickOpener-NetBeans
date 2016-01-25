@@ -1,7 +1,9 @@
 QuickOpener-NetBeans
 ====================
 
-[Wiki](https://github.com/dzsessona/QuickOpener-NetBeans/wiki/Home)<br/>
+* [Wiki](https://github.com/dzsessona/QuickOpener-NetBeans/wiki/Home)<br/>
+* [Download < NB8.1](http://plugins.netbeans.org/plugin/43217/quickopener)
+* [Download &ge; NB8.1](http://plugins.netbeans.org/plugin/62668/?show=true)
 
 Sometimes while programming in NetBeans you want to explore a particular file that you are editing on the file system browser, or maybe launch a command in a terminal to do something with it.
 
