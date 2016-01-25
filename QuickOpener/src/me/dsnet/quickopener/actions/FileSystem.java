@@ -27,14 +27,14 @@ public final class FileSystem implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        File toOpen = PathFinder.getActiveFile(dataObj,true);
-        if (toOpen == null) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION,NotifyDescriptor.WARNING_MESSAGE);
+        File file = PathFinder.getActiveFile(dataObj, false);
+        if (file == null) {
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_FILE_IN_SELECTION, NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
         try {
-            Commands.getPlatform().browseInFileSystem(toOpen);
+            Commands.getPlatform().browseInFileSystemToFileOrDir(file);
         } catch (Exception ex) {}//ex.printStackTrace();}
     }
 }
