@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.dsnet</groupId>
     <artifactId>me.dsnet.quickopener</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Diego Zambelli Sessona (diego.sessona@gmail.com)</name>
@@ -140,7 +140,21 @@
     In particular:&lt;/p&gt;&lt;p&gt;&lt;em&gt;When the selection has a valid file:&lt;/em&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Open the default OS shell&lt;/strong&gt; on the location of the file (or its folder) selected.
     &lt;/li&gt;&lt;li&gt;&lt;strong&gt;Open the file system browser&lt;/strong&gt; on the location of the file (or its folder) selected.
     &lt;/li&gt;&lt;li&gt;&lt;strong&gt;Copy to the clipboard&lt;/strong&gt; the path of the file selected.
-    &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Always enabled:&lt;/em&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Launch a shell command&lt;/strong&gt; (with parameters, customizable on preferences)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;FileSystem browser on any location&lt;/strong&gt; (favorites, customizable on preferences)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Open a shell on any location&lt;/strong&gt; (favorites, customizable on preferences)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href="https://github.com/kinkadzs/QuickOpener-NetBeans/wiki/Home"&gt;The project is hosted on github, click here to report a bug or make a suggestion...
-    &lt;/a&gt;Enjoy, Diego.
+    &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Always enabled:&lt;/em&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Launch a shell command&lt;/strong&gt; (with parameters, customizable on preferences)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;FileSystem browser on any location&lt;/strong&gt; (favorites, customizable on preferences)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Open a shell on any location&lt;/strong&gt; (favorites, customizable on preferences)&lt;/li&gt;&lt;/ul&gt;
+
+
+&lt;h2&gt;Updates&lt;/h2&gt;
+&lt;h3&gt;1.0.3:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/56"&gt;Task 56&lt;/a&gt;]: Provide a 8.1 version for the plugin center&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/60"&gt;Task 60&lt;/a&gt;]: Include new version of oscommands&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/61"&gt;Task 61&lt;/a&gt;]: Convert to maven-project for better maintainence&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/51"&gt;Bugfix 51&lt;/a&gt;]: [Windows] Open in FileManager should select the file/dir&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/49"&gt;Bugfix 49&lt;/a&gt;]: [Linux] Crash in options when running "LinuxUnknown" and KDE not detected&lt;/li&gt;
+
+ &lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/kinkadzs/QuickOpener-NetBeans/wiki/Home"&gt;The project is hosted on github, click here to report a bug or make a suggestion...
+    &lt;/a&gt;Enjoy, Diego+Benno.
     &lt;/p&gt;</description>
 </project>
