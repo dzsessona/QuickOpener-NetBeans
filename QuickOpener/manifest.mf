@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-OpenIDE-Module: me.dsnet.quickopener/1212
-OpenIDE-Module-Implementation-Version: 2
-OpenIDE-Module-Layer: me/dsnet/quickopener/pluginLayer.xml
-OpenIDE-Module-Localizing-Bundle: me/dsnet/quickopener/Bundle.properties
-

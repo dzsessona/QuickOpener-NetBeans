@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>me.dsnet</groupId>
+    <artifactId>me.dsnet.quickopener</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
+    <packaging>nbm</packaging>
+    <organization>
+        <name>Diego Zambelli Sessona (diego.sessona@gmail.com)</name>
+    </organization>
+    <url>http://github.com/kinkadzs/QuickOpener-NetBeans</url>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>nbm-maven-plugin</artifactId>
+                <version>3.13</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!-- keep this id, else the update from existing versions will fail
+                         and will cause classpath issues in the log file
+                    -->
+                    <codeNameBase>me.dsnet.quickopener</codeNameBase>
+                    <keystore>private/keystore</keystore>
+                    <keystorealias>myself</keystorealias>
+                    <licenseFile>license.txt</licenseFile>
+                    <licenseName>GPL</licenseName>                    
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <useDefaultManifestFile>true</useDefaultManifestFile>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>netbeans</id>
+            <name>Repository hosting NetBeans modules</name>
+            <url>http://bits.netbeans.org/nexus/content/groups/netbeans</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-api-annotations-common</artifactId>
+            <version>${version.netbeans}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-awt</artifactId>
+            <version>${version.netbeans}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-dialogs</artifactId>
+            <version>${version.netbeans}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-loaders</artifactId>
+            <version>${version.netbeans}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-projectapi</artifactId>
+            <version>${version.netbeans}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-projectuiapi</artifactId>
+            <version>${version.netbeans}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-options-api</artifactId>
+            <version>${version.netbeans}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util</artifactId>
+            <version>${version.netbeans}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdesktop</groupId>
+            <artifactId>beansbinding</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-filesystems</artifactId>
+            <version>${version.netbeans}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util-lookup</artifactId>
+            <version>${version.netbeans}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-nodes</artifactId>
+            <version>${version.netbeans}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-windows</artifactId>
+            <version>${version.netbeans}</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.netbeans>RELEASE802</version.netbeans>
+    </properties>
+    <name>QuickOpener</name>
+    <description>
+    &lt;p&gt;Sometimes while programming in NetBeans you want to explore a particular file that you are editing on the file system browser, or maybe launch a command in a terminal to do something with it.
+    &lt;/p&gt;&lt;p&gt;This plugins brings to your NetBeans six action, three of them always available and three of them available when the selected node has a file assiociated with it. 
+    In particular:&lt;/p&gt;&lt;p&gt;&lt;em&gt;When the selection has a valid file:&lt;/em&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Open the default OS shell&lt;/strong&gt; on the location of the file (or its folder) selected.
+    &lt;/li&gt;&lt;li&gt;&lt;strong&gt;Open the file system browser&lt;/strong&gt; on the location of the file (or its folder) selected.
+    &lt;/li&gt;&lt;li&gt;&lt;strong&gt;Copy to the clipboard&lt;/strong&gt; the path of the file selected.
+    &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Always enabled:&lt;/em&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Launch a shell command&lt;/strong&gt; (with parameters, customizable on preferences)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;FileSystem browser on any location&lt;/strong&gt; (favorites, customizable on preferences)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Open a shell on any location&lt;/strong&gt; (favorites, customizable on preferences)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href="https://github.com/kinkadzs/QuickOpener-NetBeans/wiki/Home"&gt;The project is hosted on github, click here to report a bug or make a suggestion...
+    &lt;/a&gt;Enjoy, Diego.
+    &lt;/p&gt;</description>
+</project>
