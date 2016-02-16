@@ -27,3 +27,24 @@ _Always enabled:_
 ![icon](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/shot10.png)&nbsp; 
 * **Open a shell on any location** (favorites, customizable on preferences)
 ![icon](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/shot11.png)&nbsp; 
+
+<h2>Updates</h2>
+<h3>1.0.4:</h3>
+<ul>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/63">Bugfix 63</a>]: File manager opens twice (KDE)</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/62">Bugfix 62</a>]: java.lang.NoSuchMethodError: java.lang.Process.waitFor running NB @ JDK7</li>
+ </ul>
+
+<h3>1.0.3:</h3>
+<ul>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/56">Task 56</a>]: Provide a 8.1 version for the plugin center</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/60">Task 60</a>]: Include new version of oscommands</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/61">Task 61</a>]: Convert to maven-project for better maintainence</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/51">Bugfix 51</a>]: [Windows] Open in FileManager should select the file/dir</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/49">Bugfix 49</a>]: [Linux] Crash in options when running "LinuxUnknown" and KDE not detected</li>
+
+ </ul>
+
+<p><a href="https://github.com/kinkadzs/QuickOpener-NetBeans/wiki/Home">The project is hosted on github, click here to report a bug or make a suggestion...
+    </a>Enjoy, Diego+Benno.
+    </p>
