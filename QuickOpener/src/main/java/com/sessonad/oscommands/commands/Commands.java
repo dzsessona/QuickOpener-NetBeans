@@ -6,7 +6,8 @@ import com.sessonad.oscommands.detector.OperatingSystem;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -15,6 +16,8 @@ import java.util.concurrent.TimeUnit;
  * @author markiewb
  */
 public abstract class Commands {
+
+    private static final Logger LOG = Logger.getLogger(Commands.class.getName());
     
     static Commands platform;
     
@@ -80,28 +83,18 @@ public abstract class Commands {
         }
 
         try {
-
-            Process process = executeFileSystemBrowserCommand(fileOrDir);
-            if (null != process) {
-
-                boolean waitFor = process.waitFor(2, TimeUnit.SECONDS);
-                if (waitFor) {
-                    //everything was fine
-                    return;
-                } else {
-                    //fallback to Desktop.open()
-                }
-            }
+            executeFileSystemBrowserCommand(fileOrDir);
         } catch (Exception e) {
-            //execution via executeFileSystemBrowserCommand did not work, so fallback to Desktop.open()
-        }
+            LOG.log(Level.WARNING, String.format("Could not browse to file %s. Try to fallback to Desktop.getDesktop().open()", fileOrDir), e);
 
-        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
-            try {
-                File directory = fileOrDir.isDirectory() ? fileOrDir : fileOrDir.getParentFile();
-                Desktop.getDesktop().open(directory);
-            } catch (IOException e) {
-                //NOP, no fallback anymore
+            //execution via executeFileSystemBrowserCommand did not work, so fallback to Desktop.open()
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+                try {
+                    File directory = fileOrDir.isDirectory() ? fileOrDir : fileOrDir.getParentFile();
+                    Desktop.getDesktop().open(directory);
+                } catch (IOException ioe) {
+                    //NOP, no fallback anymore
+                }
             }
         }
 
