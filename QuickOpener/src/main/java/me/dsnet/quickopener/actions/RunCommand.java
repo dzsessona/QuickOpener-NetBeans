@@ -70,11 +70,15 @@ public class RunCommand {
         String currentFolder = PathFinder.getActivePath(null, true);
         String relativeFile = PathFinder.getRelativeActivePath(null, false);
         String relativeFolder = PathFinder.getRelativeActivePath(null, true);
+        String currentProjectFolder = PathFinder.getActiveProject();
+        String mainProjectFolder = PathFinder.getMainProjectRootPath();
         Map<String, String> placeholders = new LinkedHashMap<String, String>();
         placeholders.put("${currentFile}", currentFile);
         placeholders.put("${currentFolder}", currentFolder);
         placeholders.put("${relativeFile}", relativeFile);
         placeholders.put("${relativeFolder}", relativeFolder);
+        placeholders.put("${currentProjectFolder}", currentProjectFolder);
+        placeholders.put("${mainProjectFolder}", mainProjectFolder);
         return placeholders;
     }
 

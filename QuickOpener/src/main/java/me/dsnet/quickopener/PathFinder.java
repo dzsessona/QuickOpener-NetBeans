@@ -5,6 +5,7 @@
 package me.dsnet.quickopener;
 
 import java.io.File; 
+import org.netbeans.api.project.FileOwnerQuery;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.openide.filesystems.FileObject;
@@ -70,6 +71,20 @@ public class PathFinder {
     public static String getActivePath(DataObject dataObj,boolean isFolder){
         File found = getActiveFile(dataObj, isFolder);
         return ((found != null) && (found.exists()))? found.getAbsolutePath():null; 
+    }
+
+    public static String getActiveProject() {
+        File found = getActiveFile(null, false);
+        if (null != found && found.exists()) {
+            FileObject fo = FileUtil.toFileObject(FileUtil.normalizeFile(found));
+
+            Project owner = FileOwnerQuery.getOwner(fo);
+            if (null != owner) {
+                File toFile = FileUtil.toFile(owner.getProjectDirectory());
+                return toFile.getAbsolutePath();
+            }
+        }
+        return null;
     }
     
     public static String getRelativeActivePath(DataObject dataObj,boolean isFolder){
