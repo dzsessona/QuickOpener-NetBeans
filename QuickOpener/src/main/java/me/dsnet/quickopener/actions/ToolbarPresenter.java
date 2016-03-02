@@ -18,13 +18,10 @@ import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.actions.Presenter;
 
-//@ActionID(category="Tools",id="com.sessonad.quickopener.actions.CustomCommand")
-//@ActionRegistration(iconBase="me/dsnet/actions/custom.png",displayName="#CTL_CustomCommand")
-//@ActionReferences({@ActionReference(path="Toolbars/QuickOpener", position=800)})
 @Messages("CTL_CustomCommand=Launch custom command")
-public final class CustomCommand implements Presenter.Toolbar {
+public final class ToolbarPresenter implements Presenter.Toolbar {
     
-    public CustomCommand(){        
+    public ToolbarPresenter(){        
     }
     
     @Override
