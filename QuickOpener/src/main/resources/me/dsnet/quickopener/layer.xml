@@ -62,13 +62,6 @@
                 <attr name="delegate" newvalue="me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction"/>
                 <attr boolvalue="false" name="noIconInMenu"/>
             </file>
-            <file name="me-dsnet-quickopener-actions-RunDefaultCommand.instance">
-                <!--me.dsnet.quickopener.actions.RunDefaultCommand-->
-                <attr bundlevalue="me.dsnet.quickopener.actions.Bundle#CTL_RunDefaultCommand" name="displayName"/>
-                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
-                <attr name="delegate" newvalue="me.dsnet.quickopener.actions.RunDefaultCommand"/>
-                <attr boolvalue="false" name="noIconInMenu"/>
-            </file>
         </folder>
     </folder>
     <!--adds actions to any folder node-->
@@ -153,18 +146,5 @@
         <file name="O-4.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomCommandPopupAction.instance"/></file>
         <file name="O-5.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomFileSystemPopupAction.instance"/></file>
         <file name="O-6.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomTerminalPopupAction.instance"/></file> 
-        <file name="O-7.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-RunDefaultCommand.instance"/></file>   
     </folder>
-<!--    <folder name="OptionsDialog">
-        <folder name="Advanced">
-            <file name="me-dsnet-prefs-QuickOpenerOptionsPanelController.instance">
-                me.dsnet.prefs.QuickOpenerOptionsPanelController
-                <attr methodvalue="org.netbeans.spi.options.AdvancedOption.createSubCategory" name="instanceCreate"/>
-                <attr name="controller" newvalue="me.dsnet.prefs.QuickOpenerOptionsPanelController"/>
-                <attr bundlevalue="me.dsnet.prefs.Bundle#AdvancedOption_DisplayName_QuickOpener" name="displayName"/>
-                <attr bundlevalue="me.dsnet.prefs.Bundle#AdvancedOption_Keywords_QuickOpener" name="keywords"/>
-                <attr name="keywordsCategory" stringvalue="Advanced/QuickOpener"/>
-            </file>
-        </folder>
-    </folder>-->
 </filesystem>

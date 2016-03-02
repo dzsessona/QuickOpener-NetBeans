@@ -13,13 +13,15 @@ import javax.swing.JTable;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
+
 /**
  *
  * @author SessonaD
  */
 public class CommandsPanel extends javax.swing.JPanel {
 
-    private final String cmdos=Commands.getPlatform().getOperatingSystem().getShellPrefix();
+    private final String cmdos = Commands.getPlatform().getOperatingSystem().getShellPrefix();
+
     /**
      * Creates new form CommandsPanel
      */
@@ -30,11 +32,11 @@ public class CommandsPanel extends javax.swing.JPanel {
         jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
         jTable2.getColumnModel().getColumn(0).setPreferredWidth(150);
         jTable2.getColumnModel().getColumn(0).setMaxWidth(400);
-        jTable2.getColumnModel().getColumn(0).setMinWidth(100); 
-        jLabel5.setText("(for your OS is: \'"+cmdos+"\')");
-        
+        jTable2.getColumnModel().getColumn(0).setMinWidth(100);
+        jLabel5.setText("(for your OS is: \'" + cmdos + "\')");
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,15 +53,12 @@ public class CommandsPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jPanel1.border.title"))); // NOI18N
 
@@ -90,15 +89,6 @@ public class CommandsPanel extends javax.swing.JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton4, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton4.text")); // NOI18N
-        jButton4.setFocusPainted(false);
-        jButton4.setRequestFocusEnabled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         org.openide.awt.Mnemonics.setLocalizedText(jCheckBox1, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jCheckBox1.text")); // NOI18N
         jCheckBox1.setFocusPainted(false);
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,9 +98,6 @@ public class CommandsPanel extends javax.swing.JPanel {
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel5.text")); // NOI18N
-
-        jLabel6.setFont(jLabel6.getFont().deriveFont(jLabel6.getFont().getStyle() & ~java.awt.Font.BOLD));
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel6.text")); // NOI18N
 
         jLabel7.setFont(jLabel7.getFont().deriveFont(jLabel7.getFont().getStyle() & ~java.awt.Font.BOLD));
         org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel7.text")); // NOI18N
@@ -145,13 +132,6 @@ public class CommandsPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable2);
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton3, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton3.text")); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,65 +140,59 @@ public class CommandsPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                            .addComponent(cmddescription)
+                            .addComponent(cmdvalue)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jCheckBox1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cmddescription)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2))
-                                    .addComponent(cmdvalue))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addComponent(jScrollPane1))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(cmddescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
+                    .addComponent(cmddescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cmdvalue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(cmdvalue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addGap(13, 13, 13))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addContainerGap(141, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -242,7 +216,7 @@ public class CommandsPanel extends javax.swing.JPanel {
         description = description.replaceAll(" ", "_");
         String value = cmdvalue.getText();
         if (description.isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY,NotifyDescriptor.WARNING_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY, NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
@@ -252,31 +226,24 @@ public class CommandsPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            PrefsUtil.remove("command"+cmddescription.getText().replaceAll(" ", "_"));
+            PrefsUtil.remove("command" + cmddescription.getText().replaceAll(" ", "_"));
             jTable2.setModel(new PropertyTableModel("command"));
         } catch (BackingStoreException ex) {
-           // Exceptions.printStackTrace(ex);
+            // Exceptions.printStackTrace(ex);
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        try {
-            PrefsUtil.removeAll("command");
-            jTable2.setModel(new PropertyTableModel("command"));
-        } catch (BackingStoreException ex) {
-           // Exceptions.printStackTrace(ex);
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if (cmdos==null) return;
+        if (cmdos == null) {
+            return;
+        }
         boolean value = jCheckBox1.isSelected();
-        String text= cmdvalue.getText();
-        if(value && text!=null && !text.startsWith(cmdos)){
-            text=cmdos + text;
-        }else if(!value && text!=null && text.startsWith(cmdos)){
-            text=text.replaceAll(cmdos, "");
+        String text = cmdvalue.getText();
+        if (value && text != null && !text.startsWith(cmdos)) {
+            text = cmdos + text;
+        } else if (!value && text != null && text.startsWith(cmdos)) {
+            text = text.replaceAll(cmdos, "");
         }
         cmdvalue.setText(text);
     }//GEN-LAST:event_jCheckBox1ActionPerformed
@@ -294,42 +261,24 @@ public class CommandsPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String value = cmdvalue.getText();
-        if (value.isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DESCRIPTION_MANDATORY,NotifyDescriptor.WARNING_MESSAGE);
-            DialogDisplayer.getDefault().notify(d);
-            return;
-        }else if(!isValidDefaultCommand(value)){
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.DEFAULT_COMMAND_PARAMETERS,NotifyDescriptor.WARNING_MESSAGE);
-            DialogDisplayer.getDefault().notify(d);
-            return;
-        }
-        PrefsUtil.store("favoriteCmd", value);
-        jTable2.setModel(new PropertyTableModel("command"));
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private boolean isValidDefaultCommand(String command){
-        return ( !(command.contains("${param1}")) 
+    private boolean isValidDefaultCommand(String command) {
+        return (!(command.contains("${param1}"))
                 && !((command.contains("${param2}")))
                 && !((command.contains("${param3}")))
                 && !((command.contains("${param4}")))
                 && !((command.contains("${param5}")))
                 && !((command.contains("${param6}"))));
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cmddescription;
     private javax.swing.JTextField cmdvalue;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;

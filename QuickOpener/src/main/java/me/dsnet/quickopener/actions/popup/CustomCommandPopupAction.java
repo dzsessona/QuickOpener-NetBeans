@@ -6,56 +6,44 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
 /**
  *
  * @author SessonaD
  */
-//@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.popup.CustomCommandPopupAction")
-//@ActionRegistration(displayName = "#CTL_CustomCommandPopupAction")
-//@ActionReferences({
-//    @ActionReference(path = "Shortcuts", name = "O-4")
-//})
 @NbBundle.Messages("CTL_CustomCommandPopupAction=Launch cutom command...")
-public class CustomCommandPopupAction extends AbstractAction implements ActionListener{
-    
+public class CustomCommandPopupAction extends AbstractAction implements ActionListener {
+
     public CustomCommandPopupAction() {
     }
-    
+
     public CustomCommandPopupAction(String name) {
         super(name);
     }
-    
+
     public CustomCommandPopupAction(String name, Icon icon) {
         super(name, icon);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                try {                  
-                    DialogCustomCommandRun dialogue=new DialogCustomCommandRun(null, true);
+                try {
+                    DialogCustomCommandRun dialogue = new DialogCustomCommandRun(null, true);
                     final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                     final int x = (screenSize.width - dialogue.getWidth()) / 2;
                     final int y = (screenSize.height - dialogue.getHeight()) / 2;
                     dialogue.setLocation(x, y);
                     dialogue.setVisible(true);
-                    
-                    String userCommand = (dialogue.getReturnStatus()==DialogCustomCommandRun.RET_OK)?dialogue.getCommand():null;
-                    if (userCommand != null) {
-                        Runtime.getRuntime().exec(userCommand);
-                    }
-                } catch (Exception ex) {}
+
+                } catch (Exception ex) {
+                }
             }
         });
     }
-    
+
 }

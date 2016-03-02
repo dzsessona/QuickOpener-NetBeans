@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.dsnet</groupId>
     <artifactId>me.dsnet.quickopener</artifactId>
-    <version>1.0.4</version>
+    <version>1.1.0</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Diego Zambelli Sessona (diego.sessona@gmail.com)</name>
@@ -144,6 +144,12 @@
 
 
 &lt;h2&gt;Updates&lt;/h2&gt;
+
+&lt;h3&gt;1.1.0:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/66"&gt;Feature 66&lt;/a&gt;]: Refactor run custom dialog: simplify, add keyboard-only support&lt;/li&gt;
+ &lt;/ul&gt;
+
 &lt;h3&gt;1.0.4:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/63"&gt;Bugfix 63&lt;/a&gt;]: File manager opens twice (KDE)&lt;/li&gt;
