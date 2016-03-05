@@ -19,7 +19,7 @@ public enum QuickMessages {
     SEPARATOR_NULL ("Separator cannot be empty."),
     CUSTOM_SHELL ("Custom shell cannot be empty."),
     NO_COMMAND ("No command given."),
-    NO_DEFAULT_PARAMETERS ("No files in the selection for this command."),
+    NO_DEFAULT_PARAMETERS ("Some placeholders could not be replaced."),
     DEFAULT_COMMAND_PARAMETERS ("A default command cannot contain parameters."),
     NOT_IN_FILE_SYSTEM ("The file does not exists in the file system.");
     

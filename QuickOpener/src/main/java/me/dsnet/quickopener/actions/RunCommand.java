@@ -4,13 +4,23 @@
  */
 package me.dsnet.quickopener.actions;
 
+import java.io.File;
 import me.dsnet.quickopener.PathFinder;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.PrefsUtil;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.swing.JEditorPane;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.StyledDocument;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.cookies.EditorCookie;
+import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileUtil;
+import org.openide.nodes.Node;
+import org.openide.text.NbDocument;
+import org.openide.windows.TopComponent;
 
 /**
  *
@@ -45,7 +55,7 @@ public class RunCommand {
             }
 
             if (foundUnreplacedPlaceholder) {
-                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_DEFAULT_PARAMETERS, NotifyDescriptor.WARNING_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_DEFAULT_PARAMETERS + " \nCommand was: " + command, NotifyDescriptor.WARNING_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
                 return false;
             }
@@ -73,12 +83,49 @@ public class RunCommand {
         String currentProjectFolder = PathFinder.getActiveProject();
         String mainProjectFolder = PathFinder.getMainProjectRootPath();
         Map<String, String> placeholders = new LinkedHashMap<String, String>();
-        placeholders.put("${currentFile}", currentFile);
-        placeholders.put("${currentFolder}", currentFolder);
+
+        File file = new File(currentFile);
+        if (file.exists()) {
+            FileObject fo = FileUtil.toFileObject(FileUtil.normalizeFile(file));
+            placeholders.put("${fileNameExt}", fo.getNameExt());
+            placeholders.put("${fileName}", fo.getName());
+            placeholders.put("${fileExt}", fo.getExt());
+        } else {
+            placeholders.put("${fileNameExt}", "");
+            placeholders.put("${fileName}", "");
+            placeholders.put("${fileExt}", "");
+        }
+        //${line}:${column} ${line0}:${column0} '${selectedText}' ${fileNameExt} ${fileName} ${fileExt} ${file} ${folder} ${relativeFile} ${relativeFolder} ${projectFolder} ${mainProjectFolder}
+        placeholders.put("${file}", currentFile);
+        placeholders.put("${folder}", currentFolder);
         placeholders.put("${relativeFile}", relativeFile);
         placeholders.put("${relativeFolder}", relativeFolder);
-        placeholders.put("${currentProjectFolder}", currentProjectFolder);
+        placeholders.put("${projectFolder}", currentProjectFolder);
         placeholders.put("${mainProjectFolder}", mainProjectFolder);
+
+        JTextComponent editor = getCurrentEditor();
+        int caret = (null != editor) ? editor.getCaretPosition() : -1;
+        StyledDocument sdocument = (null != editor && (editor.getDocument() instanceof StyledDocument)) ? (StyledDocument) editor.getDocument()
+                : null;
+        if (null != sdocument) {
+
+            int line0 = NbDocument.findLineNumber(sdocument, caret);
+            int column0 = NbDocument.findLineColumn(sdocument, caret);
+            String selectedText = editor.getSelectedText();
+            placeholders.put("${line0}", "" + line0);
+            placeholders.put("${line}", "" + (line0 + 1));
+            placeholders.put("${column0}", "" + column0);
+            placeholders.put("${column}", "" + (column0 + 1));
+            placeholders.put("${selectedText}", null != selectedText ? selectedText : "");
+        } else {
+            // add defaults for editor related placeholders
+            placeholders.put("${line0}", "");
+            placeholders.put("${line}", "");
+            placeholders.put("${column0}", "");
+            placeholders.put("${column}", "");
+            placeholders.put("${selectedText}", "");
+        }
+
         return placeholders;
     }
 
@@ -103,4 +150,19 @@ public class RunCommand {
         final Map<String, String> placeholders = createPlaceholders();
         return fillPlaceholders(_command, placeholders);
     }
+
+    private JTextComponent getCurrentEditor() {
+        Node[] arr = TopComponent.getRegistry().getCurrentNodes();
+        for (int i = 0; i < arr.length; i++) {
+            EditorCookie ec = (EditorCookie) arr[i].getCookie(EditorCookie.class);
+            if (ec != null) {
+                JEditorPane[] panes = ec.getOpenedPanes();
+                if (panes != null && panes.length > 0) {
+                    return panes[0];
+                }
+            }
+        }
+        return null;
+    }
+
 }

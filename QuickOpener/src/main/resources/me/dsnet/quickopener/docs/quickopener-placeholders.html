@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Placeholders</title>
+        <link rel="stylesheet" href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/ide.css" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h2>Available placeholders</h2>
+        <table border="1">
+            <tr><th colspan="2">File related</th></tr>
+            <tr><td>${file}</td><td>file with path</td></tr>
+            <tr><td>${fileNameExt}</td><td>filename with extension</td></tr>
+            <tr><td>${fileName}</td><td>filename without extension</td></tr>
+            <tr><td>${fileExt}</td><td>file extension</td></tr>
+            <tr><td>${relativeFile}</td><td>file with relative path to main project</td></tr>
+            <tr><th colspan="2">Folder related</th></tr>
+            <tr><td>${folder}</td><td>full path</td></tr>
+            <tr><td>${relativeFolder}</td><td>full path relative to main project</td></tr>
+            <tr><td>${projectFolder}</td><td>full path of the current project</td></tr>
+            <tr><td>${mainProjectFolder}</td><td>full path of the main project</td></tr>
+            <tr><th colspan="2">Editor related</th></tr>
+            <tr><td>${line}</td><td>1-based line</td></tr>
+            <tr><td>${line0}</td><td>0-based line</td></tr>
+            <tr><td>${column}</td><td>1-based column</td></tr>
+            <tr><td>${column0}</td><td>0-based column</td></tr>
+            <tr><td>${caret}</td><td>1-based caret</td></tr>
+            <tr><td>${caret0}</td><td>0-based caret</td></tr>
+            <tr><td>${selectedText}</td><td>selected text in editor</td></tr>
+        </table>
+
+    </body>
+</html>
+<!--
+Tip: to create a link which will open in an external web browser, try:
+<object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+    <param name="content" value="http://www.netbeans.org/">
+    <param name="text" value="<html><u>http://www.netbeans.org/</u></html>">
+    <param name="textFontSize" value="medium">
+    <param name="textColor" value="blue">
+</object>
+To create a link to a help set from another module, you need to know the code name base and path, e.g.:
+<a href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/configure/configure_options.html">Using the Options Window</a>
+(This link will behave sanely if that module is disabled or missing.)
+-->
