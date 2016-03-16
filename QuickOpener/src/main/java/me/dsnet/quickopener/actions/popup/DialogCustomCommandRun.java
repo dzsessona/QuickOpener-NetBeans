@@ -167,7 +167,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         });
 
         lblPreviewCommand.setEditable(false);
-        lblPreviewCommand.setBackground(java.awt.SystemColor.control);
         lblPreviewCommand.setBorder(null);
         jScrollPane2.setViewportView(lblPreviewCommand);
 
