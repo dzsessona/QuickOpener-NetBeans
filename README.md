@@ -29,6 +29,16 @@ _Always enabled:_
 ![icon](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/shot11.png)&nbsp; 
 
 <h2>Updates</h2>
+
+<h3>1.1.0:</h3>
+<ul>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/66">Feature 66</a>]: Refactor run custom dialog: simplify, add keyboard-only support</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/33">Feature 33</a>]: Support for project folder replacement variable ${projectFolder}/${mainProjectFolder}</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67">Feature 67</a>]: More patterns - see <a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67">details</a></li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/30">Feature 30</a>]: Support favorites nodes</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/64">Feature 64</a>]: Support lookups with java.io.File</li>
+</ul>
+
 <h3>1.0.4:</h3>
 <ul>
 <li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/63">Bugfix 63</a>]: File manager opens twice (KDE)</li>

@@ -8,39 +8,6 @@
                 <attr bundlevalue="me.dsnet.quickopener.actions.Bundle#CTL_CustomCommand" name="displayName"/>
                 <attr name="instanceCreate" newvalue="me.dsnet.quickopener.actions.ToolbarPresenter"/>
             </file>
-            <file name="me-dsnet-quickopener-actions-FileSystem.instance">
-                <!--me.dsnet.quickopener.actions.FileSystem-->
-                <attr bundlevalue="me.dsnet.quickopener.actions.Bundle#CTL_FileSystem" name="displayName"/>
-                <attr methodvalue="org.openide.awt.Actions.context" name="instanceCreate"/>
-                <attr name="type" stringvalue="org.openide.loaders.DataObject"/>
-                <attr methodvalue="org.openide.awt.Actions.inject" name="delegate"/>
-                <attr name="injectable" stringvalue="me.dsnet.quickopener.actions.FileSystem"/>
-                <attr name="selectionType" stringvalue="EXACTLY_ONE"/>
-                <attr name="iconBase" stringvalue="me/dsnet/quickopener/icons/folder-documents-icon.png"/>
-                <attr boolvalue="false" name="noIconInMenu"/>
-            </file>
-            <file name="me-dsnet-quickopener-actions-Path.instance">
-                <!--me.dsnet.quickopener.actions.Path-->
-                <attr bundlevalue="me.dsnet.quickopener.actions.Bundle#CTL_Path" name="displayName"/>
-                <attr methodvalue="org.openide.awt.Actions.context" name="instanceCreate"/>
-                <attr name="type" stringvalue="org.openide.loaders.DataObject"/>
-                <attr methodvalue="org.openide.awt.Actions.inject" name="delegate"/>
-                <attr name="injectable" stringvalue="me.dsnet.quickopener.actions.Path"/>
-                <attr name="selectionType" stringvalue="EXACTLY_ONE"/>
-                <attr name="iconBase" stringvalue="me/dsnet/quickopener/icons/path.png"/>
-                <attr boolvalue="false" name="noIconInMenu"/>
-            </file>
-            <file name="me-dsnet-quickopener-actions-Terminal.instance">
-                <!--me.dsnet.quickopener.actions.Terminal-->
-                <attr bundlevalue="me.dsnet.quickopener.actions.Bundle#CTL_Terminal" name="displayName"/>
-                <attr methodvalue="org.openide.awt.Actions.context" name="instanceCreate"/>
-                <attr name="type" stringvalue="org.openide.loaders.DataObject"/>
-                <attr methodvalue="org.openide.awt.Actions.inject" name="delegate"/>
-                <attr name="injectable" stringvalue="me.dsnet.quickopener.actions.Terminal"/>
-                <attr name="selectionType" stringvalue="EXACTLY_ONE"/>
-                <attr name="iconBase" stringvalue="me/dsnet/quickopener/icons/terminal.png"/>
-                <attr boolvalue="false" name="noIconInMenu"/>
-            </file>
             <file name="me-dsnet-quickopener-actions-popup-CustomCommandPopupAction.instance">
                 <!--me.dsnet.quickopener.actions.popup.CustomCommandPopupAction-->
                 <attr bundlevalue="me.dsnet.quickopener.actions.popup.Bundle#CTL_CustomCommandPopupAction" name="displayName"/>

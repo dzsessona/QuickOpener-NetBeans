@@ -170,8 +170,9 @@
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/66"&gt;Feature 66&lt;/a&gt;]: Refactor run custom dialog: simplify, add keyboard-only support&lt;/li&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/33"&gt;Feature 33&lt;/a&gt;]: Support for project folder replacement variable ${projectFolder}/${mainProjectFolder}&lt;/li&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67"&gt;Feature 67&lt;/a&gt;]: More patterns - see &lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67"&gt;details&lt;/a&gt;&lt;/li&gt;
-
- &lt;/ul&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/30"&gt;Feature 30&lt;/a&gt;]: Support favorites nodes&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/64"&gt;Feature 64&lt;/a&gt;]: Support lookups with java.io.File&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3&gt;1.0.4:&lt;/h3&gt;
 &lt;ul&gt;
