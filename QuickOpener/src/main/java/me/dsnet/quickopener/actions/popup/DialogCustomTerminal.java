@@ -130,8 +130,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
             }
         });
 
-        okButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.okButton.text")); // NOI18N
-        okButton.setFocusPainted(false);
+        org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.okButton.text")); // NOI18N
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, cmdTextField, org.jdesktop.beansbinding.ELProperty.create("${not empty text}"), okButton, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
@@ -142,8 +141,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
             }
         });
 
-        cancelButton.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.cancelButton.text")); // NOI18N
-        cancelButton.setFocusPainted(false);
+        org.openide.awt.Mnemonics.setLocalizedText(cancelButton, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.cancelButton.text")); // NOI18N
         cancelButton.setRequestFocusEnabled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,11 +151,12 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
 
         cmdTextField.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.cmdTextField.text")); // NOI18N
 
-        jLabel1.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel1.text")); // NOI18N
+        jLabel1.setLabelFor(cmdTextField);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel1.text")); // NOI18N
         jLabel1.setRequestFocusEnabled(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/quickopener/icons/terminal48-cu2.png"))); // NOI18N
-        jLabel2.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel2.text")); // NOI18N
 
         jTable2.setAutoCreateRowSorter(true);
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -183,25 +182,29 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTable2);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel3.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel3.text")); // NOI18N
+        jLabel3.setLabelFor(jTable2);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel3.text")); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel4.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel4.text")); // NOI18N
+        jLabel4.setLabelFor(jLabel9);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel4.text")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel5.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel5.text")); // NOI18N
+        jLabel5.setLabelFor(jLabel8);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel5.text")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel6.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel6.text")); // NOI18N
+        jLabel6.setLabelFor(jLabel7);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel6.text")); // NOI18N
 
-        jLabel7.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel7.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel7.text")); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
             }
         });
 
-        jLabel8.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel8.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel8.text")); // NOI18N
         jLabel8.setEnabled(false);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -209,7 +212,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
             }
         });
 
-        jLabel9.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel9.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel9.text")); // NOI18N
         jLabel9.setEnabled(false);
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -218,7 +221,7 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
         });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/quickopener/icons/help.png"))); // NOI18N
-        jLabel10.setText(org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel10.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel10, org.openide.util.NbBundle.getMessage(DialogCustomTerminal.class, "DialogCustomTerminal.jLabel10.text")); // NOI18N
         jLabel10.setToolTipText("<html><a href=\"#\">Click on any path to set the input box.</a><br/>\n<br/>\nYou can customize the your preferred places in:<br/>\n<a href=\"#\">Tools > Options > Miscellaneous > QuickOpener</a>\n</html>"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

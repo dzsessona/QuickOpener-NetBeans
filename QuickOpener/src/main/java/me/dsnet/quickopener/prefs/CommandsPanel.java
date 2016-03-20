@@ -60,6 +60,7 @@ public class CommandsPanel extends javax.swing.JPanel {
         jTable2 = new javax.swing.JTable();
         btnPlaceholders = new javax.swing.JButton();
 
+        jLabel1.setLabelFor(cmddescription);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel1.text")); // NOI18N
 
         cmdvalue.setText(org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.cmdvalue.text")); // NOI18N
@@ -68,7 +69,6 @@ public class CommandsPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton1.text")); // NOI18N
         jButton1.setToolTipText(org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton1.toolTipText")); // NOI18N
-        jButton1.setFocusPainted(false);
         jButton1.setRequestFocusEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,10 +76,10 @@ public class CommandsPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setLabelFor(cmdvalue);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel4.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton2.text")); // NOI18N
-        jButton2.setFocusPainted(false);
         jButton2.setRequestFocusEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -78,8 +78,6 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel4.text")); // NOI18N
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.border.title"))); // NOI18N
-
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel1.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel2.text")); // NOI18N
@@ -95,12 +93,14 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         jTextField1.setText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jTextField1.text")); // NOI18N
 
+        jLabel5.setLabelFor(jTextField1);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel5.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel6.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(cShellLabel, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.cShellLabel.text")); // NOI18N
 
+        jLabel8.setLabelFor(cshellTextField);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel8.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(applyCShellButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyCShellButton.text")); // NOI18N
@@ -114,10 +114,10 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         cshellTextField.setText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.cshellTextField.text")); // NOI18N
 
+        jLabel7.setLabelFor(confirmationCheckBox);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel7.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(confirmationCheckBox, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.confirmationCheckBox.text")); // NOI18N
-        confirmationCheckBox.setFocusPainted(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(applyConfirmationButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyConfirmationButton.text")); // NOI18N
         applyConfirmationButton.setFocusable(false);
@@ -171,7 +171,7 @@ public class GeneralPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cshellTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                                .addComponent(cshellTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(shellConfigureButton)
                                 .addGap(6, 6, 6))
@@ -213,7 +213,7 @@ public class GeneralPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(confirmationCheckBox)
                             .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(resetButton))
         );
     }// </editor-fold>//GEN-END:initComponents

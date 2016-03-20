@@ -56,6 +56,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setLabelFor(jList1);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(QuickOpenerPanel.class, "QuickOpenerPanel.jLabel1.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
