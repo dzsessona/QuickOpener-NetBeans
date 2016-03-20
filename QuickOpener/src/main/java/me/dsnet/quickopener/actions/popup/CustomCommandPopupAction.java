@@ -12,7 +12,7 @@ import org.openide.util.NbBundle;
  *
  * @author SessonaD
  */
-@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch cutom command...")
+@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch custom command...")
 public class CustomCommandPopupAction extends AbstractAction implements ActionListener {
 
     public CustomCommandPopupAction() {
