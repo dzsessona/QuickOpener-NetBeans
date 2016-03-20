@@ -84,8 +84,8 @@ public class RunCommand {
         String mainProjectFolder = PathFinder.getMainProjectRootPath();
         Map<String, String> placeholders = new LinkedHashMap<String, String>();
 
-        File file = new File(currentFile);
-        if (file.exists()) {
+        if (null != currentFile && new File(currentFile).exists()) {
+            File file = new File(currentFile);
             FileObject fo = FileUtil.toFileObject(FileUtil.normalizeFile(file));
             placeholders.put("${fileNameExt}", fo.getNameExt());
             placeholders.put("${fileName}", fo.getName());
