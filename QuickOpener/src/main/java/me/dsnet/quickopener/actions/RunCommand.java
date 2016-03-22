@@ -153,6 +153,9 @@ public class RunCommand {
 
     private JTextComponent getCurrentEditor() {
         Node[] arr = TopComponent.getRegistry().getCurrentNodes();
+        if (null == arr) {
+            return null;
+        }
         for (int i = 0; i < arr.length; i++) {
             EditorCookie ec = (EditorCookie) arr[i].getCookie(EditorCookie.class);
             if (ec != null) {
