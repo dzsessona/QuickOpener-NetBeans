@@ -10,7 +10,9 @@ import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.PrefsUtil;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import javax.swing.JEditorPane;
+import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.StyledDocument;
 import org.openide.DialogDisplayer;
@@ -43,16 +45,8 @@ public class RunCommand {
             DialogDisplayer.getDefault().notify(d);
             return false;
         } else {
-            final Map<String, String> createPlaceholders = createPlaceholders();
-            String command = fillPlaceholders(_command, createPlaceholders);
-            //Are all placeholders replaced? -> if not then show a message!
-            boolean foundUnreplacedPlaceholder = false;
-            for (String placeholder : createPlaceholders.keySet()) {
-                if (command.contains(placeholder)) {
-                    foundUnreplacedPlaceholder = true;
-                    break;
-                }
-            }
+            boolean foundUnreplacedPlaceholder = !areAllPlaceHoldersReplaced();
+            String command = getCommandWithReplacedPlaceholders();
 
             if (foundUnreplacedPlaceholder) {
                 NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NO_DEFAULT_PARAMETERS + " \nCommand was: " + command, NotifyDescriptor.WARNING_MESSAGE);
@@ -74,6 +68,23 @@ public class RunCommand {
             }
         }
     }
+
+    /**
+     * Visible to determine if command could be executed.
+     * @return 
+     */
+    public boolean areAllPlaceHoldersReplaced() {
+        String command = getCommandWithReplacedPlaceholders();
+        final Set<String> keys = createPlaceholders().keySet();
+        //Are all placeholders replaced? -> if not then show a message!
+        for (String placeholder : keys) {
+            if (command.contains(placeholder)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     private Map<String, String> createPlaceholders() {
         String currentFile = PathFinder.getActivePath(null, false);
@@ -152,6 +163,9 @@ public class RunCommand {
     }
 
     private JTextComponent getCurrentEditor() {
+        if (!SwingUtilities.isEventDispatchThread()){
+            return null;
+        }
         Node[] arr = TopComponent.getRegistry().getCurrentNodes();
         if (null == arr) {
             return null;
