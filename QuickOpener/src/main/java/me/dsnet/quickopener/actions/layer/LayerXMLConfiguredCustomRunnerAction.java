@@ -5,11 +5,6 @@ import java.util.Map;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import me.dsnet.quickopener.actions.RunCommand;
-import org.openide.awt.DynamicMenuContent;
-import org.openide.util.Lookup;
-import org.openide.util.LookupEvent;
-import org.openide.util.LookupListener;
-import org.openide.util.Utilities;
 
 /**
  * Action for running custom commands. The configuration is purely based on
@@ -35,7 +30,6 @@ import org.openide.util.Utilities;
  */
 public final class LayerXMLConfiguredCustomRunnerAction extends AbstractAction {
 
-    private final Lookup.Result<Object> lookupResult;
     private final RunCommand runCommand;
 
     /**
@@ -61,24 +55,10 @@ public final class LayerXMLConfiguredCustomRunnerAction extends AbstractAction {
      */
     private LayerXMLConfiguredCustomRunnerAction(String iconBase, String displayName, final String command) {
         super(displayName);
-        Lookup context = Utilities.actionsGlobalContext();
         runCommand = new RunCommand(command);
-        //enable action, if all placeholders are replaced
-        setEnabled(runCommand.areAllPlaceHoldersReplaced());
-        //always show
-        putValue(DynamicMenuContent.HIDE_WHEN_DISABLED, false);
         putValue("iconBase", iconBase);
-
-        // make this action context aware using custom code
-        lookupResult = context.lookupResult(Object.class);
-        lookupResult.addLookupListener(new LookupListener() {
-            @Override
-            public void resultChanged(LookupEvent le) {
-                //enable action, if all placeholders are replaced
-                setEnabled(runCommand.areAllPlaceHoldersReplaced());
-            }
-        });
-
+        // enable action, only if all placeholders are replaced? -- not possible, because we have editor related properties, which are not propagated
+        // setEnabled(runCommand.areAllPlaceHoldersReplaced());
     }
 
     @Override

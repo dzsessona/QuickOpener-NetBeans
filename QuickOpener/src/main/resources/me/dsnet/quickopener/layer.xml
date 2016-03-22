@@ -7,7 +7,7 @@
                 <attr methodvalue="me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create" name="instanceCreate"/>
                 <attr name="imagePath" stringvalue="me/dsnet/quickopener/icons/run.png"/>
                 <attr name="displayName" stringvalue="Notepad"/>
-                <attr name="custom-command" stringvalue="notepad ${file}"/>
+                <attr name="custom-command" stringvalue="notepad ${file} ${line} ${selectedText}"/>
             </file>
         </folder>
         
@@ -97,6 +97,7 @@
             
     <folder name="Toolbars">
         <folder name="QuickOpener">
+            <attr intvalue="10000" name="position"/>
             <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
                 <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-FileSystem.instance"/>
                 <attr intvalue="600" name="position"/>
@@ -113,10 +114,10 @@
                 <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-ToolbarPresenter.instance"/>
                 <attr intvalue="800" name="position"/>
             </file>
-            <file name="action1.shadow">
+<!--            <file name="foo-action1.shadow">
                 <attr name="originalFile" stringvalue="Actions/QuickOpener/foo-action1.instance"/>
                 <attr intvalue="900" name="position"/>
-            </file>
+            </file>-->
             
         </folder>
     </folder>
