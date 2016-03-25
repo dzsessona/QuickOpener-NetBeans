@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
 <filesystem>
+    <folder name="QuickOpener">
+        <file name="actionTemplate.instance">
+            <attr methodvalue="me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create" name="instanceCreate"/>
+            <attr name="uuid"           stringvalue="0000"/>
+            <attr name="imagePath"      stringvalue="me/dsnet/quickopener/icons/run.png"/>
+            <attr name="displayName"    stringvalue="Notepad"/>
+            <attr name="custom-command" stringvalue="notepad ${file} ${line} ${selectedText}"/>
+        </file>
+    </folder>
     <folder name="Actions">
-        <folder name="QuickOpener">
-            <file name="foo-action1.instance">
-                <attr methodvalue="me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create" name="instanceCreate"/>
-                <attr name="imagePath" stringvalue="me/dsnet/quickopener/icons/run.png"/>
-                <attr name="displayName" stringvalue="Notepad"/>
-                <attr name="custom-command" stringvalue="notepad ${file} ${line} ${selectedText}"/>
-            </file>
-        </folder>
-        
         <folder name="Tools">
             <file name="me-dsnet-quickopener-actions-ToolbarPresenter.instance">
                 <!--me.dsnet.quickopener.actions.CustomCommand-->
@@ -114,11 +114,6 @@
                 <attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-ToolbarPresenter.instance"/>
                 <attr intvalue="800" name="position"/>
             </file>
-<!--            <file name="foo-action1.shadow">
-                <attr name="originalFile" stringvalue="Actions/QuickOpener/foo-action1.instance"/>
-                <attr intvalue="900" name="position"/>
-            </file>-->
-            
         </folder>
     </folder>
     <folder name="Shortcuts">
@@ -128,7 +123,5 @@
         <file name="O-4.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomCommandPopupAction.instance"/></file>
         <file name="O-5.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomFileSystemPopupAction.instance"/></file>
         <file name="O-6.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomTerminalPopupAction.instance"/></file> 
-        
-        <file name="O-7.shadow"><attr name="originalFile" stringvalue="Actions/QuickOpener/foo-action1.instance"/></file> 
     </folder>
 </filesystem>

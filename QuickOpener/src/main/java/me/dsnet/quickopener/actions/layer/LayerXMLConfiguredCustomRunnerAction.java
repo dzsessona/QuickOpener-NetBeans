@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import me.dsnet.quickopener.actions.RunCommand;
+import static me.dsnet.quickopener.actions.layer.ActionRegistrationService.unescapeXMLCharacters;
 
 /**
  * Action for running custom commands. The configuration is purely based on
@@ -12,7 +13,7 @@ import me.dsnet.quickopener.actions.RunCommand;
  *
  * <pre>
  * &lt;file name="action1.instance"&gt;
- *     &lt;attr methodvalue="me.dsnet.quickopener.actions.layer.SuperclassSensitiveAction.create" name="instanceCreate"/&gt;
+ *     &lt;attr methodvalue="me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create" name="instanceCreate"/&gt;
  *     &lt;attr name="imagePath" stringvalue="me/dsnet/quickopener/icons/run.png"/&gt;
  *     &lt;attr name="displayName" stringvalue="Notepad"/&gt;
  *     &lt;attr name="custom-command" stringvalue="notepad ${file}"/&gt;
@@ -33,14 +34,13 @@ public final class LayerXMLConfiguredCustomRunnerAction extends AbstractAction {
     private final RunCommand runCommand;
 
     /**
-     * Referenced from layer.xml like this
      *
      * @param map
      * @return
      */
-    static Action create(Map map) {
-        final String command = (String) map.get("custom-command");
-        final String displayName = (String) map.get("displayName");
+    public static Action create(Map map) {
+        final String command = unescapeXMLCharacters((String) map.get("custom-command"));
+        final String displayName = unescapeXMLCharacters((String) map.get("displayName"));
         final String iconBase = (String) map.get("imagePath");
         return new LayerXMLConfiguredCustomRunnerAction(iconBase, displayName, command);
     }

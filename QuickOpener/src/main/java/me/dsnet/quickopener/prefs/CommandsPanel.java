@@ -7,12 +7,11 @@ package me.dsnet.quickopener.prefs;
 import com.sessonad.oscommands.commands.Commands;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.actions.popup.PropertyTableModel;
-import java.util.List;
 import java.util.prefs.BackingStoreException;
 import javax.swing.JTable;
+import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 
 /**
@@ -211,6 +210,12 @@ public class CommandsPanel extends javax.swing.JPanel {
             return;
         }
         PrefsUtil.store("command" + description, value);
+        //TODO escape id
+        //TODO delete previous registrations to prevent duplicates
+        String id = description;
+        ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
+        ActionRegistrationService.registerActionAsMenuAndToolbar(id, "QuickOpener");
+
         jTable2.setModel(new PropertyTableModel("command"));
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -1,63 +1,124 @@
 package me.dsnet.quickopener.actions.layer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.Action;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
+import org.openide.util.Exceptions;
 
 /**
  *
- * Taken from http://wiki.netbeans.org/DevFaqActionsAddAtRuntime
+ * Based on from http://wiki.netbeans.org/DevFaqActionsAddAtRuntime and
+ * https://github.com/Tateology/java-corpus/blob/master/netbeans/maven/src/org/netbeans/modules/maven/actions/RunCustomMavenAction.java#L160
  */
 public class ActionRegistrationService {
+
+    private static final String ACTIONS = "Actions/";
+    private static final String MENU = "Menu/";
+    private static final String SHORTCUTS = "Shortcuts";
+    private static final String TOOLBARS = "Toolbars/";
 
     /**
      * Registers an action with the platform along with optional shortcuts and
      * menu items.
+     * <pre>
+     * &lt;file name="action1.instance"&gt;
+     *     &lt;attr methodvalue="me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create" name="instanceCreate"/&gt;
+     *     &lt;attr name="imagePath" stringvalue="me/dsnet/quickopener/icons/run.png"/&gt;
+     *     &lt;attr name="displayName" stringvalue="Notepad"/&gt;
+     *     &lt;attr name="custom-command" stringvalue="notepad ${file}"/&gt;
+     * &lt;/file&gt;
+     * </pre>
+     *
      *
      * @param name Display name of the action.
      * @param category Category in the Keymap tool.
-     * @param shortcut Default shortcut, use an empty string or null for none.
      * @param menuPath Menu location starting with "Menu", like "Menu/File"
      * @param action an action object to attach to the action entry.
      * @throws IOException
      */
-    public static void registerAction(String name, String category, String shortcut, String menuPath, Action action) throws IOException {
-        /////////////////////// 
-        // Add/Update Action // 
-        /////////////////////// 
-        String originalFile = "Actions/" + category + "/" + name + ".instance";
-        FileObject in = getFolderAt("Actions/" + category);
-        FileObject obj = in.getFileObject(name, "instance");
-        if (obj == null) {
-            obj = in.createData(name, "instance");
+    public static void registerActionAsMenuAndToolbar(String name, String category) {
+        try {
+            String originalFile = String.format("%s/%s.instance", ACTIONS + category, name);
+            registerActionForMenu(originalFile, category, name);
+            registerActionForToolbar(originalFile, category, name);
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
         }
-        action.putValue(Action.NAME, name);
-        obj.setAttribute("instanceCreate", action);
-        obj.setAttribute("instanceClass", action.getClass().getName());
+    }
 
-        ///////////////////// 
-        // Add/Update Menu // 
-        ///////////////////// 
-        in = getFolderAt(menuPath);
-        obj = in.getFileObject(name, "shadow");
-        // Create if missing. 
-        if (obj == null) {
-            obj = in.createData(name, "shadow");
-            obj.setAttribute("originalFile", originalFile);
-        }
+    public static void unregisterAction(String name, String category) throws IOException {
+        String originalFile = String.format("%s/%s.instance", ACTIONS + category, name);
 
-        ///////////////////////// 
-        // Add/Update Shortcut // 
-        ///////////////////////// 
-        in = getFolderAt("Shortcuts");
-        obj = in.getFileObject(shortcut, "shadow");
-        if (obj == null) {
-            obj = in.createData(shortcut, "shadow");
-            obj.setAttribute("originalFile", originalFile);
+        deleteFileObject(getFolderAt(ACTIONS + category), name, "instance");
+        deleteFileObject(getFolderAt(TOOLBARS + category), name, "shadow");
+        deleteFileObject(getFolderAt(MENU + category), name, "shadow");
+
+        // iterate over all shortcuts, remove the shortcut which links to originalFileName
+        // FIXME does it really work?
+        FileObject folderAt = getFolderAt(SHORTCUTS);
+        List<FileObject> forRemoval = new ArrayList<FileObject>();
+
+        for (FileObject fo : folderAt.getChildren()) {
+            if (originalFile.equals(fo.getAttribute("originalFile"))) {
+                //found shortcut by its reference to the original action
+                forRemoval.add(fo);
+            }
         }
+        for (FileObject fo : forRemoval) {
+            fo.delete();
+        }
+    }
+
+    public static void registerAction(final String category, String id, String displayName, String command, String imagePath, String fqnFactoryMethodName) throws IOException {
+        //NOTE cannot create 'name="instanceCreate" methodvalue="xxx"' in code, so using a template
+        FileObject template = FileUtil.getConfigFile("QuickOpener/actionTemplate.instance");
+        FileObject obj = template.copy(getFolderAt(ACTIONS + category), displayName, "instance");
+
+        obj.setAttribute("imagePath", imagePath);
+        obj.setAttribute("displayName", escapeXMLCharacters(displayName));
+        obj.setAttribute("custom-command", escapeXMLCharacters(command));
+    }
+
+    public static void registerAction(String id, final String category, String displayName, String command) {
+        try {
+            ActionRegistrationService.registerAction(category, id, displayName, command, "me/dsnet/quickopener/icons/run.png", "me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create");
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    }
+
+    private static void deleteFileObject(FileObject folder, String name, final String ext) throws IOException {
+        FileObject fo = folder.getFileObject(name, ext);
+        if (fo != null) {
+            fo.delete();
+        }
+    }
+
+    /**
+     * Replace xml-characters like &lt with &amp;lt;
+     *
+     * @param text
+     * @return
+     */
+    private static String escapeXMLCharacters(String text) {
+        //TODO replace xml-characters like < with &lt;
+        return text;
+    }
+
+    /**
+     * Replace xml-characters like &amp;lt; with &lt
+     *
+     * @param text
+     * @return
+     */
+    public static String unescapeXMLCharacters(String text) {
+        //TODO replace xml-characters like &lt; with <
+        return text;
     }
 
     private static FileObject getFolderAt(String inputPath) throws IOException {
@@ -88,6 +149,16 @@ public class ActionRegistrationService {
         return FileUtil.getConfigFile(inputPath);
     }
 
+    private static FileObject getOrCreateFileObject(FileObject folder, String name, final String ext) throws IOException {
+        FileObject fo = folder.getFileObject(name, ext);
+        if (fo == null) {
+            fo = folder.createData(name, ext);
+        }
+        FileObject configFile = FileUtil.getConfigFile(String.format("%s/%s.%s", folder.getPath(), name, ext));
+        return configFile;
+//        return fo;
+    }
+
     private static String join(String separator, List<String> list) {
         StringBuilder sb = new StringBuilder();
         final int size = list.size();
@@ -100,4 +171,17 @@ public class ActionRegistrationService {
         }
         return sb.toString();
     }
+
+    private static void registerActionForMenu(String originalFile, String category, String name) throws IOException {
+        FileObject obj = getOrCreateFileObject(getFolderAt(MENU + category), name, "shadow");
+        obj.setAttribute("originalFile", originalFile);
+    }
+
+    private static void registerActionForToolbar(String originalFile, String category, String name) throws IOException {
+
+        FileObject obj = getOrCreateFileObject(getFolderAt(TOOLBARS + category), name, "shadow");
+        obj.setAttribute("originalFile", originalFile);
+
+    }
+
 }
