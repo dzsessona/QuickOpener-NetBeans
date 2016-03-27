@@ -5,8 +5,6 @@
 package me.dsnet.quickopener.actions;
 
 import me.dsnet.quickopener.actions.popup.CustomCommandPopupAction;
-import me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction;
-import me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction;
 import java.awt.Component;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -29,19 +27,13 @@ public final class ToolbarPresenter implements Presenter.Toolbar {
         
         final ImageIcon run16 = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/run.png", false); 
         final ImageIcon run32 = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/run24.png", false);
-        final ImageIcon folder = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/folder-documents-icon-cu.png",false);
-        final ImageIcon terminal = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/terminal-cu.png",false);
         
         CustomCommandPopupAction cAction=new CustomCommandPopupAction("Launch custom command...",run16);
-        CustomTerminalPopupAction tAction=new CustomTerminalPopupAction("Open shell in...",terminal);
-        CustomFileSystemPopupAction fAction=new CustomFileSystemPopupAction("Open filesystem in...",folder);
         
         //popup
         JPopupMenu popup = new JPopupMenu();        
         popup.add(cAction); 
-        popup.addSeparator();
-        popup.add(tAction);
-        popup.add(fAction);
+//        popup.addSeparator();
         
         //button
         final JButton dropDownButton = DropDownButtonFactory.createDropDownButton(run16,popup);

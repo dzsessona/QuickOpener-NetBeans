@@ -210,11 +210,6 @@ public class CommandsPanel extends javax.swing.JPanel {
             return;
         }
         PrefsUtil.store("command" + description, value);
-        //TODO escape id
-        //TODO delete previous registrations to prevent duplicates
-        String id = description;
-        ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
-        ActionRegistrationService.registerActionAsMenuAndToolbar(id, "QuickOpener");
 
         jTable2.setModel(new PropertyTableModel("command"));
     }//GEN-LAST:event_jButton1ActionPerformed

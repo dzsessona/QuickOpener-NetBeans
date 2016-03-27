@@ -16,9 +16,8 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         this.controller = controller;
         initComponents();
         jList1.setSelectedIndex(0);
+        generalPanel1.setVisible(true);
         commandsPanel1.setVisible(false);
-        placesPanel1.setVisible(true);
-        generalPanel1.setVisible(false);
     }
 
    
@@ -30,13 +29,11 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jList1 = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         jRightPanel = new javax.swing.JPanel();
-        placesPanel1 = new me.dsnet.quickopener.prefs.PlacesPanel();
         commandsPanel1 = new me.dsnet.quickopener.prefs.CommandsPanel();
         generalPanel1 = new me.dsnet.quickopener.prefs.GeneralPanel();
 
@@ -45,7 +42,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
 
         jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Places", "Commands", "General Options" };
+            String[] strings = { "General Options", "Commands", " " };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -80,7 +77,6 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         jSplitPane1.setLeftComponent(jPanel1);
 
         jRightPanel.setLayout(new java.awt.CardLayout());
-        jRightPanel.add(placesPanel1, "placesPanel1");
         jRightPanel.add(commandsPanel1, "commandsPanel1");
         jRightPanel.add(generalPanel1, "generalPanel1");
 
@@ -110,13 +106,14 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
                 CardLayout cardLayout = (CardLayout) layout;
                 
                 
-        if(jList1.getSelectedIndex()==0){
-            cardLayout.show(jRightPanel, "placesPanel1");
-        }else if(jList1.getSelectedIndex()==1){
-            cardLayout.show(jRightPanel, "commandsPanel1");
-        }else{
-            cardLayout.show(jRightPanel, "generalPanel1");
-            }
+                switch (jList1.getSelectedIndex()) {
+                    case 0:
+                        cardLayout.show(jRightPanel, "generalPanel1");
+                        break;
+                    default:
+                        cardLayout.show(jRightPanel, "commandsPanel1");
+                        break;
+                }
         }
     }//GEN-LAST:event_jList1ValueChanged
 
@@ -139,7 +136,5 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jRightPanel;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private me.dsnet.quickopener.prefs.PlacesPanel placesPanel1;
     // End of variables declaration//GEN-END:variables
 }

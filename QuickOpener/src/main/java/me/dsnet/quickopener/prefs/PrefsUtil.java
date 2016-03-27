@@ -7,6 +7,8 @@ package me.dsnet.quickopener.prefs;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
+import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
 import org.openide.util.NbPreferences;
 
 /**
@@ -15,8 +17,20 @@ import org.openide.util.NbPreferences;
  */
 public class PrefsUtil {
     
-    public static void store(String key, String val){
-        NbPreferences.forModule(QuickOpenerPanel.class).put(key,val); 
+    public static void store(String key, String value) {
+
+        final Preferences pref = NbPreferences.forModule(QuickOpenerPanel.class);
+        if (key.startsWith("command")) {
+            //TODO escape id
+            //TODO delete previous registrations to prevent duplicates
+            String description = key.replaceFirst("command", "");
+            String id = description;
+//            ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
+//            ActionRegistrationService.registerActionAsMenuAndToolbar(id, "QuickOpener");
+            
+        }
+
+        pref.put(key, value);
     }
     
     public static void removeSingleProperty(String key){

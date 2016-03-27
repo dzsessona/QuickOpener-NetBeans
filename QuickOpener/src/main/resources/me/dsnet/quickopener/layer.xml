@@ -24,20 +24,6 @@
                 <attr name="delegate" newvalue="me.dsnet.quickopener.actions.popup.CustomCommandPopupAction"/>
                 <attr boolvalue="false" name="noIconInMenu"/>
             </file>
-            <file name="me-dsnet-quickopener-actions-popup-CustomFileSystemPopupAction.instance">
-                <!--me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction-->
-                <attr bundlevalue="me.dsnet.quickopener.actions.popup.Bundle#CTL_CustomFileSystemPopupAction" name="displayName"/>
-                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
-                <attr name="delegate" newvalue="me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction"/>
-                <attr boolvalue="false" name="noIconInMenu"/>
-            </file>
-            <file name="me-dsnet-quickopener-actions-popup-CustomTerminalPopupAction.instance">
-                <!--me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction-->
-                <attr bundlevalue="me.dsnet.quickopener.actions.popup.Bundle#CTL_CustomTerminalPopupAction" name="displayName"/>
-                <attr methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
-                <attr name="delegate" newvalue="me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction"/>
-                <attr boolvalue="false" name="noIconInMenu"/>
-            </file>
         </folder>
     </folder>
     <!--adds actions to any folder node-->
@@ -121,7 +107,5 @@
         <file name="O-3.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-Path.instance"/></file>
         <file name="O-1.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-Terminal.instance"/> </file>       
         <file name="O-4.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomCommandPopupAction.instance"/></file>
-        <file name="O-5.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomFileSystemPopupAction.instance"/></file>
-        <file name="O-6.shadow"><attr name="originalFile" stringvalue="Actions/Tools/me-dsnet-quickopener-actions-popup-CustomTerminalPopupAction.instance"/></file> 
     </folder>
 </filesystem>
