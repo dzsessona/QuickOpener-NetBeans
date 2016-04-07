@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
 import org.openide.util.NbPreferences;
 
 /**
@@ -20,37 +19,11 @@ public class PrefsUtil {
     public static void store(String key, String value) {
 
         final Preferences pref = NbPreferences.forModule(QuickOpenerPanel.class);
-        if (key.startsWith("command")) {
-            //TODO escape id
-            //TODO delete previous registrations to prevent duplicates
-            String description = key.replaceFirst("command", "");
-            String id = description;
-//            ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
-//            ActionRegistrationService.registerActionAsMenuAndToolbar(id, "QuickOpener");
-            
-        }
-
         pref.put(key, value);
     }
     
     public static void removeSingleProperty(String key){
         NbPreferences.forModule(QuickOpenerPanel.class).remove(key);
-    }
-    
-    public static void remove(String key) throws BackingStoreException{
-        List<QuickOpenerProperty> commands = getAllMatching("command");
-        List<QuickOpenerProperty> folders = getAllMatching("folder");
-        NbPreferences.forModule(QuickOpenerPanel.class).clear();
-        for(QuickOpenerProperty p:commands){
-            String desc="command" + p.getDescription().replaceAll(" ", "_");
-            if(! desc.equals(key))
-            store(desc,p.getValue());
-        } 
-        for(QuickOpenerProperty p:folders){
-            String desc="folder" + p.getDescription().replaceAll(" ", "_");
-            if(! desc.equals(key))
-            store(desc,p.getValue());
-        }
     }
     
     public static void removeAll(String prefix) throws BackingStoreException{

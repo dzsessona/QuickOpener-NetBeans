@@ -4,36 +4,82 @@
  */
 package me.dsnet.quickopener.actions.popup;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import me.dsnet.quickopener.prefs.PrefsUtil;
 import me.dsnet.quickopener.prefs.QuickOpenerProperty;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
 import javax.swing.table.AbstractTableModel;
 import org.openide.util.Exceptions;
+import org.openide.util.Pair;
 
 /**
  *
- * @author SessonaD
+ * @author SessonaD, markiewb
  */
 public class PropertyTableModel extends AbstractTableModel {
 
-    String[] columnNames = {"Name", "Path"};
-    Object[][] data = null;
+    private boolean dirty;
+    private String[] columnNames = {"Name", "Path"};
+    private List<Pair<String, String>> data = new ArrayList<>();
 
     public PropertyTableModel(String prefix) {
         setColumnNames(prefix);
         try {
             List<QuickOpenerProperty> prefs = PrefsUtil.getAllMatching(prefix);
-            this.data = new Object[prefs.size()][2];
             for (int i = 0; i < prefs.size(); i++) {
                 QuickOpenerProperty pref = prefs.get(i);
                 String desc = pref.getDescription();
                 String val = pref.getValue();
-                this.data[i] = new String[]{desc, val};
+                addOrUpdateItem(desc, val);
             }
         } catch (BackingStoreException ex) {
             //Exceptions.printStackTrace(ex);
         }
+        dirty = false;
+    }
+
+    public void addItem(String desc, String val) {
+        addOrUpdateItem(desc, val);
+        this.fireTableDataChanged();
+        dirty = true;
+    }
+
+    public List<Pair<String, String>> getBackingData() {
+        return data;
+    }
+
+    public boolean isDirty() {
+        return dirty;
+    }
+
+    public void removeItem(int index) {
+        this.data.remove(index);
+        this.fireTableDataChanged();
+        dirty = true;
+    }
+
+    private void addOrUpdateItem(String desc, String val) {
+        int index = findByDescription(desc);
+        if (index != -1) {
+            //update existing
+            this.data.set(index, Pair.of(desc, val));
+        } else {
+            // add new
+            this.data.add(Pair.of(desc, val));
+        }
+    }
+
+    private int findByDescription(String desc) {
+        for (int i = 0; i < data.size(); i++) {
+            Pair<String, String> get = data.get(i);
+            if (desc.equals(get.first())) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void setColumnNames(String prefix) {
@@ -51,7 +97,7 @@ public class PropertyTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return data.length;
+        return data.size();
     }
 
     @Override
@@ -61,7 +107,12 @@ public class PropertyTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int row, int col) {
-        return data[row][col];
+        final Pair<String, String> item = data.get(row);
+        if (col == 0) {
+            return item.first();
+        } else {
+            return item.second();
+        }
     }
 
     @Override

@@ -6,6 +6,12 @@ package me.dsnet.quickopener.prefs;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.List;
+import java.util.prefs.BackingStoreException;
+import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
+import me.dsnet.quickopener.actions.popup.PropertyTableModel;
+import org.openide.util.Exceptions;
+import org.openide.util.Pair;
 
 public final class QuickOpenerPanel extends javax.swing.JPanel {
 
@@ -122,7 +128,33 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
     void load() {
     }
 
-    void store() {        
+    void store() {
+        ActionRegistrationService.unregisterActions("QuickOpener");
+        PropertyTableModel tableModel = commandsPanel1.getTableModel();
+        List<Pair<String, String>> backingData = tableModel.getBackingData();
+        try {
+            PrefsUtil.removeAll("command");
+        } catch (BackingStoreException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+        for (int i = 0; i < backingData.size(); i++) {
+            Pair<String, String> pair = backingData.get(i);
+
+            String description = pair.first();
+            String value = pair.second();
+
+            PrefsUtil.store("command" + description, value);
+
+            //TODO escape id
+            String id = description;
+
+            //TODO delete previous registrations to prevent duplicates: shortcuts/toolbar-items
+//            ActionRegistrationService.unregisterAction(id, "QuickOpener");
+            ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
+
+            String originalFile = String.format("%s/%s.instance", ActionRegistrationService.ACTIONS + "QuickOpener", id);
+            ActionRegistrationService.registerActionAsMenu(id, originalFile, i);
+        }
     }
 
     boolean valid() {        

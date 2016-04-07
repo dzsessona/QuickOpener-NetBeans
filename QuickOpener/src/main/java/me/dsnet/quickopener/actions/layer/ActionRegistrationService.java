@@ -17,8 +17,8 @@ import org.openide.util.Exceptions;
  */
 public class ActionRegistrationService {
 
-    private static final String ACTIONS = "Actions/";
-    private static final String MENU = "Menu/";
+    public static final String ACTIONS = "Actions/";
+    private static final String MENU = "Menu/Tools/External Tools";
     private static final String SHORTCUTS = "Shortcuts";
     private static final String TOOLBARS = "Toolbars/";
 
@@ -50,27 +50,48 @@ public class ActionRegistrationService {
             Exceptions.printStackTrace(ex);
         }
     }
-
-    public static void unregisterAction(String name, String category) throws IOException {
-        String originalFile = String.format("%s/%s.instance", ACTIONS + category, name);
-
-        deleteFileObject(getFolderAt(ACTIONS + category), name, "instance");
-        deleteFileObject(getFolderAt(TOOLBARS + category), name, "shadow");
-        deleteFileObject(getFolderAt(MENU + category), name, "shadow");
-
-        // iterate over all shortcuts, remove the shortcut which links to originalFileName
-        // FIXME does it really work?
-        FileObject folderAt = getFolderAt(SHORTCUTS);
-        List<FileObject> forRemoval = new ArrayList<FileObject>();
-
-        for (FileObject fo : folderAt.getChildren()) {
-            if (originalFile.equals(fo.getAttribute("originalFile"))) {
-                //found shortcut by its reference to the original action
-                forRemoval.add(fo);
-            }
+    public static void registerActionAsMenu(String name, String originalFile, int position) {
+        try {
+            FileObject obj = getOrCreateFileObject(getFolderAt(MENU), name, "shadow");
+            obj.setAttribute("originalFile", originalFile);
+            obj.setAttribute("position", position);
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
         }
-        for (FileObject fo : forRemoval) {
-            fo.delete();
+    }
+
+    public static void unregisterAction(String name, String category) {
+        try {
+            String originalFile = String.format("%s/%s.instance", ACTIONS + category, name);
+            
+            deleteFileObject(getFolderAt(ACTIONS + category), name, "instance");
+            deleteFileObject(getFolderAt(TOOLBARS + category), name, "shadow");
+            deleteFileObject(getFolderAt(MENU + category), name, "shadow");
+
+            // iterate over all shortcuts, remove the shortcut which links to originalFileName
+            // FIXME does it really work?
+            FileObject folderAt = getFolderAt(SHORTCUTS);
+            List<FileObject> forRemoval = new ArrayList<FileObject>();
+            
+            for (FileObject fo : folderAt.getChildren()) {
+                if (originalFile.equals(fo.getAttribute("originalFile"))) {
+                    //found shortcut by its reference to the original action
+                    forRemoval.add(fo);
+                }
+            }
+            for (FileObject fo : forRemoval) {
+                fo.delete();
+            }
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    }
+    public static void unregisterActions(String category) {
+        try {
+            getFolderAt(ACTIONS + category).delete();
+            getFolderAt(MENU).delete();
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
         }
     }
 

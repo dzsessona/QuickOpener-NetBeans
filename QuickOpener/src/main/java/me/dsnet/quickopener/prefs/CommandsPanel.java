@@ -9,6 +9,9 @@ import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.actions.popup.PropertyTableModel;
 import java.util.prefs.BackingStoreException;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
 import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -35,6 +38,36 @@ public class CommandsPanel extends javax.swing.JPanel {
         jTable2.getColumnModel().getColumn(0).setMinWidth(100);
         jLabel5.setText("(for your OS is: \'" + cmdos + "\')");
 
+        jTable2.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+
+                    final int row = jTable2.getSelectedRow();
+                    if (-1 != row) {
+                        String description = (String) jTable2.getModel().getValueAt(row, 0);
+                        String command = (String) jTable2.getModel().getValueAt(row, 1);
+                        cmddescription.setText(description);
+                        cmdvalue.setText(command);
+                    }
+
+                }
+            }
+        });
+
+    }
+
+    public PropertyTableModel getTableModel() {
+        return (PropertyTableModel) jTable2.getModel();
+    }
+
+    private void focusFirstEntry() {
+        //select first command if available
+        if (jTable2.getModel().getRowCount() >= 1) {
+            jTable2.changeSelection(0, 0, false, false);
+        }
+        jTable2.requestFocusInWindow();
+        jTable2.requestFocus();
     }
 
     /**
@@ -50,9 +83,9 @@ public class CommandsPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         cmdvalue = new javax.swing.JTextField();
         cmddescription = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -66,23 +99,23 @@ public class CommandsPanel extends javax.swing.JPanel {
 
         cmddescription.setText(org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.cmddescription.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton1.text")); // NOI18N
-        jButton1.setToolTipText(org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton1.toolTipText")); // NOI18N
-        jButton1.setRequestFocusEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(btnAdd, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.btnAdd.text")); // NOI18N
+        btnAdd.setToolTipText(org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.btnAdd.toolTipText")); // NOI18N
+        btnAdd.setRequestFocusEnabled(false);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
         jLabel4.setLabelFor(cmdvalue);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel4.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jButton2.text")); // NOI18N
-        jButton2.setRequestFocusEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(btnDelete, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.btnDelete.text")); // NOI18N
+        btnDelete.setRequestFocusEnabled(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -96,7 +129,6 @@ public class CommandsPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(CommandsPanel.class, "CommandsPanel.jLabel5.text")); // NOI18N
 
-        jTable2.setAutoCreateRowSorter(true);
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -108,10 +140,7 @@ public class CommandsPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setFillsViewportHeight(true);
-        jTable2.setFocusable(false);
-        jTable2.setRequestFocusEnabled(false);
-        jTable2.setShowVerticalLines(false);
+        jTable2.setRowSorter(null);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable2MouseClicked(evt);
@@ -137,8 +166,8 @@ public class CommandsPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -157,7 +186,7 @@ public class CommandsPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnPlaceholders, jButton1, jButton2});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnDelete, btnPlaceholders});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,9 +206,9 @@ public class CommandsPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnDelete)
                         .addContainerGap(44, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
@@ -200,7 +229,7 @@ public class CommandsPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         String description = cmddescription.getText();
         description = description.replaceAll(" ", "_");
         String value = cmdvalue.getText();
@@ -209,20 +238,17 @@ public class CommandsPanel extends javax.swing.JPanel {
             DialogDisplayer.getDefault().notify(d);
             return;
         }
-        PrefsUtil.store("command" + description, value);
+        PropertyTableModel model = (PropertyTableModel) jTable2.getModel();
+        model.addItem(description, value);
+        focusFirstEntry();
+    }//GEN-LAST:event_btnAddActionPerformed
 
-        jTable2.setModel(new PropertyTableModel("command"));
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        PropertyTableModel model = (PropertyTableModel) jTable2.getModel();
+        model.removeItem(jTable2.getSelectedRow());
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            PrefsUtil.remove("command" + cmddescription.getText().replaceAll(" ", "_"));
-            jTable2.setModel(new PropertyTableModel("command"));
-        } catch (BackingStoreException ex) {
-            // Exceptions.printStackTrace(ex);
-        }
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+        focusFirstEntry();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (cmdos == null) {
@@ -239,16 +265,6 @@ public class CommandsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        if (evt.getClickCount() == 1) {
-            final int thisrow = jTable2.getSelectedRow();
-            if (-1 != thisrow) {
-                final int row = jTable2.getRowSorter().convertRowIndexToModel(thisrow);
-                String description = (String) jTable2.getModel().getValueAt(row, 0);
-                String command = (String) jTable2.getModel().getValueAt(row, 1);
-                cmddescription.setText(description);
-                cmdvalue.setText(command);
-            }
-        }
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void btnPlaceholdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceholdersActionPerformed
@@ -256,11 +272,11 @@ public class CommandsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPlaceholdersActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnPlaceholders;
     private javax.swing.JTextField cmddescription;
     private javax.swing.JTextField cmdvalue;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
