@@ -5,13 +5,20 @@
 package me.dsnet.quickopener.prefs;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.shell.chooser.IShellConfigurator;
 import me.dsnet.quickopener.prefs.shell.chooser.impl.GitBashConfigurator;
@@ -23,30 +30,60 @@ import org.openide.util.NbBundle;
 /**
  *
  * @author SessonaD
+ * @author markiewb
  */
 public class GeneralPanel extends javax.swing.JPanel {
+
+    private QuickOpenerOptionsPanelController controller;
 
     /**
      * Creates new form GeneralPanel
      */
     public GeneralPanel() {
         initComponents();
-        QuickOpenerProperty customSeparator=PrefsUtil.load(null,"generalseparator",getOSSeparator());
-        jLabel2.setText(customSeparator.getValue());
-        QuickOpenerProperty customShell=PrefsUtil.load(null,"customShell",null);
-        cShellLabel.setText((customShell.getValue()==null)?"not defined":customShell.getValue());  
-        QuickOpenerProperty confirmation=PrefsUtil.load(null,"confirmationDialogue","true");
-        boolean isConfirmSelected = Boolean.parseBoolean(confirmation.getValue());
-        confirmationCheckBox.setSelected(isConfirmSelected);    
-        
-        shellConfigureButton.setEnabled(!getAvailableConfigurators().isEmpty());
+        loadConfig();
+        final DocumentListener documentListener = new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                controller.changed();
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                controller.changed();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                controller.changed();
+            }
+        };
+        txtCustomShell.getDocument().addDocumentListener(documentListener);
+        txtPathSeparator.getDocument().addDocumentListener(documentListener);
+        cbConfirmation.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.changed();
+            }
+        });
     }
 
-    private String getOSSeparator(){
-        return System.getProperty("file.separator");
+    public JCheckBox getCbConfirmation() {
+        return cbConfirmation;
     }
-    
-    
+
+    public JTextField getTxtCustomShell() {
+        return txtCustomShell;
+    }
+
+    public JTextField getTxtPathSeparator() {
+        return txtPathSeparator;
+    }
+
+    void setController(QuickOpenerOptionsPanelController controller) {
+        this.controller = controller;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,18 +96,11 @@ public class GeneralPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        applyButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        txtPathSeparator = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        cShellLabel = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        applyCShellButton = new javax.swing.JButton();
-        cshellTextField = new javax.swing.JTextField();
+        txtCustomShell = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        confirmationCheckBox = new javax.swing.JCheckBox();
-        applyConfirmationButton = new javax.swing.JButton();
+        cbConfirmation = new javax.swing.JCheckBox();
         shellConfigureButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
 
@@ -80,53 +110,16 @@ public class GeneralPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel1.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel2.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(applyButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyButton.text")); // NOI18N
-        applyButton.setFocusable(false);
-        applyButton.setRequestFocusEnabled(false);
-        applyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                applyButtonActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jTextField1.text")); // NOI18N
-
-        jLabel5.setLabelFor(jTextField1);
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel5.text")); // NOI18N
+        txtPathSeparator.setText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.txtPathSeparator.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel6.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(cShellLabel, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.cShellLabel.text")); // NOI18N
+        txtCustomShell.setText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.txtCustomShell.text")); // NOI18N
 
-        jLabel8.setLabelFor(cshellTextField);
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel8.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(applyCShellButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyCShellButton.text")); // NOI18N
-        applyCShellButton.setFocusable(false);
-        applyCShellButton.setRequestFocusEnabled(false);
-        applyCShellButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                applyCShellButtonActionPerformed(evt);
-            }
-        });
-
-        cshellTextField.setText(org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.cshellTextField.text")); // NOI18N
-
-        jLabel7.setLabelFor(confirmationCheckBox);
+        jLabel7.setLabelFor(cbConfirmation);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.jLabel7.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(confirmationCheckBox, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.confirmationCheckBox.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(applyConfirmationButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.applyConfirmationButton.text")); // NOI18N
-        applyConfirmationButton.setFocusable(false);
-        applyConfirmationButton.setRequestFocusEnabled(false);
-        applyConfirmationButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                applyConfirmationButtonActionPerformed(evt);
-            }
-        });
+        org.openide.awt.Mnemonics.setLocalizedText(cbConfirmation, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.cbConfirmation.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(shellConfigureButton, org.openide.util.NbBundle.getMessage(GeneralPanel.class, "GeneralPanel.shellConfigureButton.text")); // NOI18N
         shellConfigureButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,112 +142,65 @@ public class GeneralPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(confirmationCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(10, 10, 10)
-                                .addComponent(cShellLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbConfirmation, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cshellTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtPathSeparator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                    .addComponent(txtCustomShell, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(shellConfigureButton)
-                                .addGap(6, 6, 6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(applyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(applyCShellButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(applyConfirmationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(shellConfigureButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(resetButton))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {resetButton, shellConfigureButton});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(applyButton)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPathSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(cShellLabel)
-                    .addComponent(jLabel8)
-                    .addComponent(applyCShellButton)
                     .addComponent(shellConfigureButton)
-                    .addComponent(cshellTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(applyConfirmationButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(confirmationCheckBox)
-                            .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                    .addComponent(txtCustomShell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(cbConfirmation)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(resetButton))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyButtonActionPerformed
-        String customSep = jTextField1.getText();
-        if(customSep!=null && !customSep.isEmpty()){
-            PrefsUtil.store("generalseparator" , customSep);
-            jLabel2.setText(customSep);
-        }else{
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.SEPARATOR_NULL,NotifyDescriptor.WARNING_MESSAGE);
-            DialogDisplayer.getDefault().notify(d);
-        }
-    }//GEN-LAST:event_applyButtonActionPerformed
-
-    private void applyCShellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyCShellButtonActionPerformed
-        String cshell = cshellTextField.getText();
-        if(cshell!=null && !cshell.isEmpty()){
-            PrefsUtil.store("customShell" , cshell);
-            cShellLabel.setText(cshell);
-        }else{
-            NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.CUSTOM_SHELL,NotifyDescriptor.WARNING_MESSAGE);
-            DialogDisplayer.getDefault().notify(d);
-        }
-    }//GEN-LAST:event_applyCShellButtonActionPerformed
-
-    private void applyConfirmationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyConfirmationButtonActionPerformed
-    }//GEN-LAST:event_applyConfirmationButtonActionPerformed
+    void loadConfig() {
+        QuickOpenerProperty customSeparator = PrefsUtil.load(null, "generalseparator", "");
+        txtPathSeparator.setText(customSeparator.getValue());
+        QuickOpenerProperty customShell = PrefsUtil.load(null, "customShell", "");
+        txtCustomShell.setText(customShell.getValue());
+        QuickOpenerProperty confirmation = PrefsUtil.load(null, "confirmationDialogue", "true");
+        boolean isConfirmSelected = Boolean.parseBoolean(confirmation.getValue());
+        cbConfirmation.setSelected(isConfirmSelected);
+        shellConfigureButton.setEnabled(!getAvailableConfigurators().isEmpty());
+    }
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         PrefsUtil.removeSingleProperty("customShell");
-        cShellLabel.setText("not defined");
-        cshellTextField.setText("not defined");
-
-        confirmationCheckBox.setSelected(false);
-        PrefsUtil.store("confirmationDialogue", (confirmationCheckBox.isSelected()) ? "true" : "false");
-        
         PrefsUtil.removeSingleProperty("generalseparator");
-        jLabel2.setText(getOSSeparator());
-        jTextField1.setText("");
+        PrefsUtil.removeSingleProperty("confirmationDialogue");
 
+        loadConfig();
     }//GEN-LAST:event_resetButtonActionPerformed
 
     @NbBundle.Messages(
@@ -262,7 +208,7 @@ public class GeneralPanel extends javax.swing.JPanel {
                 "LBL_Dialog=Configurator",}
     )
     private void shellConfigureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shellConfigureButtonActionPerformed
-        JTextField shellTextField = cshellTextField;
+        JTextField shellTextField = txtCustomShell;
 
         List<String> labels = new ArrayList<String>();
         for (IShellConfigurator configurator : getAvailableConfigurators()) {
@@ -301,22 +247,15 @@ public class GeneralPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton applyButton;
-    private javax.swing.JButton applyCShellButton;
-    private javax.swing.JButton applyConfirmationButton;
-    private javax.swing.JLabel cShellLabel;
-    private javax.swing.JCheckBox confirmationCheckBox;
-    private javax.swing.JTextField cshellTextField;
+    private javax.swing.JCheckBox cbConfirmation;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton shellConfigureButton;
+    private javax.swing.JTextField txtCustomShell;
+    private javax.swing.JTextField txtPathSeparator;
     // End of variables declaration//GEN-END:variables
 }

@@ -60,8 +60,8 @@ public final class Terminal extends AbstractFileContextAwareAction {
                 return;
             }
             //open in os shell or in the custom one if defined
-            QuickOpenerProperty customShell = PrefsUtil.load(null, "customShell", null);
-            if (customShell.getValue() == null) {
+            QuickOpenerProperty customShell = PrefsUtil.load(null, "customShell", "");
+            if ("".equals(customShell.getValue())) {
                 Commands.getPlatform().openInShell(path);
             } else {
                 customShellOpen(customShell.getValue(), path);

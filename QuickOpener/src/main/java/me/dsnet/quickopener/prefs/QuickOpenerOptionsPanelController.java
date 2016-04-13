@@ -6,6 +6,7 @@ package me.dsnet.quickopener.prefs;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.JComponent;
 import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
@@ -21,16 +22,16 @@ public final class QuickOpenerOptionsPanelController extends OptionsPanelControl
 
     private QuickOpenerPanel panel;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    private boolean changed;
+    private AtomicBoolean changed=new AtomicBoolean(false);
 
     public void update() {
         getPanel().load();
-        changed = false;
+        changed.set(false);
     }
 
     public void applyChanges() {
         getPanel().store();
-        changed = false;
+        changed.set(false);
     }
 
     public void cancel() {
@@ -42,7 +43,7 @@ public final class QuickOpenerOptionsPanelController extends OptionsPanelControl
     }
 
     public boolean isChanged() {
-        return changed;
+        return changed.get();
     }
 
     public HelpCtx getHelpCtx() {
@@ -69,10 +70,10 @@ public final class QuickOpenerOptionsPanelController extends OptionsPanelControl
     }
 
     void changed() {
-        if (!changed) {
-            changed = true;
+        if (!changed.get()) {
+            changed.set(true);
             pcs.firePropertyChange(OptionsPanelController.PROP_CHANGED, false, true);
         }
-        pcs.firePropertyChange(OptionsPanelController.PROP_VALID, null, null);
+//        pcs.firePropertyChange(OptionsPanelController.PROP_VALID, null, null);
     }
 }

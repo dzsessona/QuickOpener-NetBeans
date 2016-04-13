@@ -8,15 +8,17 @@ import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
+import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
 import me.dsnet.quickopener.actions.popup.PropertyTableModel;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.Pair;
 
 public final class QuickOpenerPanel extends javax.swing.JPanel {
 
     private final QuickOpenerOptionsPanelController controller;
-    
 
     QuickOpenerPanel(QuickOpenerOptionsPanelController controller) {
         this.controller = controller;
@@ -24,9 +26,10 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
         jList1.setSelectedIndex(0);
         generalPanel1.setVisible(true);
         commandsPanel1.setVisible(false);
+        generalPanel1.setController(controller);
+        commandsPanel1.setController(controller);
     }
 
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,7 +71,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jList1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addComponent(jList1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -77,7 +80,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
-                .addComponent(jList1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
+                .addComponent(jList1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -94,72 +97,78 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
-                .addGap(5, 5, 5))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jSplitPane1)
-                .addGap(0, 0, 0))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-            LayoutManager layout = jRightPanel.getLayout();
-            if (layout instanceof CardLayout) {
-                CardLayout cardLayout = (CardLayout) layout;
-                
-                
-                switch (jList1.getSelectedIndex()) {
-                    case 0:
-                        cardLayout.show(jRightPanel, "generalPanel1");
-                        break;
-                    default:
-                        cardLayout.show(jRightPanel, "commandsPanel1");
-                        break;
-                }
+        LayoutManager layout = jRightPanel.getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cardLayout = (CardLayout) layout;
+
+            switch (jList1.getSelectedIndex()) {
+                case 0:
+                    cardLayout.show(jRightPanel, "generalPanel1");
+                    break;
+                default:
+                    cardLayout.show(jRightPanel, "commandsPanel1");
+                    break;
+            }
         }
     }//GEN-LAST:event_jList1ValueChanged
 
-    
-    
     void load() {
+        commandsPanel1.loadConfig();
+        generalPanel1.loadConfig();
     }
 
     void store() {
-        ActionRegistrationService.unregisterActions("QuickOpener");
-        PropertyTableModel tableModel = commandsPanel1.getTableModel();
-        List<Pair<String, String>> backingData = tableModel.getBackingData();
-        try {
-            PrefsUtil.removeAll("command");
-        } catch (BackingStoreException ex) {
-            Exceptions.printStackTrace(ex);
-        }
-        for (int i = 0; i < backingData.size(); i++) {
-            Pair<String, String> pair = backingData.get(i);
+        {
+            ActionRegistrationService.unregisterActions("QuickOpener");
+            PropertyTableModel tableModel = commandsPanel1.getTableModel();
+            List<Pair<String, String>> backingData = tableModel.getBackingData();
+            try {
+                PrefsUtil.removeAll("command");
+            } catch (BackingStoreException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+            for (int i = 0; i < backingData.size(); i++) {
+                Pair<String, String> pair = backingData.get(i);
 
-            String description = pair.first();
-            String value = pair.second();
+                String description = pair.first();
+                String value = pair.second();
 
-            PrefsUtil.store("command" + description, value);
+                PrefsUtil.store("command" + description, value);
 
-            //TODO escape id
-            String id = description;
+                //TODO escape id
+                String id = description;
 
-            //TODO delete previous registrations to prevent duplicates: shortcuts/toolbar-items
+                //TODO delete previous registrations to prevent duplicates: shortcuts/toolbar-items
 //            ActionRegistrationService.unregisterAction(id, "QuickOpener");
-            ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
+                ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
 
-            String originalFile = String.format("%s/%s.instance", ActionRegistrationService.ACTIONS + "QuickOpener", id);
-            ActionRegistrationService.registerActionAsMenu(id, originalFile, i);
+                String originalFile = String.format("%s/%s.instance", ActionRegistrationService.ACTIONS + "QuickOpener", id);
+                ActionRegistrationService.registerActionAsMenu(id, originalFile, i);
+            }
+        }
+
+        {
+            PrefsUtil.store("generalseparator", generalPanel1.getTxtPathSeparator().getText());
+            PrefsUtil.store("customShell", generalPanel1.getTxtCustomShell().getText());
+            PrefsUtil.store("confirmationDialogue", (generalPanel1.getCbConfirmation().isSelected()) ? "true" : "false");
         }
     }
 
-    boolean valid() {        
+    boolean valid() {
         return true;
-    }    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private me.dsnet.quickopener.prefs.CommandsPanel commandsPanel1;
     private me.dsnet.quickopener.prefs.GeneralPanel generalPanel1;
