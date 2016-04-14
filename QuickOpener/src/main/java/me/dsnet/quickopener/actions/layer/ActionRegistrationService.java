@@ -3,9 +3,7 @@ package me.dsnet.quickopener.actions.layer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import javax.swing.Action;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.util.Exceptions;
@@ -17,8 +15,8 @@ import org.openide.util.Exceptions;
  */
 public class ActionRegistrationService {
 
-    public static final String ACTIONS = "Actions/";
-    private static final String MENU = "Menu/Tools/External Tools";
+    public static final String ACTIONS = "Actions/ExternalTools";
+    public static final String MENU = "Menu/Tools/ExternalTools";
     private static final String SHORTCUTS = "Shortcuts";
     private static final String TOOLBARS = "Toolbars/";
 
@@ -36,16 +34,15 @@ public class ActionRegistrationService {
      *
      *
      * @param name Display name of the action.
-     * @param category Category in the Keymap tool.
      * @param menuPath Menu location starting with "Menu", like "Menu/File"
      * @param action an action object to attach to the action entry.
      * @throws IOException
      */
-    public static void registerActionAsMenuAndToolbar(String name, String category) {
+    public static void registerActionAsMenuAndToolbar(String name) {
         try {
-            String originalFile = String.format("%s/%s.instance", ACTIONS + category, name);
-            registerActionForMenu(originalFile, category, name);
-            registerActionForToolbar(originalFile, category, name);
+            String originalFile = String.format("%s/%s.instance", ACTIONS, name);
+            registerActionForMenu(originalFile, name);
+            registerActionForToolbar(originalFile, name);
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
@@ -60,13 +57,13 @@ public class ActionRegistrationService {
         }
     }
 
-    public static void unregisterAction(String name, String category) {
+    public static void unregisterAction(String name) {
         try {
-            String originalFile = String.format("%s/%s.instance", ACTIONS + category, name);
+            String originalFile = String.format("%s/%s.instance", ACTIONS, name);
             
-            deleteFileObject(getFolderAt(ACTIONS + category), name, "instance");
-            deleteFileObject(getFolderAt(TOOLBARS + category), name, "shadow");
-            deleteFileObject(getFolderAt(MENU + category), name, "shadow");
+            deleteFileObject(getFolderAt(ACTIONS), name, "instance");
+            deleteFileObject(getFolderAt(TOOLBARS), name, "shadow");
+            deleteFileObject(getFolderAt(MENU), name, "shadow");
 
             // iterate over all shortcuts, remove the shortcut which links to originalFileName
             // FIXME does it really work?
@@ -86,28 +83,28 @@ public class ActionRegistrationService {
             Exceptions.printStackTrace(ex);
         }
     }
-    public static void unregisterActions(String category) {
+    public static void unregisterActions() {
         try {
-            getFolderAt(ACTIONS + category).delete();
+            getFolderAt(ACTIONS).delete();
             getFolderAt(MENU).delete();
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
     }
 
-    public static void registerAction(final String category, String id, String displayName, String command, String imagePath, String fqnFactoryMethodName) throws IOException {
+    public static void registerAction(String id, String displayName, String command, String imagePath, String fqnFactoryMethodName) throws IOException {
         //NOTE cannot create 'name="instanceCreate" methodvalue="xxx"' in code, so using a template
         FileObject template = FileUtil.getConfigFile("QuickOpener/actionTemplate.instance");
-        FileObject obj = template.copy(getFolderAt(ACTIONS + category), displayName, "instance");
+        FileObject obj = template.copy(getFolderAt(ACTIONS), displayName, "instance");
 
         obj.setAttribute("imagePath", imagePath);
         obj.setAttribute("displayName", escapeXMLCharacters(displayName));
         obj.setAttribute("custom-command", escapeXMLCharacters(command));
     }
 
-    public static void registerAction(String id, final String category, String displayName, String command) {
+    public static void registerAction(String id, String displayName, String command) {
         try {
-            ActionRegistrationService.registerAction(category, id, displayName, command, "me/dsnet/quickopener/icons/run.png", "me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create");
+            ActionRegistrationService.registerAction(id, displayName, command, "me/dsnet/quickopener/icons/run.png", "me.dsnet.quickopener.actions.layer.LayerXMLConfiguredCustomRunnerAction.create");
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
@@ -193,14 +190,14 @@ public class ActionRegistrationService {
         return sb.toString();
     }
 
-    private static void registerActionForMenu(String originalFile, String category, String name) throws IOException {
-        FileObject obj = getOrCreateFileObject(getFolderAt(MENU + category), name, "shadow");
+    private static void registerActionForMenu(String originalFile, String name) throws IOException {
+        FileObject obj = getOrCreateFileObject(getFolderAt(MENU), name, "shadow");
         obj.setAttribute("originalFile", originalFile);
     }
 
-    private static void registerActionForToolbar(String originalFile, String category, String name) throws IOException {
+    private static void registerActionForToolbar(String originalFile, String name) throws IOException {
 
-        FileObject obj = getOrCreateFileObject(getFolderAt(TOOLBARS + category), name, "shadow");
+        FileObject obj = getOrCreateFileObject(getFolderAt(TOOLBARS), name, "shadow");
         obj.setAttribute("originalFile", originalFile);
 
     }
