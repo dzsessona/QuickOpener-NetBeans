@@ -17,7 +17,7 @@ import org.openide.util.NbBundle.Messages;
  * @author markiewb (contributor)
  */
 @ActionID(
-        category = "Tools",
+        category = "ExternalTools",
         id = "me.dsnet.quickopener.actions.FileSystem")
 @ActionRegistration(
         lazy = false,

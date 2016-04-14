@@ -16,7 +16,7 @@ public class ActionRegistrationServiceTest extends org.netbeans.junit.NbTestCase
 
     @Test
     public void testRegisterAction() throws Exception {
-        ActionRegistrationService.registerAction("id", "category", "displayName", "command");
+        ActionRegistrationService.registerAction("id", "displayName", "command");
         {
             FileObject configFile = FileUtil.getConfigFile("Actions/category/displayName.instance");
             assertNotNull(configFile);
@@ -30,7 +30,7 @@ public class ActionRegistrationServiceTest extends org.netbeans.junit.NbTestCase
 
     @Test
     public void testRegisterMenu() throws Exception {
-        ActionRegistrationService.registerActionAsMenuAndToolbar("action1", "category");
+        ActionRegistrationService.registerActionAsMenuAndToolbar("action1");
         {
             FileObject configFile = FileUtil.getConfigFile("Menu/category/action1.shadow");
             assertNotNull(configFile);
@@ -39,7 +39,7 @@ public class ActionRegistrationServiceTest extends org.netbeans.junit.NbTestCase
 
     @Test
     public void testRegisterToolbar() throws Exception {
-        ActionRegistrationService.registerActionAsMenuAndToolbar("action1", "category");
+        ActionRegistrationService.registerActionAsMenuAndToolbar("action1");
         {
             FileObject configFile = FileUtil.getConfigFile("Toolbars/category/action1.shadow");
             assertNotNull(configFile);
@@ -48,10 +48,10 @@ public class ActionRegistrationServiceTest extends org.netbeans.junit.NbTestCase
 
     @Test
     public void testUnregisterAction() throws Exception {
-        ActionRegistrationService.registerAction("id", "category", "displayName", "command");
-        ActionRegistrationService.registerActionAsMenuAndToolbar("displayName", "category");
+        ActionRegistrationService.registerAction("id", "displayName", "command");
+        ActionRegistrationService.registerActionAsMenuAndToolbar("displayName");
 
-        ActionRegistrationService.unregisterAction("displayName", "category");
+        ActionRegistrationService.unregisterAction("displayName");
         assertNull(FileUtil.getConfigFile("Actions/category/displayName.instance"));
         assertNull(FileUtil.getConfigFile("Menu/category/displayName.shadow"));
         assertNull(FileUtil.getConfigFile("Toolbars/category/displayName.shadow"));

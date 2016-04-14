@@ -1,13 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.dsnet.quickopener.prefs;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import static java.lang.Integer.MAX_VALUE;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
+import javax.swing.Action;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.actions.layer.ActionRegistrationService;
 import me.dsnet.quickopener.actions.popup.PropertyTableModel;
@@ -15,6 +13,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.Pair;
+import org.openide.util.Utilities;
 
 public final class QuickOpenerPanel extends javax.swing.JPanel {
 
@@ -131,7 +130,7 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
 
     void store() {
         {
-            ActionRegistrationService.unregisterActions("QuickOpener");
+            ActionRegistrationService.unregisterActions();
             PropertyTableModel tableModel = commandsPanel1.getTableModel();
             List<Pair<String, String>> backingData = tableModel.getBackingData();
             try {
@@ -152,11 +151,14 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
 
                 //TODO delete previous registrations to prevent duplicates: shortcuts/toolbar-items
 //            ActionRegistrationService.unregisterAction(id, "QuickOpener");
-                ActionRegistrationService.registerAction(id, "QuickOpener", description, value);
+                ActionRegistrationService.registerAction(id, description, value);
 
-                String originalFile = String.format("%s/%s.instance", ActionRegistrationService.ACTIONS + "QuickOpener", id);
+                String originalFile = String.format("%s/%s.instance", ActionRegistrationService.ACTIONS, id);
                 ActionRegistrationService.registerActionAsMenu(id, originalFile, i);
             }
+            
+            String originalFile = "Actions/ExternalToolsHardCodedActions/me-dsnet-quickopener-actions-ConfigureAction.instance";
+            ActionRegistrationService.registerActionAsMenu("me-dsnet-quickopener-actions-ConfigureAction", originalFile, MAX_VALUE);
         }
 
         {

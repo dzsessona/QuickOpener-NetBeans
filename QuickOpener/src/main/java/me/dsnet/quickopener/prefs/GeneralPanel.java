@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.dsnet.quickopener.prefs;
 
 import java.awt.BorderLayout;
@@ -15,17 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.shell.chooser.IShellConfigurator;
 import me.dsnet.quickopener.prefs.shell.chooser.impl.GitBashConfigurator;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
+import org.openide.util.WeakListeners;
 
 /**
  *
@@ -35,6 +29,8 @@ import org.openide.util.NbBundle;
 public class GeneralPanel extends javax.swing.JPanel {
 
     private QuickOpenerOptionsPanelController controller;
+    final DocumentListener documentListener;
+    final ActionListener actionListener;
 
     /**
      * Creates new form GeneralPanel
@@ -42,7 +38,7 @@ public class GeneralPanel extends javax.swing.JPanel {
     public GeneralPanel() {
         initComponents();
         loadConfig();
-        final DocumentListener documentListener = new DocumentListener() {
+        documentListener = new DocumentListener() {
             @Override
             public void changedUpdate(DocumentEvent e) {
                 controller.changed();
@@ -58,14 +54,16 @@ public class GeneralPanel extends javax.swing.JPanel {
                 controller.changed();
             }
         };
-        txtCustomShell.getDocument().addDocumentListener(documentListener);
-        txtPathSeparator.getDocument().addDocumentListener(documentListener);
-        cbConfirmation.addActionListener(new ActionListener() {
+        txtCustomShell.getDocument().addDocumentListener(WeakListeners.document(documentListener, txtCustomShell.getDocument()));
+        txtPathSeparator.getDocument().addDocumentListener(WeakListeners.document(documentListener, txtPathSeparator.getDocument()));
+        actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.changed();
             }
-        });
+        };
+        
+        cbConfirmation.addActionListener(WeakListeners.create(ActionListener.class, actionListener, cbConfirmation));
     }
 
     public JCheckBox getCbConfirmation() {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.dsnet.quickopener.prefs;
 
 import java.beans.PropertyChangeListener;
@@ -30,8 +26,10 @@ public final class QuickOpenerOptionsPanelController extends OptionsPanelControl
     }
 
     public void applyChanges() {
-        getPanel().store();
-        changed.set(false);
+        if (changed.get()){
+            getPanel().store();
+            changed.set(false);
+        }
     }
 
     public void cancel() {
@@ -70,9 +68,10 @@ public final class QuickOpenerOptionsPanelController extends OptionsPanelControl
     }
 
     void changed() {
-        if (!changed.get()) {
-            changed.set(true);
+//        if (!changed.get()) 
+        {
             pcs.firePropertyChange(OptionsPanelController.PROP_CHANGED, false, true);
+            changed.set(true);
         }
 //        pcs.firePropertyChange(OptionsPanelController.PROP_VALID, null, null);
     }

@@ -1,9 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.dsnet.quickopener.prefs;
 
+import java.awt.event.ActionListener;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.actions.popup.PropertyTableModel;
 import javax.swing.JTable;
@@ -14,6 +11,7 @@ import javax.swing.event.TableModelListener;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.WeakListeners;
 
 /**
  *
@@ -22,6 +20,7 @@ import org.openide.NotifyDescriptor;
 public class CommandsPanel extends javax.swing.JPanel {
 
     private QuickOpenerOptionsPanelController controller;
+    private TableModelListener tableModelListener;
 
     /**
      * Creates new form CommandsPanel
@@ -54,12 +53,13 @@ public class CommandsPanel extends javax.swing.JPanel {
 
     void loadConfig() {
         jTable2.setModel(new PropertyTableModel("command"));
-        jTable2.getModel().addTableModelListener(new TableModelListener() {
+        tableModelListener = new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
                 controller.changed();
             }
-        });
+        };
+        jTable2.getModel().addTableModelListener(WeakListeners.create(TableModelListener.class, tableModelListener, jTable2.getModel()));
     }
 
     void setController(QuickOpenerOptionsPanelController controller) {
