@@ -24,7 +24,7 @@ import org.openide.util.Utilities;
  * @author markiewb (contributor)
  */
 @ActionID(
-        category = "ExternalTools",
+        category = "QuickOpenerBasic",
         id = "me.dsnet.quickopener.actions.Terminal")
 @ActionRegistration(
         lazy = false,

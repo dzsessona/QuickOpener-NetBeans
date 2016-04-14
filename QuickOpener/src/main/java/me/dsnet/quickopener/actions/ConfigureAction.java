@@ -2,10 +2,8 @@ package me.dsnet.quickopener.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.lang.Integer.MAX_VALUE;
 import org.netbeans.api.options.OptionsDisplayer;
 import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle.Messages;
 

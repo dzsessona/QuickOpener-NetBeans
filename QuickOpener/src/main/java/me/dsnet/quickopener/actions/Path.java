@@ -22,7 +22,7 @@ import org.openide.util.NbBundle.Messages;
  * @author markiewb (contributor)
  */
 @ActionID(
-        category = "ExternalTools",
+        category = "QuickOpenerBasic",
         id = "me.dsnet.quickopener.actions.Path")
 @ActionRegistration(
         lazy = false,

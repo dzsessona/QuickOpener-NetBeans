@@ -19,6 +19,9 @@
         <folder name="ExternalToolsHardCodedActions">
             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.quickopener.Bundle"/>
         </folder>
+        <folder name="QuickOpenerBasic">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.quickopener.Bundle"/>
+        </folder>
     </folder>
     <folder name="Menu">
         <folder name="Tools">
@@ -38,15 +41,15 @@
                         <attr name="position" intvalue="9000"/>
                     </file>
                     <file name="me-dsnet-quickopener-actions-Terminal.shadow">
-                        <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Terminal.instance"/>
+                        <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Terminal.instance"/>
                         <attr intvalue="9100" name="position"/>
                     </file>
                     <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
-                        <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-FileSystem.instance"/>
+                        <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-FileSystem.instance"/>
                         <attr intvalue="9200" name="position"/>
                     </file>
                     <file name="me-dsnet-quickopener-actions-Path.shadow">
-                        <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Path.instance"/>
+                        <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Path.instance"/>
                         <attr intvalue="9300" name="position"/>
                     </file>
                 </folder>
@@ -61,15 +64,15 @@
                 <attr name="position" intvalue="9000"/>
             </file>
             <file name="me-dsnet-quickopener-actions-Terminal.shadow">
-                <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Terminal.instance"/>
+                <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Terminal.instance"/>
                 <attr intvalue="9100" name="position"/>
             </file>
             <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
-                <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-FileSystem.instance"/>
+                <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-FileSystem.instance"/>
                 <attr intvalue="9200" name="position"/>
             </file>
             <file name="me-dsnet-quickopener-actions-Path.shadow">
-                <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Path.instance"/>
+                <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Path.instance"/>
                 <attr intvalue="9300" name="position"/>
             </file>
         </folder>
@@ -79,15 +82,15 @@
         <folder name="QuickOpener">
             <attr intvalue="10000" name="position"/>
             <file name="me-dsnet-quickopener-actions-FileSystem.shadow">
-                <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-FileSystem.instance"/>
+                <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-FileSystem.instance"/>
                 <attr intvalue="600" name="position"/>
             </file>
             <file name="me-dsnet-quickopener-actions-Path.shadow">
-                <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Path.instance"/>
+                <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Path.instance"/>
                 <attr intvalue="700" name="position"/>
             </file>
             <file name="me-dsnet-quickopener-actions-Terminal.shadow">
-                <attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Terminal.instance"/>
+                <attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Terminal.instance"/>
                 <attr intvalue="500" name="position"/>
             </file>
             <file name="me-dsnet-quickopener-actions-ToolbarPresenter.instance">
@@ -99,8 +102,8 @@
         </folder>
     </folder>
     <folder name="Shortcuts">
-        <file name="O-2.shadow"><attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-FileSystem.instance"/></file>
-        <file name="O-3.shadow"><attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Path.instance"/></file>
-        <file name="O-1.shadow"><attr name="originalFile" stringvalue="Actions/ExternalTools/me-dsnet-quickopener-actions-Terminal.instance"/> </file>       
+        <file name="O-2.shadow"><attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-FileSystem.instance"/></file>
+        <file name="O-3.shadow"><attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Path.instance"/></file>
+        <file name="O-1.shadow"><attr name="originalFile" stringvalue="Actions/QuickOpenerBasic/me-dsnet-quickopener-actions-Terminal.instance"/> </file>       
     </folder>
 </filesystem>
