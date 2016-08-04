@@ -22,7 +22,7 @@ _When the selection has a valid file:_
 
 _Always enabled:_
 
-* **Launch a shell command** (with parameters, customizable on preferences) ![icon](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/shot12.png)&nbsp; 
+* **Launch a shell command** (with parameters, customizable on preferences) ![icon](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/launch.png)&nbsp; 
 * **FileSystem browser on any location** (favorites, customizable on preferences)
 ![icon](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/shot10.png)&nbsp; 
 * **Open a shell on any location** (favorites, customizable on preferences)
