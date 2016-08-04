@@ -21,7 +21,7 @@
                          and will cause classpath issues in the log file
                     -->
                     <codeNameBase>me.dsnet.quickopener</codeNameBase>
-                    <keystore>private/keystore</keystore>
+                    <keystore>nbproject/private/keystore</keystore>
                     <keystorealias>myself</keystorealias>
                     <licenseFile>license.txt</licenseFile>
                     <licenseName>GPL</licenseName>                    
