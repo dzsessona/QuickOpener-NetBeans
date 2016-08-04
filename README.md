@@ -37,6 +37,9 @@ _Always enabled:_
 <li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67">Feature 67</a>]: More patterns - see <a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67">details</a></li>
 <li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/30">Feature 30</a>]: Support favorites nodes</li>
 <li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/64">Feature 64</a>]: Support lookups with java.io.File</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/65">Bugfix 65</a>]: Missing mnemonics in dialogs and options</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/69">Bugfix 69</a>]: "Launch custom command..." should be available if there is no selected file</li>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/77">Bugfix 77</a>]: Fix GUI detection for Ubuntu 16.04</li>
 </ul>
 
 <h3>1.0.4:</h3>
