@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.dsnet</groupId>
     <artifactId>me.dsnet.quickopener</artifactId>
-    <version>1.1.0.2</version>
+    <version>1.1.0.3</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Diego Zambelli Sessona (diego.sessona@gmail.com)</name>
@@ -172,8 +172,9 @@
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67"&gt;Feature 67&lt;/a&gt;]: More patterns - see &lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/67"&gt;details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/30"&gt;Feature 30&lt;/a&gt;]: Support favorites nodes&lt;/li&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/64"&gt;Feature 64&lt;/a&gt;]: Support lookups with java.io.File&lt;/li&gt;
-&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/65"&gt;Bugfix 64&lt;/a&gt;]: Missing mnemonics in dialogs and options&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/65"&gt;Bugfix 65&lt;/a&gt;]: Missing mnemonics in dialogs and options&lt;/li&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/69"&gt;Bugfix 69&lt;/a&gt;]: "Launch custom command..." should be available if there is no selected file&lt;/li&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/77"&gt;Bugfix 77&lt;/a&gt;]: Fix GUI detection for Ubuntu 16.04&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;1.0.4:&lt;/h3&gt;
