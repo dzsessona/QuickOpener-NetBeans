@@ -21,7 +21,7 @@ public class OSDetector {
     
     private static OperatingSystem detectLinuxGUI() {
         try {
-            if (checkProcessNames("gnome-session")) {
+            if (checkProcessNames("gnome-session", "gnome-session-binary")) {
                 return OperatingSystem.LINUX_GNOME;
             }else if (checkProcessNames("ksmserver", "kdeinit4")) {
                 return OperatingSystem.LINUX_KDE;
