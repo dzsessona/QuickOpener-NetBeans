@@ -1,5 +1,6 @@
 package me.dsnet.quickopener.actions;
 
+import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -66,7 +67,7 @@ public final class Path extends AbstractFileContextAwareAction {
             Clipboard clipboard = toolkit.getSystemClipboard();
             StringSelection strSel = new StringSelection(path);
             clipboard.setContents(strSel, null);
-        } catch (Exception ex) {
+        } catch (HeadlessException ex) {
         }
     }
 

@@ -29,20 +29,40 @@ public abstract class Commands {
     
     static void initializePlatform(){
         OperatingSystem os = OSDetector.detectOS();
-        if      (os.equals(OperatingSystem.WINDOWS))    platform = new WindowsCommands();
-        else if (os.equals(OperatingSystem.MAC_OS))     platform = new MacOSCommands();
-        else if (os.equals(OperatingSystem.LINUX_GNOME))platform = new LinuxGnomeCommands();        
-        else if (os.equals(OperatingSystem.LINUX_KDE))  platform = new LinuxKdeCommands();
-        else if (os.equals(OperatingSystem.LINUX_LXDE)) platform = new LinuxLxdeCommands();
-        else if (os.equals(OperatingSystem.LINUX_XFCE)) platform = new LinuxXfceCommands();
-        else if (os.equals(OperatingSystem.LINUX_UNKNOWN)) platform = new LinuxUnknownCommands();
-        else if (os.equals(OperatingSystem.UNKNOWN))    platform = new UnknownOSCommands();
+        switch (os) {
+            case WINDOWS:
+                platform = new WindowsCommands();
+                break;
+            case MAC_OS:
+                platform = new MacOSCommands();
+                break;
+            case LINUX_GNOME:
+                platform = new LinuxGnomeCommands();
+                break;
+            case LINUX_KDE:
+                platform = new LinuxKdeCommands();
+                break;
+            case LINUX_LXDE:
+                platform = new LinuxLxdeCommands();
+                break;
+            case LINUX_XFCE:
+                platform = new LinuxXfceCommands();
+                break;
+            case LINUX_UNKNOWN:
+                platform = new LinuxUnknownCommands();
+                break;
+            case UNKNOWN:
+                platform = new UnknownOSCommands();
+                break;
+            default:
+                break;
+        }
     }
     
     public abstract OperatingSystem getOperatingSystem();
     
     public void openInShell(String currentPath) throws Exception {
-        String fullCommand = "";
+        String fullCommand;
         if(getOperatingSystem().equals(OperatingSystem.WINDOWS)){
             fullCommand = getOperatingSystem().getShellCommand()+"\""+currentPath+"\"";
         }else{
@@ -84,7 +104,7 @@ public abstract class Commands {
 
         try {
             executeFileSystemBrowserCommand(fileOrDir);
-        } catch (Exception e) {
+        } catch (IOException e) {
             LOG.log(Level.WARNING, String.format("Could not browse to file %s. Try to fallback to Desktop.getDesktop().open()", fileOrDir), e);
 
             //execution via executeFileSystemBrowserCommand did not work, so fallback to Desktop.open()

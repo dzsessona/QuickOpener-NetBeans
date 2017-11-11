@@ -9,7 +9,6 @@ import me.dsnet.quickopener.prefs.QuickOpenerProperty;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
 import javax.swing.table.AbstractTableModel;
-import org.openide.util.Exceptions;
 
 /**
  *

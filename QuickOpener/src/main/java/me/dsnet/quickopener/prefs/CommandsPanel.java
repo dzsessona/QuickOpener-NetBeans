@@ -7,12 +7,10 @@ package me.dsnet.quickopener.prefs;
 import com.sessonad.oscommands.commands.Commands;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.actions.popup.PropertyTableModel;
-import java.util.List;
 import java.util.prefs.BackingStoreException;
 import javax.swing.JTable;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 
 /**

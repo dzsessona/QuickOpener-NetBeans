@@ -9,6 +9,7 @@ import org.netbeans.api.project.FileOwnerQuery;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ui.OpenProjects;
 import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileStateInvalidException;
 import org.openide.filesystems.FileSystem;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataFolder;
@@ -155,7 +156,7 @@ public class PathFinder {
             }else{
                 return getFileFromFileObject(fobj.getParent());
             }
-        }catch(Exception e){
+        }catch(FileStateInvalidException e){
             //e.printStackTrace();
             return null;
         }
