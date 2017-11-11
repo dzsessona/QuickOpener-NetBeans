@@ -63,7 +63,7 @@ public class PrefsUtil {
     }
     
     public static List<QuickOpenerProperty> getAllMatching(String prefix) throws BackingStoreException{
-        List<QuickOpenerProperty> list = new ArrayList<QuickOpenerProperty> ();
+        List<QuickOpenerProperty> list = new ArrayList<> ();
         for(String key:NbPreferences.forModule(QuickOpenerPanel.class).keys()){
             if(key.startsWith(prefix)){
                 String desc =key.replace(prefix, "");

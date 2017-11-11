@@ -1,6 +1,7 @@
 package me.dsnet.quickopener.actions.popup;
 
 import java.awt.Dimension;
+import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,7 +41,7 @@ public class CustomCommandPopupAction extends AbstractAction implements ActionLi
                     dialogue.setLocation(x, y);
                     dialogue.setVisible(true);
 
-                } catch (Exception ex) {
+                } catch (HeadlessException ex) {
                 }
             }
         });
