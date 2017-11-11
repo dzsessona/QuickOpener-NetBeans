@@ -8,10 +8,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
 /**

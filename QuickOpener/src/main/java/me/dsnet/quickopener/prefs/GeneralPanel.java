@@ -264,7 +264,7 @@ public class GeneralPanel extends javax.swing.JPanel {
     private void shellConfigureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shellConfigureButtonActionPerformed
         JTextField shellTextField = cshellTextField;
 
-        List<String> labels = new ArrayList<String>();
+        List<String> labels = new ArrayList<>();
         for (IShellConfigurator configurator : getAvailableConfigurators()) {
             if (configurator.isAvailable()) {
                 labels.add(configurator.getLabel());
@@ -291,7 +291,7 @@ public class GeneralPanel extends javax.swing.JPanel {
     private List<IShellConfigurator> getAvailableConfigurators() {
         //TODO externalize the configuration of available configurators
         List<IShellConfigurator> allconfigurators = Arrays.asList((IShellConfigurator) new GitBashConfigurator());
-        List<IShellConfigurator> availableConfigurators = new ArrayList<IShellConfigurator>();
+        List<IShellConfigurator> availableConfigurators = new ArrayList<>();
         for (IShellConfigurator configurator : allconfigurators) {
             if (configurator.isAvailable()) {
                 availableConfigurators.add(configurator);

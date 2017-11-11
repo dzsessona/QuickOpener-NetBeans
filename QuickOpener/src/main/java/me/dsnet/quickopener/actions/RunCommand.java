@@ -5,6 +5,7 @@
 package me.dsnet.quickopener.actions;
 
 import java.io.File;
+import java.io.IOException;
 import me.dsnet.quickopener.PathFinder;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.PrefsUtil;
@@ -69,7 +70,7 @@ public class RunCommand {
                 } else {
                     return false;
                 }
-            } catch (Exception ex) {
+            } catch (IOException ex) {
                 return false;
             }
         }
@@ -82,7 +83,7 @@ public class RunCommand {
         String relativeFolder = PathFinder.getRelativeActivePath(null, true);
         String currentProjectFolder = PathFinder.getActiveProject();
         String mainProjectFolder = PathFinder.getMainProjectRootPath();
-        Map<String, String> placeholders = new LinkedHashMap<String, String>();
+        Map<String, String> placeholders = new LinkedHashMap<>();
 
         if (null != currentFile && new File(currentFile).exists()) {
             File file = new File(currentFile);
@@ -111,7 +112,7 @@ public class RunCommand {
 
             int line0 = NbDocument.findLineNumber(sdocument, caret);
             int column0 = NbDocument.findLineColumn(sdocument, caret);
-            String selectedText = editor.getSelectedText();
+            String selectedText = (null != editor) ? editor.getSelectedText(): "";
             placeholders.put("${line0}", "" + line0);
             placeholders.put("${line}", "" + (line0 + 1));
             placeholders.put("${column0}", "" + column0);
@@ -156,8 +157,9 @@ public class RunCommand {
         if (null == arr) {
             return null;
         }
-        for (int i = 0; i < arr.length; i++) {
-            EditorCookie ec = (EditorCookie) arr[i].getCookie(EditorCookie.class);
+        for (Node arr1 : arr) {
+//            EditorCookie ec = (EditorCookie) arr1.getCookie(EditorCookie.class);
+            EditorCookie ec = (EditorCookie) arr1.getLookup().lookup(EditorCookie.class);
             if (ec != null) {
                 JEditorPane[] panes = ec.getOpenedPanes();
                 if (panes != null && panes.length > 0) {
