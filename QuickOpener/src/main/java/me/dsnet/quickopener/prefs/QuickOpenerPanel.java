@@ -1,6 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2017 Diego Zambelli Sessona (diego.sessona@gmail.com)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package me.dsnet.quickopener.prefs;
 
@@ -109,14 +121,17 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             if (layout instanceof CardLayout) {
                 CardLayout cardLayout = (CardLayout) layout;
                 
-                
-        if(jList1.getSelectedIndex()==0){
-            cardLayout.show(jRightPanel, "placesPanel1");
-        }else if(jList1.getSelectedIndex()==1){
-            cardLayout.show(jRightPanel, "commandsPanel1");
-        }else{
-            cardLayout.show(jRightPanel, "generalPanel1");
-            }
+                switch (jList1.getSelectedIndex()) {
+                    case 0:
+                        cardLayout.show(jRightPanel, "placesPanel1");
+                        break;
+                    case 1:
+                        cardLayout.show(jRightPanel, "commandsPanel1");
+                        break;
+                    default:
+                        cardLayout.show(jRightPanel, "generalPanel1");
+                        break;
+                }
         }
     }//GEN-LAST:event_jList1ValueChanged
 
