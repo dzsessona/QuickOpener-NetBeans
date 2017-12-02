@@ -109,14 +109,17 @@ public final class QuickOpenerPanel extends javax.swing.JPanel {
             if (layout instanceof CardLayout) {
                 CardLayout cardLayout = (CardLayout) layout;
                 
-                
-        if(jList1.getSelectedIndex()==0){
-            cardLayout.show(jRightPanel, "placesPanel1");
-        }else if(jList1.getSelectedIndex()==1){
-            cardLayout.show(jRightPanel, "commandsPanel1");
-        }else{
-            cardLayout.show(jRightPanel, "generalPanel1");
-            }
+                switch (jList1.getSelectedIndex()) {
+                    case 0:
+                        cardLayout.show(jRightPanel, "placesPanel1");
+                        break;
+                    case 1:
+                        cardLayout.show(jRightPanel, "commandsPanel1");
+                        break;
+                    default:
+                        cardLayout.show(jRightPanel, "generalPanel1");
+                        break;
+                }
         }
     }//GEN-LAST:event_jList1ValueChanged
 

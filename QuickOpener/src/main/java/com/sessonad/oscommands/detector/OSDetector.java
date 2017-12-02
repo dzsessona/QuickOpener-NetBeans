@@ -39,7 +39,9 @@ public class OSDetector {
         
     private static boolean checkProcessNames(String... processNames) throws Exception {
         for (String processName : processNames) {
-            if (executePidOfCommand(processName)) return true;
+            if (executePidOfCommand(processName)) {
+                return true;
+            }
         }
         return false;
     }
