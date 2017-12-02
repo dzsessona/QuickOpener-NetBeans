@@ -34,6 +34,11 @@ _Always enabled:_
 
 <h2>Updates</h2>
 
+<h3>1.2.0:</h3>
+<ul>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/pull/84">Task 84</a>]: Fix line-endings and update to JDK7 (PR by javatlacati)</li>
+</ul>
+
 <h3>1.1.0:</h3>
 <ul>
 <li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/issues/66">Feature 66</a>]: Refactor run custom dialog: simplify, add keyboard-only support</li>
