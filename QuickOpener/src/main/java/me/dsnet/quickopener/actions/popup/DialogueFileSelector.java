@@ -413,8 +413,6 @@ public class DialogueFileSelector extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(DialogueFileSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-        //</editor-fold>
 
         /*
          * Create and display the dialog

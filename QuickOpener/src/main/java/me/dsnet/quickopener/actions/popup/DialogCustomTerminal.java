@@ -388,8 +388,6 @@ public class DialogCustomTerminal extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(DialogCustomTerminal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-        //</editor-fold>
 
         /*
          * Create and display the dialog
