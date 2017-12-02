@@ -158,8 +158,7 @@ public class RunCommand {
             return null;
         }
         for (Node arr1 : arr) {
-//            EditorCookie ec = (EditorCookie) arr1.getCookie(EditorCookie.class);
-            EditorCookie ec = (EditorCookie) arr1.getLookup().lookup(EditorCookie.class);
+            EditorCookie ec = arr1.getLookup().lookup(EditorCookie.class);
             if (ec != null) {
                 JEditorPane[] panes = ec.getOpenedPanes();
                 if (panes != null && panes.length > 0) {
