@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.dsnet</groupId>
     <artifactId>me.dsnet.quickopener</artifactId>
-    <version>1.1.0.3</version>
+    <version>1.2.0</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Diego Zambelli Sessona (diego.sessona@gmail.com)</name>
@@ -164,6 +164,12 @@
 
 
 &lt;h2&gt;Updates&lt;/h2&gt;
+
+&lt;h3&gt;1.2.0:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/pull/84"&gt;Task 84&lt;/a&gt;]: Fix line-endings and update to JDK7 (PR by javatlacati)&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;h3&gt;1.1.0:&lt;/h3&gt;
 &lt;ul&gt;
