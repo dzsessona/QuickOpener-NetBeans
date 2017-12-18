@@ -17,12 +17,13 @@
 package me.dsnet.quickopener.prefs.filemanager.impl;
 
 import com.sessonad.oscommands.detector.OSDetector;
-import java.io.File;
-import javax.swing.JOptionPane;
 import me.dsnet.quickopener.prefs.filemanager.IFileManagerConfigurator;
 import org.openide.filesystems.FileChooserBuilder;
 import org.openide.filesystems.FileUtil;
 import org.openide.util.NbBundle;
+
+import javax.swing.*;
+import java.io.File;
 
 /**
  *
