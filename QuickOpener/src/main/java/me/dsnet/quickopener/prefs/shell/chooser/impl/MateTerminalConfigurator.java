@@ -20,6 +20,7 @@ import com.sessonad.oscommands.detector.OSDetector;
 import java.io.File;
 import javax.swing.JOptionPane;
 import me.dsnet.quickopener.prefs.shell.chooser.IShellConfigurator;
+import me.dsnet.quickopener.prefs.shell.chooser.IShellConfigurator;
 import org.openide.filesystems.FileChooserBuilder;
 import org.openide.filesystems.FileUtil;
 import org.openide.util.NbBundle;
