@@ -36,6 +36,7 @@ _Always enabled:_
 
 <h3>1.2.0:</h3>
 <ul>
+<li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/pull/86">Feature 86</a>]: Support Mate-terminal and Caja-/Space-file manager via configurator (Ubuntu Mate) (PR by javatlacati)</li>
 <li>[<a href="https://github.com/dzsessona/QuickOpener-NetBeans/pull/84">Task 84</a>]: Fix line-endings and update to JDK7 (PR by javatlacati)</li>
 </ul>
 
