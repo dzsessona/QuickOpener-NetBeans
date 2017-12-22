@@ -44,6 +44,7 @@ public class GeneralPanel extends javax.swing.JPanel {
         confirmationCheckBox.setSelected(isConfirmSelected);
 
         shellConfigureButton.setEnabled(!getAvailableConfigurators().isEmpty());
+        fileManagerConfigureButton.setEnabled(!getAvailableFileManagerConfigurators().isEmpty());
     }
 
     private String getOSSeparator(){
