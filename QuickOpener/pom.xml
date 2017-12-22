@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.dsnet</groupId>
     <artifactId>me.dsnet.quickopener</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.0-SNAPSHOT</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Diego Zambelli Sessona (diego.sessona@gmail.com)</name>
@@ -21,10 +21,11 @@
                          and will cause classpath issues in the log file
                     -->
                     <codeNameBase>me.dsnet.quickopener</codeNameBase>
-                    <keystore>nbproject/private/keystore</keystore>
-                    <keystorealias>myself</keystorealias>
                     <licenseFile>license.txt</licenseFile>
-                    <licenseName>GPL</licenseName>                    
+                    <licenseName>GPL</licenseName>
+                    <keystore>${keystore}</keystore>
+                    <keystorealias>${project.artifactId}</keystorealias>
+                    <keystorepassword>${project.artifactId}</keystorepassword>
                 </configuration>
             </plugin>
             <plugin>
@@ -152,6 +153,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.netbeans>RELEASE802</version.netbeans>
+        <keystore>${project.build.outputDirectory}/keystore</keystore>
     </properties>
     <name>QuickOpener</name>
     <description>
@@ -167,6 +169,7 @@
 
 &lt;h3&gt;1.2.0:&lt;/h3&gt;
 &lt;ul&gt;
+&lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/pull/86"&gt;Feature 86&lt;/a&gt;]: Support Mate-terminal and Caja-/Space-file manager via configurator (Ubuntu Mate) (PR by javatlacati)&lt;/li&gt;
 &lt;li&gt;[&lt;a href="https://github.com/dzsessona/QuickOpener-NetBeans/pull/84"&gt;Task 84&lt;/a&gt;]: Fix line-endings and update to JDK7 (PR by javatlacati)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -202,4 +205,45 @@
 &lt;p&gt;&lt;a href="https://github.com/kinkadzs/QuickOpener-NetBeans/wiki/Home"&gt;The project is hosted on github, click here to report a bug or make a suggestion...
     &lt;/a&gt;Enjoy, Diego+Benno.
     &lt;/p&gt;</description>
+
+
+
+    <!-- based on http://wiki.netbeans.org/DevFaqSignNbm#How_can_I_sign_Maven_based_NBMs_I_create.3F -->
+    <profiles>
+        <profile>
+            <id>release-nbm</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>keytool-maven-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generateKeyPair</goal>
+                                </goals>
+                                <phase>generate-resources</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <keystore>${keystore}</keystore>
+                            <storepass>${project.artifactId}</storepass>
+                            <keypass>${project.artifactId}</keypass>
+                            <alias>${project.artifactId}</alias>
+                            <dname>cn=markiewb, ou=None, L=None, ST=None, o=${project.artifactId}, c=DE</dname>
+                            <sigalg>SHA1withDSA</sigalg>
+                            <ext />
+                            <validity>2000</validity>
+                            <keyalg>DSA</keyalg>
+                            <keysize>1024</keysize>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
