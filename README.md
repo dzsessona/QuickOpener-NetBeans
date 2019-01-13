@@ -14,7 +14,7 @@ Sometimes while programming in NetBeans you want to explore a particular file th
 
 ![Plugin toolbar](https://raw.githubusercontent.com/dzsessona/QuickOpener-NetBeans/master/QuickOpener/qoscreenshots/shot2.png)
 
-This plugins brings to your NetBeans six action, three of them always available and three of them available when the selected node has a file assiociated with it. In particular:
+This plugins brings to your NetBeans six action, three of them always available and three of them available when the selected node has a file associated with it. In particular:
 
 _When the selection has a valid file:_
 
